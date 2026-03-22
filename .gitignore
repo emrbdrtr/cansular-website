@@ -1,0 +1,9 @@
+.DS_Store
+*.DS_Store
+Thumbs.db
+*.md
+*.json
+prompts.html
+scroll-stop-builder-skill/
+3D Website Asset Generator/
+SKILL*.md

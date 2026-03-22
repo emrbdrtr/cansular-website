@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cansular Hırdavat Sanayi A.Ş. | Koruyucu Eldiven Uzmanı</title>
+  <meta name="description" content="Türkiye'nin önde gelen koruyucu eldiven üreticisi. Sanayi, kimyasal, kesilmez ve tek kullanımlık eldiven çeşitleri." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ===================== RESET & BASE ===================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #0b1120;
+      --navy2:   #111827;
+      --orange:  #f97316;
+      --orange2: #ea6c0a;
+      --light:   #f8fafc;
+      --gray:    #94a3b8;
+      --gray2:   #1e293b;
+      --white:   #ffffff;
+      --radius:  12px;
+      --shadow:  0 4px 24px rgba(0,0,0,.18);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--light);
+      color: var(--navy);
+      line-height: 1.6;
+    }
+
+    img { max-width: 100%; display: block; }
+    a  { text-decoration: none; color: inherit; }
+
+    /* ===================== NAVBAR ===================== */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(11,17,32,.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      padding: 0 2rem;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background .3s;
+    }
+
+    .navbar-logo img { height: 44px; }
+
+    .navbar-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .navbar-links a {
+      color: rgba(255,255,255,.8);
+      font-size: .9rem;
+      font-weight: 500;
+      transition: color .2s;
+    }
+    .navbar-links a:hover { color: var(--orange); }
+
+    .navbar-cta {
+      background: var(--orange);
+      color: #fff !important;
+      padding: .45rem 1.2rem;
+      border-radius: 6px;
+      font-weight: 600 !important;
+      transition: background .2s !important;
+    }
+    .navbar-cta:hover { background: var(--orange2) !important; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: .3s;
+    }
+
+    /* ===================== HERO ===================== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('nitril-slider-1280x540.jpg') center/cover no-repeat;
+      transform: scale(1.06);
+      transition: transform 8s ease;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(11,17,32,.92) 45%, rgba(11,17,32,.55));
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 8rem 2rem 4rem;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: rgba(249,115,22,.15);
+      border: 1px solid rgba(249,115,22,.4);
+      color: var(--orange);
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .4rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 7px; height: 7px;
+      background: var(--orange);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: .5; transform: scale(1.4); }
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.1;
+      max-width: 660px;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 span { color: var(--orange); }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,.72);
+      max-width: 520px;
+      margin-bottom: 2.2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: #fff;
+      padding: .85rem 2rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: .95rem;
+      letter-spacing: .02em;
+      transition: background .2s, transform .15s;
+      border: none;
+      cursor: pointer;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--orange2); transform: translateY(-2px); }
+
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      padding: .85rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: .95rem;
+      border: 1.5px solid rgba(255,255,255,.35);
+      transition: border-color .2s, background .2s, transform .15s;
+      cursor: pointer;
+      display: inline-block;
+    }
+    .btn-outline:hover {
+      border-color: rgba(255,255,255,.8);
+      background: rgba(255,255,255,.07);
+      transform: translateY(-2px);
+    }
+
+    /* ===================== STATS BAR ===================== */
+    .stats-bar {
+      background: var(--orange);
+      padding: 1.6rem 2rem;
+    }
+
+    .stats-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      text-align: center;
+    }
+
+    .stat-item strong {
+      display: block;
+      font-size: 2rem;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+    }
+    .stat-item span {
+      font-size: .82rem;
+      color: rgba(255,255,255,.85);
+      font-weight: 500;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    /* ===================== SECTION COMMONS ===================== */
+    .section { padding: 5rem 2rem; }
+    .section-dark { background: var(--navy2); }
+
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    .section-header { text-align: center; margin-bottom: 3.5rem; }
+
+    .section-tag {
+      display: inline-block;
+      color: var(--orange);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: .6rem;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--navy);
+    }
+    .section-dark .section-header h2 { color: #fff; }
+
+    .section-header p {
+      color: var(--gray);
+      max-width: 560px;
+      margin: .8rem auto 0;
+      font-size: .97rem;
+    }
+
+    /* ===================== CATEGORIES ===================== */
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.4rem;
+    }
+
+    .cat-card {
+      background: #fff;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      transition: transform .25s, box-shadow .25s;
+      cursor: pointer;
+    }
+    .cat-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0,0,0,.12);
+    }
+
+    .cat-card-img {
+      height: 190px;
+      overflow: hidden;
+      background: #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cat-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .4s;
+    }
+    .cat-card:hover .cat-card-img img { transform: scale(1.06); }
+
+    .cat-card-body { padding: 1.2rem 1.4rem 1.5rem; }
+
+    .cat-card-tag {
+      font-size: .72rem;
+      font-weight: 600;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: .3rem;
+    }
+
+    .cat-card-body h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.3;
+      margin-bottom: .5rem;
+    }
+
+    .cat-card-body p {
+      font-size: .83rem;
+      color: #64748b;
+      line-height: 1.5;
+    }
+
+    .cat-card-arrow {
+      margin-top: .9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: .3rem;
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--orange);
+    }
+    .cat-card-arrow svg { transition: transform .2s; width: 16px; height: 16px; }
+    .cat-card:hover .cat-card-arrow svg { transform: translateX(4px); }
+
+    /* ===================== FEATURED PRODUCTS ===================== */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .prod-card {
+      background: var(--gray2);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.06);
+      transition: transform .25s, box-shadow .25s;
+    }
+    .prod-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,.35);
+    }
+
+    .prod-card-img {
+      height: 170px;
+      background: #0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .prod-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .4s;
+    }
+    .prod-card:hover .prod-card-img img { transform: scale(1.08); }
+
+    .prod-card-body { padding: 1rem 1.2rem 1.2rem; }
+
+    .prod-card-body h4 {
+      font-size: .92rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.35;
+      margin-bottom: .4rem;
+    }
+
+    .prod-card-body p {
+      font-size: .8rem;
+      color: var(--gray);
+      line-height: 1.45;
+    }
+
+    .prod-badge {
+      display: inline-block;
+      background: rgba(249,115,22,.18);
+      color: var(--orange);
+      font-size: .7rem;
+      font-weight: 600;
+      padding: .2rem .55rem;
+      border-radius: 4px;
+      margin-bottom: .5rem;
+      letter-spacing: .04em;
+    }
+
+    /* ===================== ABOUT ===================== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-img-wrap {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .about-img-wrap img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+    }
+    .about-img-overlay {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      background: var(--orange);
+      color: #fff;
+      padding: 1rem 1.5rem;
+      border-radius: 10px;
+      font-size: .88rem;
+      font-weight: 600;
+      line-height: 1.4;
+      max-width: 200px;
+    }
+    .about-img-overlay strong { display: block; font-size: 1.5rem; font-weight: 900; }
+
+    .about-content h2 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .about-content p {
+      color: #475569;
+      font-size: .97rem;
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+
+    .about-checks { margin: 1.5rem 0 2rem; display: flex; flex-direction: column; gap: .7rem; }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: .7rem;
+      font-size: .92rem;
+      color: #334155;
+      font-weight: 500;
+    }
+    .check-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--orange);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+    .check-icon svg { width: 11px; height: 11px; color: #fff; }
+
+    /* ===================== WHY US ===================== */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .why-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius);
+      padding: 2rem 1.6rem;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .why-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 32px rgba(0,0,0,.1);
+    }
+
+    .why-icon {
+      width: 52px; height: 52px;
+      background: rgba(249,115,22,.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+      font-size: 1.5rem;
+    }
+
+    .why-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: .5rem;
+    }
+
+    .why-card p {
+      font-size: .85rem;
+      color: #64748b;
+      line-height: 1.6;
+    }
+
+    /* ===================== CTA BANNER ===================== */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--navy) 0%, #1a2744 100%);
+      padding: 4rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(249,115,22,.25), transparent 70%);
+    }
+    .cta-banner::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(249,115,22,.15), transparent 70%);
+    }
+
+    .cta-banner h2 {
+      font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: .8rem;
+      position: relative; z-index: 1;
+    }
+    .cta-banner p {
+      color: rgba(255,255,255,.65);
+      max-width: 480px;
+      margin: 0 auto 2rem;
+      font-size: .97rem;
+      position: relative; z-index: 1;
+    }
+    .cta-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative; z-index: 1;
+    }
+
+    /* ===================== CONTACT ===================== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .contact-info h3 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+
+    .contact-info p {
+      color: #64748b;
+      margin-bottom: 2rem;
+      font-size: .95rem;
+      line-height: 1.7;
+    }
+
+    .contact-items { display: flex; flex-direction: column; gap: 1.1rem; }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .contact-item-icon {
+      width: 44px; height: 44px;
+      background: rgba(249,115,22,.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-item-text strong {
+      display: block;
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: .15rem;
+    }
+    .contact-item-text span {
+      font-size: .93rem;
+      color: var(--navy);
+      font-weight: 500;
+    }
+
+    .contact-form {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 2rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 0;
+    }
+
+    .form-group { display: flex; flex-direction: column; gap: .4rem; margin-bottom: 1rem; }
+
+    .form-group label {
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      border: 1.5px solid #e2e8f0;
+      border-radius: 8px;
+      padding: .7rem 1rem;
+      font-size: .9rem;
+      font-family: inherit;
+      color: var(--navy);
+      outline: none;
+      transition: border-color .2s;
+      background: #f8fafc;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--orange); background: #fff; }
+
+    .form-group textarea { resize: vertical; min-height: 110px; }
+
+    /* ===================== FOOTER ===================== */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,.6);
+      padding: 3.5rem 2rem 1.5rem;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .footer-brand img { height: 40px; margin-bottom: 1rem; }
+
+    .footer-brand p {
+      font-size: .85rem;
+      line-height: 1.7;
+      max-width: 260px;
+    }
+
+    .footer-col h4 {
+      color: #fff;
+      font-size: .9rem;
+      font-weight: 700;
+      margin-bottom: 1.1rem;
+    }
+
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: .55rem; }
+    .footer-links a {
+      font-size: .85rem;
+      color: rgba(255,255,255,.55);
+      transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--orange); }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: .82rem;
+      flex-wrap: wrap;
+      gap: .8rem;
+    }
+    .footer-bottom a { color: var(--orange); }
+
+    /* ===================== MOBILE NAV ===================== */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 70px 0 0 0;
+      background: rgba(11,17,32,.97);
+      z-index: 999;
+      flex-direction: column;
+      padding: 2rem;
+      gap: 1.4rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: rgba(255,255,255,.8);
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding: .5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .mobile-menu a:last-child { border: none; }
+
+    /* ===================== ANIMATIONS ===================== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===================== RESPONSIVE ===================== */
+    @media (max-width: 900px) {
+      .navbar-links { display: none; }
+      .hamburger { display: flex; }
+
+      .about-grid,
+      .contact-grid { grid-template-columns: 1fr; }
+
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 560px) {
+      .footer-inner { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ==================== NAVBAR ==================== -->
+<nav class="navbar" id="navbar">
+  <a href="#" class="navbar-logo">
+    <img src="cansular-logo-200x100.png" alt="Cansular Logo" />
+  </a>
+
+  <ul class="navbar-links">
+    <li><a href="#kategoriler">Ürünler</a></li>
+    <li><a href="#hakkimizda">Hakkımızda</a></li>
+    <li><a href="#neden-biz">Neden Biz?</a></li>
+    <li><a href="#iletisim">İletişim</a></li>
+    <li><a href="#iletisim" class="navbar-cta">Teklif Al</a></li>
+  </ul>
+
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#kategoriler" onclick="toggleMenu()">Ürünler</a>
+  <a href="#hakkimizda" onclick="toggleMenu()">Hakkımızda</a>
+  <a href="#neden-biz" onclick="toggleMenu()">Neden Biz?</a>
+  <a href="#iletisim" onclick="toggleMenu()">İletişim</a>
+  <a href="#iletisim" onclick="toggleMenu()" style="color:var(--orange);font-weight:700;">Teklif Al</a>
+</div>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Türkiye'nin Lider Eldiven Üreticisi</div>
+    <h1>Her İşe, Her Riske<br /><span>Uygun Eldiven</span></h1>
+    <p>
+      40 yılı aşkın tecrübemizle sanayi, kimyasal, kesilmez ve tek kullanımlık
+      eldiven kategorilerinde Türkiye çapında güvenilir çözümler sunuyoruz.
+    </p>
+    <div class="hero-actions">
+      <a href="#kategoriler" class="btn-primary">Ürünleri Keşfet</a>
+      <a href="#iletisim" class="btn-outline">Bize Ulaşın</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== STATS BAR ==================== -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <strong data-target="40">40+</strong>
+      <span>Yıllık Deneyim</span>
+    </div>
+    <div class="stat-item">
+      <strong data-target="500">500+</strong>
+      <span>Ürün Çeşidi</span>
+    </div>
+    <div class="stat-item">
+      <strong data-target="5000">5000+</strong>
+      <span>Mutlu Müşteri</span>
+    </div>
+    <div class="stat-item">
+      <strong>CE</strong>
+      <span>Sertifikalı Ürünler</span>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== CATEGORIES ==================== -->
+<section class="section" id="kategoriler">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-tag">Ürün Kategorileri</span>
+      <h2>Geniş Ürün Yelpazemiz</h2>
+      <p>Her çalışma ortamı ve risk seviyesi için EN standartlarına uygun koruyucu eldivenler.</p>
+    </div>
+
+    <div class="categories-grid">
+
+      <div class="cat-card fade-up">
+        <div class="cat-card-img">
+          <img src="nitril-slider-1280x540.jpg" alt="Nitril Kaplama Eldiven" />
+        </div>
+        <div class="cat-card-body">
+          <div class="cat-card-tag">Mekanik Koruma</div>
+          <h3>Nitril Kaplama Eldivenler</h3>
+          <p>Yağ, kimyasal ve aşınmaya karşı üstün koruma. Hassas işler için mükemmel tutuş.</p>
+          <span class="cat-card-arrow">Detayları Gör
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </span>
+        </div>
+      </div>
+
+      <div class="cat-card fade-up">
+        <div class="cat-card-img">
+          <img src="cansular-slider4-1280x540.jpg" alt="Kesilmez Eldiven" />
+        </div>
+        <div class="cat-card-body">
+          <div class="cat-card-tag">Kesilme Koruması</div>
+          <h3>Kesilmeye Dayanıklı Eldivenler</h3>
+          <p>EN388 sertifikalı, HPPE fiber teknolojisiyle maksimum kesilme direnci.</p>
+          <span class="cat-card-arrow">Detayları Gör
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </span>
+        </div>
+      </div>
+
+      <div class="cat-card fade-up">
+        <div class="cat-card-img">
+          <img src="ARGON KAYNAK.JPG" alt="Kaynakçı Eldiveni" />
+        </div>
+        <div class="cat-card-body">
+          <div class="cat-card-tag">Isı Koruması</div>
+          <h3>Kaynakçı ve Isıya Dayanıklı</h3>
+          <p>Yüksek sıcaklık ve kıvılcımlara karşı tam deri koruma. Kaynakçılar için ideal.</p>
+          <span class="cat-card-arrow">Detayları Gör
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </span>
+        </div>
+      </div>
+
+      <div class="cat-card fade-up">
+        <div class="cat-card-img">
+          <img src="vinil-pudrasiz-180x140.jpg" alt="Tek Kullanımlık Eldiven" style="object-fit:contain;padding:1rem;background:#f8fafc;" />
+        </div>
+        <div class="cat-card-body">
+          <div class="cat-card-tag">Hijyen ve Muayene</div>
+          <h3>Tek Kullanımlık Eldivenler</h3>
+          <p>Lateks, nitril ve vinil seçenekleriyle pudrasız muayene eldivenleri.</p>
+          <span class="cat-card-arrow">Detayları Gör
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </span>
+        </div>
+      </div>
+
+      <div class="cat-card fade-up">
+        <div class="cat-card-img">
+          <img src="deri-is-eldiveni.png" alt="Deri Eldiven" style="object-fit:contain;padding:1rem;background:#f8fafc;" />
+        </div>
+        <div class="cat-card-body">
+          <div class="cat-card-tag">Deri Koruma</div>
+          <h3>Deri İş Eldivenleri</h3>
+          <p>Dayanıklı tam deri ve sırt deri iş eldivenler. Ağır hizmet işleri için.</p>
+          <span class="cat-card-arrow">Detayları Gör
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </span>
+        </div>
+      </div>
+
+      <div class="cat-card fade-up">
+        <div class="cat-card-img">
+          <img src="8802-B MAVİ.jpg" alt="PVC Kaplama Eldiven" />
+        </div>
+        <div class="cat-card-body">
+          <div class="cat-card-tag">Kimyasal Koruma</div>
+          <h3>PVC Kaplama Eldivenler</h3>
+          <p>Su ve kimyasal geçirmez tam kaplama. Tarım, inşaat ve endüstri için.</p>
+          <span class="cat-card-arrow">Detayları Gör
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FEATURED PRODUCTS ==================== -->
+<section class="section section-dark">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-tag">Öne Çıkan Ürünler</span>
+      <h2>Popüler Modellerimiz</h2>
+      <p>En çok tercih edilen ürünlerimizi keşfedin.</p>
+    </div>
+
+    <div class="products-grid">
+
+      <div class="prod-card fade-up">
+        <div class="prod-card-img">
+          <img src="8802-B MAVİ.jpg" alt="8802-B" />
+        </div>
+        <div class="prod-card-body">
+          <span class="prod-badge">Nitril Kaplama</span>
+          <h4>8802-B Mavi Nitril Eldiven</h4>
+          <p>Sandy nitril kaplama, nefes alabilir naylon astar. EN388 sertifikalı.</p>
+        </div>
+      </div>
+
+      <div class="prod-card fade-up">
+        <div class="prod-card-img">
+          <img src="8701-5 PU KESİLMEZ.jpg" alt="8701-5" />
+        </div>
+        <div class="prod-card-body">
+          <span class="prod-badge">Kesilmez</span>
+          <h4>8701-5 PU Kesilmez Eldiven</h4>
+          <p>Seviye 5 kesme direnci, PU kaplama uç. Cam ve metal sanayi için ideal.</p>
+        </div>
+      </div>
+
+      <div class="prod-card fade-up">
+        <div class="prod-card-img">
+          <img src="C-35 TAM KAPLI.jpg" alt="C-35" />
+        </div>
+        <div class="prod-card-body">
+          <span class="prod-badge">Tam Kaplı</span>
+          <h4>C-35 Tam Kaplı Nitril</h4>
+          <p>Bilek altına kadar tam nitril kaplama. Yağlı ve ıslak ortamlarda mükemmel tutuş.</p>
+        </div>
+      </div>
+
+      <div class="prod-card fade-up">
+        <div class="prod-card-img">
+          <img src="MTAJ7276.jpg" alt="Deri Kaynakçı" />
+        </div>
+        <div class="prod-card-body">
+          <span class="prod-badge">Kaynakçı</span>
+          <h4>Deri Kaynakçı Eldiveni</h4>
+          <p>Tam deri, yüksek sıcaklık ve sıçrama koruması. TIG/MIG kaynakçılar için.</p>
+        </div>
+      </div>
+
+      <div class="prod-card fade-up">
+        <div class="prod-card-img">
+          <img src="MTAJ7278.jpg" alt="Pro Kaynakçı" />
+        </div>
+        <div class="prod-card-body">
+          <span class="prod-badge">Isı Koruması</span>
+          <h4>Pro Kaynakçı Eldiveni</h4>
+          <p>Krom deri kaplama, astar içli. Ağır sanayi kaynakçılar için üretilmiştir.</p>
+        </div>
+      </div>
+
+      <div class="prod-card fade-up">
+        <div class="prod-card-img">
+          <img src="vinil-pudrasiz-180x140.jpg" alt="Vinil Muayene" style="object-fit:contain;padding:1rem;background:#0f172a;" />
+        </div>
+        <div class="prod-card-body">
+          <span class="prod-badge">Tek Kullanım</span>
+          <h4>Universal Vinil Muayene</h4>
+          <p>Pudrasız, lateks içermez. Gıda, temizlik ve tıbbi uygulamalar için onaylı.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ABOUT ==================== -->
+<section class="section" id="hakkimizda">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap fade-up">
+        <img src="cansular3_kopya-1280x540.jpeg" alt="Cansular Fabrika" />
+        <div class="about-img-overlay">
+          <strong>40+</strong>
+          Yıllık Sektör Tecrübesi
+        </div>
+      </div>
+
+      <div class="about-content fade-up">
+        <span class="section-tag">Hakkımızda</span>
+        <h2>Türkiye'nin Güvenilir Eldiven Tedarikçisi</h2>
+        <p>
+          Cansular Hırdavat Sanayi ve Ticaret A.Ş., İstanbul Eminönü'nde kurulmuş,
+          40 yılı aşkın deneyimiyle Türkiye'nin önde gelen koruyucu eldiven
+          üretici ve dağıtıcılarından biridir.
+        </p>
+        <p>
+          Yerli ve ithal ürün gamımızla inşaat, otomotiv, kimya, gıda ve sağlık
+          sektörlerine kesintisiz hizmet sunuyor; tescilli markalarımızla sektörde
+          güvenilirliği temsil ediyoruz.
+        </p>
+
+        <div class="about-checks">
+          <div class="check-item">
+            <div class="check-icon">
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M2 6l3 3 5-5"/></svg>
+            </div>
+            CE, EN388, EN407 ve EN374 Sertifikalı Ürünler
+          </div>
+          <div class="check-item">
+            <div class="check-icon">
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M2 6l3 3 5-5"/></svg>
+            </div>
+            Türkiye Çapında Hızlı Teslimat
+          </div>
+          <div class="check-item">
+            <div class="check-icon">
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M2 6l3 3 5-5"/></svg>
+            </div>
+            Tescilli Yerli Markalar (Universal, Techno, ML Serisi)
+          </div>
+          <div class="check-item">
+            <div class="check-icon">
+              <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M2 6l3 3 5-5"/></svg>
+            </div>
+            Kurumsal Müşterilere Özel Fiyatlandırma
+          </div>
+        </div>
+
+        <a href="#iletisim" class="btn-primary">Katalog İsteyin</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== WHY US ==================== -->
+<section class="section" id="neden-biz" style="background:#f1f5f9;">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-tag">Neden Cansular?</span>
+      <h2>Farkımız Kalitemizde</h2>
+      <p>Müşterilerimizin bize güvenmesinin nedenlerini keşfedin.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card fade-up">
+        <div class="why-icon">🏆</div>
+        <h3>Sertifikalı Kalite</h3>
+        <p>Tüm ürünlerimiz AB direktiflerine uygun CE belgeli ve EN standartlarına göre test edilmiştir.</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-icon">🚚</div>
+        <h3>Hızlı Teslimat</h3>
+        <p>Stoktan aynı gün kargo. Büyük siparişlerde anında üretim ve ekspres gönderim imkânı.</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-icon">🔬</div>
+        <h3>Geniş Ürün Yelpazesi</h3>
+        <p>500'den fazla ürün çeşidiyle her sektöre ve her risk kategorisine uygun çözüm.</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-icon">💼</div>
+        <h3>Kurumsal Destek</h3>
+        <p>Teknik danışmanlık, standart bilgisi ve sektöre özel ürün önerisiyle yanınızdayız.</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-icon">🌍</div>
+        <h3>40 Yıllık Güven</h3>
+        <p>1980'den bu yana binlerce firmanın tercihi. Referans listesi güvenilirliğimizin kanıtı.</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-icon">📋</div>
+        <h3>Online Katalog</h3>
+        <p>Dijital katalogumuzla tüm ürün yelpazesine anında erişin, teknik datasheet indirin.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CTA BANNER ==================== -->
+<div class="cta-banner">
+  <h2>Toplu Sipariş mi Veriyorsunuz?</h2>
+  <p>Kurumsal müşterilerimize özel fiyat teklifi ve hızlı kargo için hemen iletişime geçin.</p>
+  <div class="cta-actions">
+    <a href="tel:02125140844" class="btn-primary">📞 (0212) 514 08 44</a>
+    <a href="#iletisim" class="btn-outline">Teklif Formu</a>
+  </div>
+</div>
+
+<!-- ==================== CONTACT ==================== -->
+<section class="section" id="iletisim">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-tag">İletişim</span>
+      <h2>Bizimle İletişime Geçin</h2>
+      <p>Ürünler, fiyatlar veya kurumsal teklifler için hemen ulaşın.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info fade-up">
+        <h3>Bize Ulaşın</h3>
+        <p>
+          Pazartesi – Cuma arası 09:00 – 18:00 saatleri arasında telefon,
+          e-posta veya adresimize bizzat gelerek bizimle görüşebilirsiniz.
+        </p>
+
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-item-icon">📍</div>
+            <div class="contact-item-text">
+              <strong>Adres</strong>
+              <span>Rüstempaşa Mah. Alacahamam Sok. No:4/A<br />Eminönü, Fatih / İstanbul</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📞</div>
+            <div class="contact-item-text">
+              <strong>Telefon</strong>
+              <span>(0212) 514 08 44 (PBX)</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">✉️</div>
+            <div class="contact-item-text">
+              <strong>E-posta</strong>
+              <span>info@cansular.com</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">🕐</div>
+            <div class="contact-item-text">
+              <strong>Çalışma Saatleri</strong>
+              <span>Pazartesi – Cuma: 09:00 – 18:00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form fade-up">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Ad Soyad</label>
+            <input type="text" placeholder="Adınız Soyadınız" />
+          </div>
+          <div class="form-group">
+            <label>Telefon</label>
+            <input type="tel" placeholder="05XX XXX XX XX" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>E-posta</label>
+          <input type="email" placeholder="ornek@firma.com" />
+        </div>
+        <div class="form-group">
+          <label>Konu</label>
+          <input type="text" placeholder="Ürün bilgisi / Toplu sipariş..." />
+        </div>
+        <div class="form-group">
+          <label>Mesajınız</label>
+          <textarea placeholder="Mesajınızı buraya yazın..."></textarea>
+        </div>
+        <button class="btn-primary" style="width:100%;">Mesaj Gönder</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="cansular-logo-200x100.png" alt="Cansular Logo" />
+      <p>Cansular Hırdavat Sanayi ve Ticaret A.Ş. — Türkiye'nin lider koruyucu eldiven tedarikçisi. CE sertifikalı, geniş ürün yelpazesi.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Kurumsal</h4>
+      <ul class="footer-links">
+        <li><a href="#hakkimizda">Hakkımızda</a></li>
+        <li><a href="#">Misyonumuz</a></li>
+        <li><a href="#">Tescilli Markalar</a></li>
+        <li><a href="#">KVKK</a></li>
+        <li><a href="#">Fuar ve Haberler</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Ürünler</h4>
+      <ul class="footer-links">
+        <li><a href="#kategoriler">Nitril Eldivenler</a></li>
+        <li><a href="#kategoriler">Kesilmez Eldivenler</a></li>
+        <li><a href="#kategoriler">Kaynakçı Eldivenleri</a></li>
+        <li><a href="#kategoriler">Tek Kullanımlık</a></li>
+        <li><a href="#kategoriler">PVC Kaplama</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Müşteri Hizmetleri</h4>
+      <ul class="footer-links">
+        <li><a href="#">Kurumsal Satış</a></li>
+        <li><a href="#">Online Katalog</a></li>
+        <li><a href="#">Ödeme Seçenekleri</a></li>
+        <li><a href="#">Banka Bilgileri</a></li>
+        <li><a href="#iletisim">İletişim</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2026 Cansular Hırdavat Sanayi ve Ticaret A.Ş. Tüm hakları saklıdır.</span>
+    <span>cansular.com</span>
+  </div>
+</footer>
+
+<!-- ==================== SCRIPTS ==================== -->
+<script>
+  // Mobile menu toggle
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  // Scroll fade-up animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Navbar background on scroll
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    nav.style.background = window.scrollY > 60
+      ? 'rgba(11,17,32,0.98)'
+      : 'rgba(11,17,32,0.92)';
+  });
+
+  // Hero parallax
+  window.addEventListener('scroll', () => {
+    const bg = document.getElementById('heroBg');
+    if (bg) bg.style.transform = 'scale(1.06) translateY(' + (window.scrollY * 0.18) + 'px)';
+  });
+</script>
+
+</body>
+</html>
