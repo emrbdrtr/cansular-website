@@ -53,7 +53,7 @@
       max-width: 1280px; width: 100%; margin: 0 auto;
       display: flex; align-items: center; justify-content: space-between;
     }
-    .nav-logo img { height: 46px; }
+    .nav-logo img { height: 52px; width: auto; }
     .nav-links { display: flex; align-items: center; gap: 1.8rem; }
     .nav-links a { color: rgba(255,255,255,.78); font-size: .88rem; font-weight: 500; transition: color .2s; }
     .nav-links a:hover { color: #fff; }
@@ -290,7 +290,7 @@
       max-width:1280px; margin:0 auto;
       display:grid; grid-template-columns:2.2fr 1fr 1fr 1fr; gap:2.5rem; margin-bottom:2.5rem;
     }
-    .footer-brand img { height:42px; margin-bottom:1rem; }
+    .footer-brand img { height:48px; width:auto; margin-bottom:1rem; }
     .footer-brand p { font-size:.82rem; line-height:1.75; max-width:260px; }
     .footer-col h4 { color:#fff; font-size:.85rem; font-weight:700; margin-bottom:1rem; }
     .footer-links { display:flex; flex-direction:column; gap:.5rem; }
@@ -345,7 +345,7 @@
 <!-- NAV -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <a href="#" class="nav-logo"><img src="cansularlogo_page-0001.jpg" alt="Cansular Logo" /></a>
+    <a href="#" class="nav-logo"><img src="logolatest.jpg" alt="Cansular Logo" /></a>
     <ul class="nav-links">
       <li><a href="#urunler">Ürünler</a></li>
       <li><a href="#hakkimizda">Hakkımızda</a></li>
@@ -950,31 +950,35 @@
       </div>
 
       <div class="cform fade">
-        <div class="form-row">
-          <div class="fgroup"><label>Ad Soyad</label><input type="text" placeholder="Adınız Soyadınız" /></div>
-          <div class="fgroup"><label>Firma Adı</label><input type="text" placeholder="Firma / Kurum" /></div>
-        </div>
-        <div class="form-row">
-          <div class="fgroup"><label>Telefon</label><input type="tel" placeholder="05XX XXX XX XX" /></div>
-          <div class="fgroup"><label>E-posta</label><input type="email" placeholder="ornek@firma.com" /></div>
-        </div>
-        <div class="fgroup">
-          <label>İlgilendiğiniz Ürün Kategorisi</label>
-          <select>
-            <option value="">Seçiniz...</option>
-            <option>Nitril Kaplama Eldivenler</option>
-            <option>Kesilmeye Dayanıklı Eldivenler</option>
-            <option>Kaynakçı / Isıya Dayanıklı Eldivenler</option>
-            <option>PVC Kaplama Eldivenler</option>
-            <option>Lateks Kaplama Eldivenler</option>
-            <option>Köpük Kaplama Eldivenler</option>
-            <option>Deri Eldivenler</option>
-            <option>Tek Kullanımlık Muayene Eldivenleri</option>
-            <option>Diğer / Genel Bilgi</option>
-          </select>
-        </div>
-        <div class="fgroup"><label>Mesajınız</label><textarea placeholder="Ürün detayları, miktar, teslimat bilgisi vb."></textarea></div>
-        <button class="btn btn-green" style="width:100%;">Gönder</button>
+        <form name="iletisim" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/tesekkurler">
+          <input type="hidden" name="form-name" value="iletisim" />
+          <p style="display:none;"><input name="bot-field" /></p>
+          <div class="form-row">
+            <div class="fgroup"><label>Ad Soyad</label><input type="text" name="ad-soyad" placeholder="Adınız Soyadınız" required /></div>
+            <div class="fgroup"><label>Firma Adı</label><input type="text" name="firma" placeholder="Firma / Kurum" /></div>
+          </div>
+          <div class="form-row">
+            <div class="fgroup"><label>Telefon</label><input type="tel" name="telefon" placeholder="05XX XXX XX XX" required /></div>
+            <div class="fgroup"><label>E-posta</label><input type="email" name="eposta" placeholder="ornek@firma.com" required /></div>
+          </div>
+          <div class="fgroup">
+            <label>İlgilendiğiniz Ürün Kategorisi</label>
+            <select name="kategori">
+              <option value="">Seçiniz...</option>
+              <option>Nitril Kaplama Eldivenler</option>
+              <option>Kesilmeye Dayanıklı Eldivenler</option>
+              <option>Kaynakçı / Isıya Dayanıklı Eldivenler</option>
+              <option>PVC Kaplama Eldivenler</option>
+              <option>Lateks Kaplama Eldivenler</option>
+              <option>Köpük Kaplama Eldivenler</option>
+              <option>Deri Eldivenler</option>
+              <option>Tek Kullanımlık Muayene Eldivenleri</option>
+              <option>Diğer / Genel Bilgi</option>
+            </select>
+          </div>
+          <div class="fgroup"><label>Mesajınız</label><textarea name="mesaj" placeholder="Ürün detayları, miktar, teslimat bilgisi vb."></textarea></div>
+          <button type="submit" class="btn btn-green" style="width:100%;">Gönder</button>
+        </form>
       </div>
     </div>
   </div>
@@ -984,7 +988,7 @@
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <img src="cansularlogo_page-0001.jpg" alt="Cansular Logo" />
+      <img src="logolatest.jpg" alt="Cansular Logo" />
       <p>Cansular Hırdavat Sanayi ve Ticaret A.Ş. — 40 yılı aşkın deneyimle Türkiye'nin güvenilir koruyucu eldiven tedarikçisi.</p>
     </div>
     <div class="footer-col">
