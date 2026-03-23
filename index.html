@@ -198,6 +198,20 @@
       font-size: .72rem; color: #94a3b8; font-weight: 500; letter-spacing: .04em;
     }
     .prod-img-placeholder svg { width: 36px; height: 36px; color: #cbd5e1; }
+    .prod-detail-btn {
+      display: inline-block; margin-top: .75rem;
+      font-size: .78rem; font-weight: 700; color: var(--green);
+      text-decoration: none; transition: color .2s;
+    }
+    .prod-detail-btn:hover { color: #3a8a5a; }
+
+    /* ── BRANDS ── */
+    .brands-section { background: #fff; padding: 3rem 2rem; text-align: center; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .brands-row { display: flex; gap: 2rem; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 1.6rem; }
+    .brand-card { border-radius: 14px; padding: 1.2rem 2.5rem; box-shadow: 0 4px 20px rgba(0,0,0,.07); display: flex; align-items: center; justify-content: center; }
+    .brand-card-light { background: #fff; border: 1px solid var(--border); }
+    .brand-card-dark { background: #111; }
+    .brand-card img { height: 50px; width: auto; object-fit: contain; }
 
     /* ── ABOUT ── */
     .about-grid {
@@ -655,6 +669,17 @@
   </div>
 </section>
 
+<!-- MARKALARIMIZ -->
+<section class="brands-section">
+  <div class="container">
+    <p class="section-sub">Tescilli Markalarımız</p>
+    <div class="brands-row">
+      <div class="brand-card brand-card-light"><img src="logolatest.jpg" alt="Cansular" /></div>
+      <div class="brand-card brand-card-dark"><img src="universal.jpg" alt="Universal" /></div>
+    </div>
+  </div>
+</section>
+
 <!-- HAKKIMIZDA -->
 <section class="section" id="hakkimizda">
   <div class="container">
@@ -989,6 +1014,39 @@
   window.addEventListener('scroll', () => {
     const bg = document.getElementById('heroBg');
     if (bg) bg.style.backgroundPositionY = (30 + window.scrollY * 0.15) + '%';
+  });
+
+  // Product cards → detail page
+  const PROD_IDS = {
+    'C-55 Ekstra Universal Nitril Eldiven': 'c55',
+    'C-25 Techno Universal Nitril Tam Kaplı Eldiven': 'c25',
+    'C-20 Techno Universal Nitril Eldiven': 'c20',
+    'C-15 Standart Universal Nitril Eldiven': 'c15',
+    'C-40 Garden Universal Nitril Eldiven': 'c40',
+    'C-432 Camcı Universal Techno Eldiven': 'c432',
+    'C-75 Power Universal Nitril Eldiven': 'c75',
+    '8804 Tam Kaplı Universal Nitril Eldiven': '8804',
+    '8701-PU/A Universal Techno Eldiven': '8701pu',
+    '8802 Montaj Universal Eldiven': '8802',
+    '8802-B Montaj Universal Eldiven': '8802b',
+    '8906-DC Universal Çift Kaplı Mavi Eldiven': '8906dc',
+    '6121-RL Kirçilli Universal Nitril Eldiven': '6121rl',
+    '6101 Lateks Kaplama Universal Eldiven Yeşil': '6101',
+    '6155 Lateks Kaplama Universal Kirçilli Eldiven': '6155',
+    '6600 Lateks Kaplama Universal 3/4 Kaplı Eldiven': '6600',
+    '8701-PU-3 Kesilmez Universal Eldiven': '8701pu3'
+  };
+  document.querySelectorAll('.prod').forEach(card => {
+    const h3 = card.querySelector('h3');
+    const id = h3 && PROD_IDS[h3.textContent.trim()];
+    if (!id) return;
+    card.addEventListener('click', () => window.location.href = '/urun.html?id=' + id);
+    const btn = document.createElement('a');
+    btn.href = '/urun.html?id=' + id;
+    btn.className = 'prod-detail-btn';
+    btn.textContent = 'Detayları Gör →';
+    btn.addEventListener('click', e => e.stopPropagation());
+    card.querySelector('.prod-body').appendChild(btn);
   });
 
   // Product filter

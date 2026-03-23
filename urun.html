@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ürün Detayı | Cansular</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D9W53EMX2H"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-D9W53EMX2H');
+  </script>
+  <link rel="icon" type="image/png" href="favicon_v2.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root { --navy: #0d1f3c; --green: #4a9e6b; --border: #e8edf3; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #f5f7fa; color: var(--navy); }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--navy);
+      padding: 0 2rem;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 16px rgba(0,0,0,.18);
+    }
+    .nav-back {
+      color: rgba(255,255,255,.7);
+      text-decoration: none;
+      font-size: .85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      transition: color .2s;
+      white-space: nowrap;
+    }
+    .nav-back:hover { color: #fff; }
+    .nav-logo-wrap {
+      background: #fff;
+      padding: 5px 12px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+    }
+    .nav-logo-wrap img { height: 36px; width: auto; display: block; }
+    .nav-divider { width: 1px; height: 28px; background: rgba(255,255,255,.15); }
+
+    /* ── MAIN ── */
+    main { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb {
+      font-size: .8rem;
+      color: #64748b;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .breadcrumb a { color: var(--green); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb span { color: #94a3b8; }
+
+    /* ── PRODUCT DETAIL CARD ── */
+    .prod-detail {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      background: #fff;
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 8px 40px rgba(0,0,0,.07);
+      margin-bottom: 2rem;
+    }
+
+    /* image */
+    .prod-img-wrap {
+      border-radius: 14px;
+      overflow: hidden;
+      background: #f8f9fb;
+      border: 1px solid var(--border);
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .prod-img-wrap img { width: 100%; height: 100%; object-fit: contain; padding: 1rem; }
+    .prod-img-placeholder {
+      aspect-ratio: 1;
+      background: #f0f4f8;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .8rem;
+      color: #94a3b8;
+    }
+    .prod-img-placeholder svg { width: 64px; height: 64px; opacity: .3; }
+    .prod-img-placeholder span { font-size: .85rem; font-weight: 500; }
+
+    /* info */
+    .prod-info { display: flex; flex-direction: column; gap: 1.2rem; }
+    .prod-badge {
+      display: inline-block;
+      background: rgba(74,158,107,.12);
+      color: var(--green);
+      font-size: .75rem;
+      font-weight: 700;
+      padding: .28rem .8rem;
+      border-radius: 20px;
+      width: fit-content;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+    }
+    h1 { font-size: 1.65rem; font-weight: 800; line-height: 1.25; color: var(--navy); }
+    .prod-desc { color: #4a5568; font-size: .95rem; line-height: 1.8; }
+
+    .prod-tags { display: flex; gap: .45rem; flex-wrap: wrap; }
+    .tag {
+      background: #f0f4f8;
+      color: #334155;
+      font-size: .75rem;
+      font-weight: 600;
+      padding: .28rem .75rem;
+      border-radius: 6px;
+    }
+
+    .divider { border: none; border-top: 1px solid var(--border); }
+
+    .features h3 {
+      font-size: .82rem;
+      font-weight: 700;
+      color: #64748b;
+      margin-bottom: .75rem;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+    .features ul { list-style: none; display: flex; flex-direction: column; gap: .6rem; }
+    .features li {
+      display: flex;
+      align-items: flex-start;
+      gap: .65rem;
+      font-size: .9rem;
+      color: #334155;
+      line-height: 1.5;
+    }
+    .feat-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      margin-top: .38em;
+      flex-shrink: 0;
+    }
+
+    .cta-row { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: auto; padding-top: .4rem; }
+    .btn-primary {
+      background: var(--green);
+      color: #fff;
+      padding: .85rem 1.8rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: .88rem;
+      text-decoration: none;
+      transition: background .2s;
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .btn-primary:hover { background: #3a8a5a; }
+    .btn-outline {
+      border: 1.5px solid var(--border);
+      color: var(--navy);
+      padding: .85rem 1.8rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: .88rem;
+      text-decoration: none;
+      transition: all .2s;
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .btn-outline:hover { border-color: var(--green); color: var(--green); }
+
+    /* ── INFO STRIP ── */
+    .info-strip {
+      background: #fff;
+      border-radius: 16px;
+      padding: 1.8rem 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,.05);
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .info-strip-icon {
+      width: 48px; height: 48px;
+      background: rgba(74,158,107,.1);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .info-strip-icon svg { width: 24px; height: 24px; color: var(--green); }
+    .info-strip-text h4 { font-size: .9rem; font-weight: 700; color: var(--navy); margin-bottom: .2rem; }
+    .info-strip-text p { font-size: .82rem; color: #64748b; }
+
+    /* ── NOT FOUND ── */
+    .not-found { text-align: center; padding: 5rem 2rem; }
+    .not-found h2 { font-size: 1.4rem; color: var(--navy); margin-bottom: .8rem; }
+    .not-found p { color: #64748b; margin-bottom: 1.8rem; }
+
+    /* ── WA BUTTON ── */
+    .wa-float {
+      position: fixed; bottom: 24px; right: 24px;
+      width: 56px; height: 56px;
+      background: #25d366; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,.2);
+      z-index: 999; text-decoration: none;
+      transition: transform .2s;
+    }
+    .wa-float:hover { transform: scale(1.1); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 720px) {
+      .prod-detail { grid-template-columns: 1fr; gap: 1.5rem; padding: 1.5rem; }
+      h1 { font-size: 1.35rem; }
+      main { padding: 1.5rem 1rem 3rem; }
+    }
+    @media (max-width: 480px) {
+      .cta-row { flex-direction: column; }
+      .btn-primary, .btn-outline { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/#urunler" class="nav-back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    Ürünlere Dön
+  </a>
+  <div class="nav-divider"></div>
+  <a href="/" class="nav-logo-wrap">
+    <img src="logolatest.jpg" alt="Cansular Logo" />
+  </a>
+</nav>
+
+<main>
+  <div class="breadcrumb">
+    <a href="/">Ana Sayfa</a>
+    <span>›</span>
+    <a href="/#urunler">Ürünler</a>
+    <span>›</span>
+    <span id="breadcrumbName">Ürün Detayı</span>
+  </div>
+
+  <div id="content"></div>
+</main>
+
+<!-- WhatsApp -->
+<a href="https://wa.me/905324153124" target="_blank" rel="noopener" class="wa-float" title="WhatsApp ile İletişim">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+const PRODUCTS = {
+  'c55': {
+    name: 'C-55 Ekstra Universal Nitril Eldiven',
+    cat: 'Nitril Kaplama',
+    img: 'urunler/c55.jpg',
+    desc: 'Yüksek performanslı nitril kaplama. Endüstriyel kullanım için üstün tutuş ve aşınma direnci sunan profesyonel iş eldiveni.',
+    tags: ['EN388', 'CE Sertifikalı', '240 çift/koli'],
+    features: [
+      'Yüksek aşınma ve yırtılma direnci',
+      'Yaş ve kuru yüzeylerde üstün kavrama',
+      'Naylon astar, esnek ve konforlu yapı',
+      'CE sertifikalı (EN388)',
+      'Endüstriyel ağır kullanıma uygun'
+    ]
+  },
+  'c25': {
+    name: 'C-25 Techno Universal Nitril Tam Kaplı Eldiven',
+    cat: 'Nitril Kaplama',
+    img: 'urunler/c25.jpg',
+    desc: 'Tam nitril kaplama, dayanıklı naylon astar. Yağlı ve kimyasal ortamlarda güvenli çalışma için tasarlanmıştır.',
+    tags: ['EN388', 'CE Sertifikalı', 'Tam Kaplı', '288 çift/koli'],
+    features: [
+      'Bilek altına kadar tam nitril kaplama',
+      'Yağ ve kimyasal ortamlara karşı direnç',
+      'Dayanıklı naylon astar',
+      'CE sertifikalı (EN388)',
+      'Uzun ömürlü kullanım'
+    ]
+  },
+  'c20': {
+    name: 'C-20 Techno Universal Nitril Eldiven',
+    cat: 'Nitril Kaplama',
+    img: 'urunler/c20.jpg',
+    desc: 'Nitril kaplama, esnek ve dayanıklı yapı. Genel sanayi ve mekanik işler için ideal seçim.',
+    tags: ['EN388', 'CE Sertifikalı', '288 çift/koli'],
+    features: [
+      'Esnek nitril kaplama',
+      'Genel sanayi ve mekanik işlere uygun',
+      'CE sertifikalı (EN388)',
+      'Naylon astar, nefes alabilen yapı',
+      'Ekonomik ve uzun ömürlü'
+    ]
+  },
+  'c15': {
+    name: 'C-15 Standart Universal Nitril Eldiven',
+    cat: 'Nitril Kaplama',
+    img: 'urunler/c15.jpg',
+    desc: 'Ekonomik ve hafif nitril kaplama. Genel amaçlı sanayi ve montaj işleri için tercih edilen standart model.',
+    tags: ['EN388', 'CE Sertifikalı', '288 çift/koli'],
+    features: [
+      'Hafif ve ekonomik tasarım',
+      'Genel amaçlı sanayi kullanımı',
+      'CE sertifikalı (EN388)',
+      'Nefes alabilen naylon astar',
+      'Standart montaj işleri için ideal'
+    ]
+  },
+  'c40': {
+    name: 'C-40 Garden Universal Nitril Eldiven',
+    cat: 'Nitril Kaplama',
+    img: null,
+    desc: 'Bahçe ve tarım işleri için özel geliştirilen nitril kaplama eldiven. Su ve toprak direnci yüksek yapısıyla dış mekân kullanımına uygundur.',
+    tags: ['EN388', 'CE Sertifikalı', '288 çift/koli'],
+    features: [
+      'Bahçe ve tarım işlerine özel tasarım',
+      'Su ve toprak direnci',
+      'Esnek nitril kaplama',
+      'CE sertifikalı (EN388)',
+      'Uzun süreli dış mekân konforu'
+    ]
+  },
+  'c432': {
+    name: 'C-432 Camcı Universal Techno Eldiven',
+    cat: 'Nitril Kaplama',
+    img: null,
+    desc: 'Cam sanayi için özel geliştirilen nitril kaplama eldiven. Kırmızı ve gri renk seçenekleri, kesik ve sıyrık riskine karşı koruma sağlar.',
+    tags: ['EN388', 'CE Sertifikalı', '288 çift/koli'],
+    features: [
+      'Cam sanayi için özel tasarım',
+      'Kırmızı ve gri renk seçenekleri',
+      'Kesik ve sıyrık koruması',
+      'CE sertifikalı (EN388)',
+      'Nitril kaplama dayanımı'
+    ]
+  },
+  'c75': {
+    name: 'C-75 Power Universal Nitril Eldiven',
+    cat: 'Nitril Kaplama',
+    img: 'urunler/POWER.jpg',
+    desc: 'Petrolcü tipi güçlendirilmiş nitril kaplama. Yağ ve kimyasallara karşı yüksek direnç, zorlu endüstriyel ortamlar için üretilmiştir.',
+    tags: ['EN388', 'CE Sertifikalı', '144 çift/koli'],
+    features: [
+      'Petrolcü tipi güçlü kaplama',
+      'Yüksek yağ ve kimyasal direnci',
+      'Ağır sanayi kullanımına uygun',
+      'CE sertifikalı (EN388)',
+      'Ekstra dayanıklı nitril yapısı'
+    ]
+  },
+  '8804': {
+    name: '8804 Tam Kaplı Universal Nitril Eldiven',
+    cat: 'Nitril Kaplama',
+    img: 'urunler/8804.JPG',
+    desc: 'Bilek altına kadar tam nitril kaplama. Islak, yağlı ve kimyasal ortamlarda el ve bileğe tam koruma sağlar.',
+    tags: ['EN388', 'Tam Kaplı', '240 çift/koli'],
+    features: [
+      'Bilek altına kadar tam kaplama',
+      'Islak ortamlarda güvenli kullanım',
+      'Yağ ve kimyasal koruması',
+      'EN388 sertifikalı',
+      '240 çift/koli ekonomik ambalaj'
+    ]
+  },
+  '8701pu': {
+    name: '8701-PU/A Universal Techno Eldiven',
+    cat: 'Montaj',
+    img: 'urunler/8701 PU.jpg',
+    desc: 'PU kaplama, hassas dokunuş ve ince yapı. Elektronik montaj ve ince işçilik gerektiren operasyonlar için tercih edilen model.',
+    tags: ['EN388', 'PU Kaplama', 'CE Sertifikalı', '300 çift/koli'],
+    features: [
+      'İnce PU kaplama — hassas dokunuş',
+      'Elektronik ve ince montaj için ideal',
+      'Nefes alabilen naylon astar',
+      'CE sertifikalı (EN388)',
+      '300 çift/koli'
+    ]
+  },
+  '8802': {
+    name: '8802 Montaj Universal Eldiven',
+    cat: 'Montaj',
+    img: 'urunler/8802 MAVİ.jpg',
+    desc: 'Siyah, gri, sarı, kırmızı, mavi renk seçenekleri. Çok amaçlı genel montaj eldiveni, tüm sanayi kollarına hitap eder.',
+    tags: ['EN388', 'CE Sertifikalı', '300 çift/koli'],
+    features: [
+      '5 farklı renk seçeneği',
+      'Çok amaçlı genel montaj kullanımı',
+      'CE sertifikalı (EN388)',
+      'Naylon astar',
+      'Genel sanayi işleri için uygun'
+    ]
+  },
+  '8802b': {
+    name: '8802-B Montaj Universal Eldiven',
+    cat: 'Montaj',
+    img: 'urunler/8802-B TURUNCU.jpg',
+    desc: 'Turuncu ve mavi renk seçenekleri. Görünürlük gerektiren iş ortamları ve yüksek güvenlik bölgeleri için tasarlanmıştır.',
+    tags: ['EN388', 'CE Sertifikalı', '300 çift/koli'],
+    features: [
+      'Yüksek görünürlük turuncu ve mavi renk',
+      'Güvenlik gerektiren ortamlara uygun',
+      'CE sertifikalı (EN388)',
+      'Montaj ve sanayi işleri',
+      'Ergonomik tasarım'
+    ]
+  },
+  '8906dc': {
+    name: '8906-DC Universal Çift Kaplı Mavi Eldiven',
+    cat: 'Montaj',
+    img: null,
+    desc: 'Çift katmanlı kaplama teknolojisi. Ekstra dayanım ve uzun ömür sunar, yoğun ve ağır kullanım gerektiren işler için geliştirilmiştir.',
+    tags: ['EN388', 'Çift Kaplı', '144 çift/koli'],
+    features: [
+      'Çift katmanlı kaplama teknolojisi',
+      'Ekstra dayanıklılık ve uzun ömür',
+      'Ağır sanayi uyumlu',
+      'EN388 sertifikalı',
+      'Yoğun kullanım ortamları için'
+    ]
+  },
+  '6121rl': {
+    name: '6121-RL Kirçilli Universal Nitril Eldiven',
+    cat: 'Montaj',
+    img: 'urunler/6121RL.jpg',
+    desc: 'Kirçilli (crinkle) nitril kaplama. Yaş ve kuru ortamlarda üstün kavrama kabiliyeti, inşaat ve ağır sanayi kullanımına uygundur.',
+    tags: ['EN388', 'Kirçilli Nitril', 'CE Sertifikalı', '144 çift/koli'],
+    features: [
+      'Kirçilli nitril yüzey dokusu',
+      'Yaş ve kuru zeminde üstün kavrama',
+      'CE sertifikalı (EN388)',
+      'Uzun ömürlü kaplama',
+      'İnşaat ve ağır sanayi kullanımı'
+    ]
+  },
+  '6101': {
+    name: '6101 Lateks Kaplama Universal Eldiven Yeşil',
+    cat: 'Lateks Kaplama',
+    img: null,
+    desc: 'Yeşil lateks kaplama, yüksek esneklik ve kavrama gücü. İnşaat, tarım ve genel sanayi işleri için ekonomik çözüm.',
+    tags: ['EN388', 'CE Sertifikalı', '180 çift/koli'],
+    features: [
+      'Yüksek esneklikli lateks kaplama',
+      'Güçlü kavrama kabiliyeti',
+      'CE sertifikalı (EN388)',
+      'İnşaat ve sanayi kullanımı',
+      'Yeşil renk — kolay tanıma'
+    ]
+  },
+  '6155': {
+    name: '6155 Lateks Kaplama Universal Kirçilli Eldiven',
+    cat: 'Lateks Kaplama',
+    img: null,
+    desc: 'Kirçilli lateks kaplama, ıslak ve kaygan yüzeylerde mükemmel kavrama performansı. Gıda sektörü ve inşaat kullanımına uygundur.',
+    tags: ['EN388', 'Kirçilli', 'CE Sertifikalı', '144 çift/koli'],
+    features: [
+      'Kirçilli lateks kaplama',
+      'Islak ve kaygan yüzeylerde üstün kavrama',
+      'CE sertifikalı (EN388)',
+      'Gıda ve inşaat sektörüne uygun',
+      'Uzun ömürlü kullanım'
+    ]
+  },
+  '6600': {
+    name: '6600 Lateks Kaplama Universal 3/4 Kaplı Eldiven',
+    cat: 'Lateks Kaplama',
+    img: null,
+    desc: '3/4 lateks kaplama, nefes alabilen parmak uçları. Uzun süreli kullanımda konfor ve hava sirkülasyonu sağlar.',
+    tags: ['EN388', '3/4 Kaplı', 'CE Sertifikalı', '144 çift/koli'],
+    features: [
+      '3/4 lateks kaplama',
+      'Nefes alabilen parmak uçları',
+      'CE sertifikalı (EN388)',
+      'Uzun süreli kullanım konforu',
+      'Hava sirkülasyonu ile terleme önleme'
+    ]
+  },
+  '8701pu3': {
+    name: '8701-PU-3 Kesilmez Universal Eldiven',
+    cat: 'Kesilmez',
+    img: 'urunler/8701-3 PU KESİLMEZ.jpg',
+    desc: 'HPPE fiber astar, PU kaplama. EN388 Seviye 3 kesme direnci ile hassas montaj ve kesik riskli iş ortamları için en güvenli seçim.',
+    tags: ['EN388', 'Kesme Seviye 3', 'CE Sertifikalı', 'HPPE Astar'],
+    features: [
+      'EN388 Seviye 3 kesme direnci',
+      'HPPE fiber yüksek dayanımlı astar',
+      'İnce PU kaplama — hassas dokunuş',
+      'CE sertifikalı',
+      'Hassas montaj ve imalat işleri için'
+    ]
+  }
+};
+
+function render() {
+  const id = new URLSearchParams(location.search).get('id');
+  const p = PRODUCTS[id];
+  const container = document.getElementById('content');
+
+  if (!p) {
+    container.innerHTML = `
+      <div class="not-found">
+        <h2>Ürün bulunamadı</h2>
+        <p>Aradığınız ürün mevcut değil veya URL hatalı olabilir.</p>
+        <a href="/#urunler" class="btn-primary" style="display:inline-flex">← Tüm Ürünlere Dön</a>
+      </div>`;
+    return;
+  }
+
+  document.title = p.name + ' | Cansular';
+  document.getElementById('breadcrumbName').textContent = p.name;
+
+  const imgHtml = p.img
+    ? `<div class="prod-img-wrap"><img src="${p.img}" alt="${p.name}" /></div>`
+    : `<div class="prod-img-placeholder">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+          <rect x="3" y="3" width="18" height="18" rx="2"/>
+          <path d="m3 15 5-5 4 4 3-3 6 6"/>
+          <circle cx="8.5" cy="8.5" r="1.5"/>
+        </svg>
+        <span>Fotoğraf Yakında</span>
+      </div>`;
+
+  const waMsg = encodeURIComponent('Merhaba, ' + p.name + ' hakkında bilgi ve fiyat teklifi almak istiyorum.');
+
+  container.innerHTML = `
+    <div class="prod-detail">
+      ${imgHtml}
+      <div class="prod-info">
+        <span class="prod-badge">${p.cat}</span>
+        <h1>${p.name}</h1>
+        <p class="prod-desc">${p.desc}</p>
+        <div class="prod-tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+        <hr class="divider" />
+        <div class="features">
+          <h3>Özellikler</h3>
+          <ul>${p.features.map(f => `<li><span class="feat-dot"></span>${f}</li>`).join('')}</ul>
+        </div>
+        <div class="cta-row">
+          <a href="https://wa.me/905324153124?text=${waMsg}" target="_blank" class="btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp ile Sor
+          </a>
+          <a href="/#iletisim" class="btn-outline">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Teklif Formu
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-strip">
+      <div class="info-strip-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.7 16z"/></svg>
+      </div>
+      <div class="info-strip-text">
+        <h4>Toplu Sipariş ve Fiyat Teklifi</h4>
+        <p>Ürünlerimiz için fiyat teklifi ve stok bilgisi almak üzere <strong>(0212) 514 08 44</strong> numarasını arayın veya WhatsApp'tan yazın.</p>
+      </div>
+    </div>
+  `;
+}
+
+render();
+</script>
+</body>
+</html>
