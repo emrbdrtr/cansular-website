@@ -1,17 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <!-- Yeşil arka plan daire -->
-  <circle cx="50" cy="50" r="50" fill="#4a9e6b"/>
-  <!-- Cansular logosundaki yaprak/alev ikonu - beyaz -->
-  <g fill="none" stroke="#ffffff" stroke-linecap="round" stroke-width="5.5">
-    <!-- Sol kavis -->
-    <path d="M33 72 C28 55, 30 38, 42 26"/>
-    <!-- Orta kavis -->
-    <path d="M50 75 C44 56, 46 36, 50 22"/>
-    <!-- Sağ kavis -->
-    <path d="M67 72 C72 55, 70 38, 58 26"/>
-    <!-- Alt birleştirici yay -->
-    <path d="M33 72 Q50 82 67 72"/>
-    <!-- Üst birleştirici yay -->
-    <path d="M42 26 Q50 18 58 26"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120">
+  <!-- Alev/yaprak dış formu -->
+  <path d="M50 5 C30 5 10 28 10 55 C10 80 28 110 50 115 C72 110 90 80 90 55 C90 28 70 5 50 5 Z"
+        fill="url(#greenGrad)" />
+  <!-- İç çizgiler -->
+  <g fill="none" stroke="white" stroke-linecap="round" stroke-width="5" opacity="0.9">
+    <path d="M35 85 C32 68 34 48 42 32"/>
+    <path d="M50 88 C47 70 48 48 50 28"/>
+    <path d="M65 85 C68 68 66 48 58 32"/>
   </g>
+  <defs>
+    <linearGradient id="greenGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7ecb5a"/>
+      <stop offset="100%" stop-color="#3a8a3a"/>
+    </linearGradient>
+  </defs>
 </svg>

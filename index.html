@@ -13,7 +13,7 @@
     gtag('js', new Date());
     gtag('config', 'G-D9W53EMX2H');
   </script>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" href="favicon_v2.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -154,8 +154,9 @@
 
     .products-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(230px,1fr));
+      grid-template-columns: repeat(auto-fill, minmax(230px, 280px));
       gap: 1.2rem;
+      justify-content: center;
     }
 
     .prod {
@@ -188,6 +189,15 @@
       font-size: .65rem; font-weight: 600; padding: .18rem .5rem;
       border-radius: 4px; background: rgba(74,158,107,.1); color: var(--green);
     }
+    .prod-img-placeholder {
+      height: 175px; background: #f0f4f8;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: .5rem;
+    }
+    .prod-img-placeholder span {
+      font-size: .72rem; color: #94a3b8; font-weight: 500; letter-spacing: .04em;
+    }
+    .prod-img-placeholder svg { width: 36px; height: 36px; color: #cbd5e1; }
 
     /* ── ABOUT ── */
     .about-grid {
@@ -217,9 +227,10 @@
 
     /* ── CERTIFICATES ── */
     .certs-grid {
-      display: grid; grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+      display: grid; grid-template-columns: repeat(3, 1fr);
       gap: 1.2rem;
     }
+    @media(max-width:700px) { .certs-grid { grid-template-columns: 1fr 1fr; } }
     .cert-card {
       background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
       border-radius: var(--radius); padding: 1.8rem 1.4rem; text-align: center;
@@ -231,7 +242,8 @@
     .cert-card p { font-size: .8rem; color: rgba(255,255,255,.55); line-height: 1.5; }
 
     /* ── WHY ── */
-    .why-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(230px,1fr)); gap: 1.3rem; }
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.3rem; }
+    @media(max-width:700px) { .why-grid { grid-template-columns: 1fr 1fr; } }
     .why-card {
       background: #fff; border: 1px solid var(--border);
       border-radius: var(--radius); padding: 1.8rem 1.5rem;
@@ -415,13 +427,9 @@
     <div class="filter-tabs" id="filterTabs">
       <button class="tab active" data-cat="all">Tümü</button>
       <button class="tab" data-cat="nitril">Nitril Kaplama</button>
-      <button class="tab" data-cat="kesilmez">Kesilmez</button>
-      <button class="tab" data-cat="kaynak">Kaynakçı / Isı</button>
-      <button class="tab" data-cat="pvc">PVC Kaplama</button>
+      <button class="tab" data-cat="montaj">Montaj</button>
       <button class="tab" data-cat="lateks">Lateks Kaplama</button>
-      <button class="tab" data-cat="kopuk">Köpük Kaplama</button>
-      <button class="tab" data-cat="deri">Deri Eldiven</button>
-      <button class="tab" data-cat="tek">Tek Kullanımlık</button>
+      <button class="tab" data-cat="kesilmez">Kesilmez</button>
     </div>
 
     <div class="products-grid" id="productsGrid">
@@ -429,332 +437,217 @@
       <!-- NİTRİL KAPLAMA -->
       <div class="prod fade" data-cat="nitril">
         <div class="prod-img">
-          <img src="nitril-slider-1280x540.jpg" alt="C-55 Extra" />
+          <img src="urunler/c55.jpg" alt="C-55 Ekstra" />
         </div>
         <div class="prod-body">
           <div class="prod-cat">Nitril Kaplama</div>
-          <h3>C-55 Extra Nitril Kaplama Eldiven</h3>
-          <p>Yüksek performanslı nitril kaplama. Endüstriyel kullanım için ideal tutuş ve aşınma direnci.</p>
-          <div class="prod-tags"><span class="prod-tag">EN388</span><span class="prod-tag">CE</span></div>
+          <h3>C-55 Ekstra Universal Nitril Eldiven</h3>
+          <p>Yüksek performanslı nitril kaplama. Endüstriyel kullanım için üstün tutuş ve aşınma direnci.</p>
+          <div class="prod-tags"><span class="prod-tag">EN388</span><span class="prod-tag">CE</span><span class="prod-tag">240 çift/koli</span></div>
         </div>
       </div>
 
       <div class="prod fade" data-cat="nitril">
         <div class="prod-img">
-          <img src="cansular-slider4-1280x540.jpg" alt="C-15 Standart" />
+          <img src="urunler/c25.jpg" alt="C-25 Tam Kaplı" />
         </div>
         <div class="prod-body">
           <div class="prod-cat">Nitril Kaplama</div>
-          <h3>C-15 Standart Nitril Eldiven</h3>
-          <p>Ekonomik ve hafif nitril kaplama. Genel amaçlı sanayi işleri için.</p>
-          <div class="prod-tags"><span class="prod-tag">EN388</span><span class="prod-tag">CE</span></div>
+          <h3>C-25 Techno Universal Nitril Tam Kaplı Eldiven</h3>
+          <p>Tam nitril kaplama, dayanıklı naylon astar. Yağlı ve kimyasal ortamlar için.</p>
+          <div class="prod-tags"><span class="prod-tag">EN388</span><span class="prod-tag">CE</span><span class="prod-tag">288 çift/koli</span></div>
         </div>
       </div>
 
       <div class="prod fade" data-cat="nitril">
         <div class="prod-img">
-          <img src="8802-B MAVİ.jpg" alt="8802-B" />
+          <img src="urunler/c20.jpg" alt="C-20 Techno" />
         </div>
         <div class="prod-body">
           <div class="prod-cat">Nitril Kaplama</div>
-          <h3>8802-B Mavi Nitril Eldiven</h3>
-          <p>Sandy nitril kaplama, nefes alabilir naylon astar. Mekanik işler için üstün tutuş.</p>
-          <div class="prod-tags"><span class="prod-tag">EN388</span><span class="prod-tag">CE</span><span class="prod-tag">Sandy</span></div>
+          <h3>C-20 Techno Universal Nitril Eldiven</h3>
+          <p>Nitril kaplama, esnek ve dayanıklı yapı. Genel sanayi ve mekanik işler için.</p>
+          <div class="prod-tags"><span class="prod-tag">EN388</span><span class="prod-tag">CE</span><span class="prod-tag">288 çift/koli</span></div>
         </div>
       </div>
 
       <div class="prod fade" data-cat="nitril">
         <div class="prod-img">
-          <img src="C-35 TAM KAPLI.jpg" alt="C-35 Tam Kaplı" />
+          <img src="urunler/c15.jpg" alt="C-15 Standart" />
         </div>
         <div class="prod-body">
           <div class="prod-cat">Nitril Kaplama</div>
-          <h3>C-35 Tam Kaplı Nitril</h3>
-          <p>Bilek altına kadar tam nitril kaplama. Yağlı ve ıslak ortamlar için mükemmel.</p>
-          <div class="prod-tags"><span class="prod-tag">EN388</span><span class="prod-tag">Tam Kaplı</span></div>
+          <h3>C-15 Standart Universal Nitril Eldiven</h3>
+          <p>Ekonomik ve hafif nitril kaplama. Genel amaçlı sanayi ve montaj işleri için.</p>
+
+          <div class="prod-tags"><span class="prod-tag">EN388</span><span class="prod-tag">CE</span><span class="prod-tag">288 çift/koli</span></div>
         </div>
       </div>
 
       <div class="prod fade" data-cat="nitril">
-        <div class="prod-img contain">
-          <img src="cansular2-1280x540.jpg" alt="C-30 Super" />
+        <div class="prod-img-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z" stroke-linecap="round"/></svg>
+          <span>Fotoğraf Yakında</span>
         </div>
         <div class="prod-body">
           <div class="prod-cat">Nitril Kaplama</div>
-          <h3>C-30 Super Nitril Eldiven</h3>
-          <p>Süper nitril kaplama, dayanıklı polyester astar. Ağır sanayi için.</p>
-          <div class="prod-tags"><span class="prod-tag">EN388</span><span class="prod-tag">CE</span></div>
+          <h3>C-40 Garden Universal Nitril Eldiven</h3>
+          <p>Bahçe ve tarım işleri için özel nitril kaplama. Su ve toprak direnci yüksek.</p>
+          <div class="prod-tags"><span class="prod-tag">EN388</span><span class="prod-tag">CE</span><span class="prod-tag">288 çift/koli</span></div>
+        </div>
+      </div>
+
+      <div class="prod fade" data-cat="nitril">
+        <div class="prod-img-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z" stroke-linecap="round"/></svg>
+          <span>Fotoğraf Yakında</span>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Nitril Kaplama</div>
+          <h3>C-432 Camcı Universal Techno Eldiven</h3>
+          <p>Kırmızı ve gri renk seçeneği. Cam sanayi için geliştirilmiş özel nitril kaplama.</p>
+          <div class="prod-tags"><span class="prod-tag">EN388</span><span class="prod-tag">CE</span><span class="prod-tag">288 çift/koli</span></div>
         </div>
       </div>
 
       <div class="prod fade" data-cat="nitril">
         <div class="prod-img">
-          <img src="slider-en-yeni-compressor-1280x540.jpg" alt="Power Nitril" />
+          <img src="urunler/POWER.jpg" alt="C-75 Power" />
         </div>
         <div class="prod-body">
           <div class="prod-cat">Nitril Kaplama</div>
-          <h3>Power Nitril Eldiven</h3>
-          <p>Yüksek yoğunluklu nitril kaplama, maksimum yırtılma direnci. Ağır iş ortamları için.</p>
-          <div class="prod-tags"><span class="prod-tag">EN388</span><span class="prod-tag">CE</span></div>
+          <h3>C-75 Power Universal Nitril Eldiven</h3>
+          <p>Petrolcü tipi güçlendirilmiş nitril kaplama. Yağ ve kimyasallara karşı yüksek direnç.</p>
+
+          <div class="prod-tags"><span class="prod-tag">EN388</span><span class="prod-tag">CE</span><span class="prod-tag">144 çift/koli</span></div>
+        </div>
+      </div>
+
+      <div class="prod fade" data-cat="nitril">
+        <div class="prod-img">
+          <img src="urunler/8804.JPG" alt="8804 Tam Kaplı" />
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Nitril Kaplama</div>
+          <h3>8804 Tam Kaplı Universal Nitril Eldiven</h3>
+          <p>Bilek altına kadar tam nitril kaplama. Islak, yağlı ve kimyasal ortamlar için.</p>
+          <div class="prod-tags"><span class="prod-tag">EN388</span><span class="prod-tag">Tam Kaplı</span><span class="prod-tag">240 çift/koli</span></div>
+        </div>
+      </div>
+
+      <!-- MONTAJ -->
+      <div class="prod fade" data-cat="montaj">
+        <div class="prod-img">
+          <img src="urunler/8701 PU.jpg" alt="8701-PU/A" />
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Montaj</div>
+          <h3>8701-PU/A Universal Techno Eldiven</h3>
+          <p>PU kaplama, hassas dokunuş ve ince yapı. Elektronik ve hassas montaj için.</p>
+          <div class="prod-tags"><span class="prod-tag">EN388</span><span class="prod-tag">PU Kaplama</span><span class="prod-tag">300 çift/koli</span></div>
+        </div>
+      </div>
+
+      <div class="prod fade" data-cat="montaj">
+        <div class="prod-img">
+          <img src="urunler/8802 MAVİ.jpg" alt="8802 Montaj" />
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Montaj</div>
+          <h3>8802 Montaj Universal Eldiven</h3>
+          <p>Siyah, gri, sarı, kırmızı, mavi renk seçenekleri. Çok amaçlı montaj eldiveni.</p>
+          <div class="prod-tags"><span class="prod-tag">EN388</span><span class="prod-tag">CE</span><span class="prod-tag">300 çift/koli</span></div>
+        </div>
+      </div>
+
+      <div class="prod fade" data-cat="montaj">
+        <div class="prod-img">
+          <img src="urunler/8802-B TURUNCU.jpg" alt="8802-B Montaj" />
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Montaj</div>
+          <h3>8802-B Montaj Universal Eldiven</h3>
+          <p>Turuncu ve mavi renk seçenekleri. Görünürlük gerektiren iş ortamları için.</p>
+          <div class="prod-tags"><span class="prod-tag">EN388</span><span class="prod-tag">CE</span><span class="prod-tag">300 çift/koli</span></div>
+        </div>
+      </div>
+
+      <div class="prod fade" data-cat="montaj">
+        <div class="prod-img-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z" stroke-linecap="round"/></svg>
+          <span>Fotoğraf Yakında</span>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Montaj</div>
+          <h3>8906-DC Universal Çift Kaplı Mavi Eldiven</h3>
+          <p>Çift katmanlı kaplama teknolojisi. Ekstra dayanım ve uzun ömür sunar.</p>
+          <div class="prod-tags"><span class="prod-tag">EN388</span><span class="prod-tag">Çift Kaplı</span><span class="prod-tag">144 çift/koli</span></div>
+        </div>
+      </div>
+
+      <div class="prod fade" data-cat="montaj">
+        <div class="prod-img">
+          <img src="urunler/6121RL.jpg" alt="6121-RL Kirçilli" />
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Montaj</div>
+          <h3>6121-RL Kirçilli Universal Nitril Eldiven</h3>
+          <p>Kirçilli (crinkle) nitril kaplama, yaş ve kuru ortamlarda üstün kavrama kabiliyeti.</p>
+
+          <div class="prod-tags"><span class="prod-tag">EN388</span><span class="prod-tag">Kirçilli</span><span class="prod-tag">144 çift/koli</span></div>
+        </div>
+      </div>
+
+      <!-- LATEKS KAPLAMA -->
+      <div class="prod fade" data-cat="lateks">
+        <div class="prod-img-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z" stroke-linecap="round"/></svg>
+          <span>Fotoğraf Yakında</span>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Lateks Kaplama</div>
+          <h3>6101 Lateks Kaplama Universal Eldiven Yeşil</h3>
+          <p>Yeşil lateks kaplama, yüksek esneklik. İnşaat ve genel sanayi işleri için.</p>
+          <div class="prod-tags"><span class="prod-tag">EN388</span><span class="prod-tag">CE</span><span class="prod-tag">180 çift/koli</span></div>
+        </div>
+      </div>
+
+      <div class="prod fade" data-cat="lateks">
+        <div class="prod-img-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z" stroke-linecap="round"/></svg>
+          <span>Fotoğraf Yakında</span>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Lateks Kaplama</div>
+          <h3>6155 Lateks Kaplama Universal Kirçilli Eldiven</h3>
+          <p>Kirçilli lateks kaplama, ıslak ve kaygan yüzeylerde mükemmel kavrama.</p>
+          <div class="prod-tags"><span class="prod-tag">EN388</span><span class="prod-tag">Kirçilli</span><span class="prod-tag">144 çift/koli</span></div>
+        </div>
+      </div>
+
+      <div class="prod fade" data-cat="lateks">
+        <div class="prod-img-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z" stroke-linecap="round"/></svg>
+          <span>Fotoğraf Yakında</span>
+        </div>
+        <div class="prod-body">
+          <div class="prod-cat">Lateks Kaplama</div>
+          <h3>6600 Lateks Kaplama Universal 3/4 Kaplı Eldiven</h3>
+          <p>3/4 lateks kaplama, nefes alabilen parmak uçları. Uzun süreli kullanım konforu.</p>
+          <div class="prod-tags"><span class="prod-tag">EN388</span><span class="prod-tag">3/4 Kaplı</span><span class="prod-tag">144 çift/koli</span></div>
         </div>
       </div>
 
       <!-- KESİLMEZ -->
       <div class="prod fade" data-cat="kesilmez">
         <div class="prod-img">
-          <img src="8701-5 PU KESİLMEZ.jpg" alt="8701-5 PU Kesilmez" />
+          <img src="urunler/8701-3 PU KESİLMEZ.jpg" alt="8701-PU-3 Kesilmez" />
         </div>
         <div class="prod-body">
           <div class="prod-cat">Kesilmez</div>
-          <h3>8701-5 PU Kesilmez Eldiven</h3>
-          <p>Seviye 5 kesme direnci, hassas PU kaplama uç. Cam ve metal sanayi için.</p>
-          <div class="prod-tags"><span class="prod-tag">EN388 Seviye 5</span><span class="prod-tag">CE</span></div>
-        </div>
-      </div>
-
-      <div class="prod fade" data-cat="kesilmez">
-        <div class="prod-img">
-          <img src="cansular3_kopya-1280x540.jpeg" alt="Nitril Sandy Kesilmez" />
-        </div>
-        <div class="prod-body">
-          <div class="prod-cat">Kesilmez</div>
-          <h3>Nitril Sandy Kesilmez Eldiven</h3>
-          <p>HPPE fiber taşıyıcı astar, sandy nitril kaplama. Yüksek kesme ve delinme direnci.</p>
-          <div class="prod-tags"><span class="prod-tag">EN388</span><span class="prod-tag">HPPE</span></div>
-        </div>
-      </div>
-
-      <div class="prod fade" data-cat="kesilmez">
-        <div class="prod-img">
-          <img src="C-35 TAM KAPLI.jpg" alt="Nitril Tam Kaplı Kesilmez" />
-        </div>
-        <div class="prod-body">
-          <div class="prod-cat">Kesilmez</div>
-          <h3>Nitril Tam Kaplı Kesilmez Eldiven</h3>
-          <p>Tam nitril kaplama ile maksimum kesilme ve kimyasal koruma kombinasyonu.</p>
-          <div class="prod-tags"><span class="prod-tag">EN388</span><span class="prod-tag">Tam Kaplı</span></div>
-        </div>
-      </div>
-
-      <!-- KAYNAKÇI / ISI -->
-      <div class="prod fade" data-cat="kaynak">
-        <div class="prod-img">
-          <img src="ARGON KAYNAK.JPG" alt="Argon Kaynak" />
-        </div>
-        <div class="prod-body">
-          <div class="prod-cat">Kaynakçı / Isı</div>
-          <h3>Argon TIG Kaynakçı Eldiveni</h3>
-          <p>İnce tam deri, hassas TIG kaynak için. Yüksek dokunsal his ve ısı koruması.</p>
-          <div class="prod-tags"><span class="prod-tag">EN12477</span><span class="prod-tag">TIG</span></div>
-        </div>
-      </div>
-
-      <div class="prod fade" data-cat="kaynak">
-        <div class="prod-img">
-          <img src="MTAJ7276.jpg" alt="Deri Kaynakçı" />
-        </div>
-        <div class="prod-body">
-          <div class="prod-cat">Kaynakçı / Isı</div>
-          <h3>Tam Deri Kaynakçı Eldiveni</h3>
-          <p>Kalın tam deri, yüksek sıcaklık ve sıçramaya karşı tam koruma. MIG/MAG için.</p>
-          <div class="prod-tags"><span class="prod-tag">EN12477</span><span class="prod-tag">MIG/MAG</span></div>
-        </div>
-      </div>
-
-      <div class="prod fade" data-cat="kaynak">
-        <div class="prod-img">
-          <img src="MTAJ7278.jpg" alt="Pro Kaynakçı" />
-        </div>
-        <div class="prod-body">
-          <div class="prod-cat">Kaynakçı / Isı</div>
-          <h3>Pro Kaynakçı Eldiveni</h3>
-          <p>Krom deri kaplama, yün astar. Ağır sanayi kaynakçılar için geliştirilmiştir.</p>
-          <div class="prod-tags"><span class="prod-tag">EN12477</span><span class="prod-tag">EN407</span></div>
-        </div>
-      </div>
-
-      <div class="prod fade" data-cat="kaynak">
-        <div class="prod-img">
-          <img src="deri-is-eldiveni.png" alt="Isı Dayanıklı" />
-        </div>
-        <div class="prod-body">
-          <div class="prod-cat">Kaynakçı / Isı</div>
-          <h3>Isıya Dayanıklı İş Eldiveni</h3>
-          <p>Yüksek sıcaklık ortamları için özel üretim. Fırın, döküm ve metal işleme.</p>
-          <div class="prod-tags"><span class="prod-tag">EN407</span><span class="prod-tag">CE</span></div>
-        </div>
-      </div>
-
-      <!-- PVC KAPLAMA -->
-      <div class="prod fade" data-cat="pvc">
-        <div class="prod-img">
-          <img src="8802-B MAVİ.jpg" alt="PVC Kaplama Mavi" />
-        </div>
-        <div class="prod-body">
-          <div class="prod-cat">PVC Kaplama</div>
-          <h3>PVC Tam Kaplama Eldiven</h3>
-          <p>Su ve kimyasal geçirmez tam kaplama. Tarım, inşaat ve endüstri için.</p>
-          <div class="prod-tags"><span class="prod-tag">EN388</span><span class="prod-tag">Su Geçirmez</span></div>
-        </div>
-      </div>
-
-      <div class="prod fade" data-cat="pvc">
-        <div class="prod-img">
-          <img src="cansular-slider4-1280x540.jpg" alt="PVC Sandy" />
-        </div>
-        <div class="prod-body">
-          <div class="prod-cat">PVC Kaplama</div>
-          <h3>PVC Sandy Kaplama Eldiven</h3>
-          <p>Pürüzlü PVC yüzey ile kuru ve ıslak ortamlarda üstün kavrama. 8 sıra dikim.</p>
-          <div class="prod-tags"><span class="prod-tag">EN388</span><span class="prod-tag">Sandy</span></div>
-        </div>
-      </div>
-
-      <!-- LATEKS KAPLAMA -->
-      <div class="prod fade" data-cat="lateks">
-        <div class="prod-img">
-          <img src="nitril-slider-1280x540.jpg" alt="ML-612 Lateks" />
-        </div>
-        <div class="prod-body">
-          <div class="prod-cat">Lateks Kaplama</div>
-          <h3>ML-612 Lateks Kaplama Eldiven</h3>
-          <p>Yüksek esneklik, üstün kavrama. Genel montaj ve inşaat işleri için idealdir.</p>
-          <div class="prod-tags"><span class="prod-tag">EN388</span><span class="prod-tag">CE</span></div>
-        </div>
-      </div>
-
-      <div class="prod fade" data-cat="lateks">
-        <div class="prod-img">
-          <img src="cansular2-1280x540.jpg" alt="ML-612RL Lateks" />
-        </div>
-        <div class="prod-body">
-          <div class="prod-cat">Lateks Kaplama</div>
-          <h3>ML-612RL Lateks Kaplama Eldiven</h3>
-          <p>Rugoso lateks kaplama, dayanıklı astar. Ağır iş ortamları ve dış mekan için.</p>
-          <div class="prod-tags"><span class="prod-tag">EN388</span><span class="prod-tag">Rugoso</span></div>
-        </div>
-      </div>
-
-      <div class="prod fade" data-cat="lateks">
-        <div class="prod-img contain">
-          <img src="vinil-pudrasiz-180x140.jpg" alt="Lateks Turuncu" />
-        </div>
-        <div class="prod-body">
-          <div class="prod-cat">Lateks Kaplama</div>
-          <h3>Lateks Turuncu Uzun Kollu Eldiven</h3>
-          <p>Uzun manşet, kimyasal ve su geçirmezlik. Tarım ve kimya endüstrisi için.</p>
-          <div class="prod-tags"><span class="prod-tag">EN374</span><span class="prod-tag">Uzun Kollu</span></div>
-        </div>
-      </div>
-
-      <!-- KÖPÜK KAPLAMA -->
-      <div class="prod fade" data-cat="kopuk">
-        <div class="prod-img">
-          <img src="cansular3_kopya-1280x540.jpeg" alt="C-81 Mikro Köpük" />
-        </div>
-        <div class="prod-body">
-          <div class="prod-cat">Köpük Kaplama</div>
-          <h3>C-81 Mikro Köpük Montaj Eldiveni</h3>
-          <p>Mikro köpük nitril kaplama, hassas montaj işleri için nefes alabilen yapı.</p>
-          <div class="prod-tags"><span class="prod-tag">EN388</span><span class="prod-tag">Montaj</span></div>
-        </div>
-      </div>
-
-      <div class="prod fade" data-cat="kopuk">
-        <div class="prod-img">
-          <img src="slider-en-yeni-compressor-1280x540.jpg" alt="9802 Köpük Nitril" />
-        </div>
-        <div class="prod-body">
-          <div class="prod-cat">Köpük Kaplama</div>
-          <h3>9802 Köpük Nitril Eldiven</h3>
-          <p>Siyah köpük nitril kaplama, yüksek tutuş kabiliyeti. Otomasyon ve montaj için.</p>
-          <div class="prod-tags"><span class="prod-tag">EN388</span><span class="prod-tag">CE</span></div>
-        </div>
-      </div>
-
-      <div class="prod fade" data-cat="kopuk">
-        <div class="prod-img">
-          <img src="cansular-slider4-1280x540.jpg" alt="6141 ML" />
-        </div>
-        <div class="prod-body">
-          <div class="prod-cat">Köpük Kaplama</div>
-          <h3>6141 ML Köpük Kaplama Eldiven</h3>
-          <p>Özel formül mikro köpük kaplama, ince ve hassas dokunuş. Elektronik montaj için.</p>
-          <div class="prod-tags"><span class="prod-tag">EN388</span><span class="prod-tag">Hassas</span></div>
-        </div>
-      </div>
-
-      <!-- DERİ ELDİVEN -->
-      <div class="prod fade" data-cat="deri">
-        <div class="prod-img contain">
-          <img src="deri-is-eldiveni.png" alt="Deri İş Eldiveni" />
-        </div>
-        <div class="prod-body">
-          <div class="prod-cat">Deri Eldiven</div>
-          <h3>Sırt Deri İş Eldiveni</h3>
-          <p>Deri avuç, bez sırt. Dayanıklı ve ekonomik genel amaçlı iş eldiveni.</p>
-          <div class="prod-tags"><span class="prod-tag">EN388</span><span class="prod-tag">CE</span></div>
-        </div>
-      </div>
-
-      <div class="prod fade" data-cat="deri">
-        <div class="prod-img">
-          <img src="MTAJ7276.jpg" alt="Tam Deri" />
-        </div>
-        <div class="prod-body">
-          <div class="prod-cat">Deri Eldiven</div>
-          <h3>Tam Deri Uzun Kollu Eldiven</h3>
-          <p>Kalın tam deri, bilek ve ön kol koruması. Ağır mekanik işler için.</p>
-          <div class="prod-tags"><span class="prod-tag">EN388</span><span class="prod-tag">Uzun Kollu</span></div>
-        </div>
-      </div>
-
-      <!-- TEK KULLANIMLIK -->
-      <div class="prod fade" data-cat="tek">
-        <div class="prod-img contain">
-          <img src="vinil-pudrasiz-180x140.jpg" alt="Vinil Pudrasız" />
-        </div>
-        <div class="prod-body">
-          <div class="prod-cat">Tek Kullanımlık</div>
-          <h3>Universal Vinil Muayene Eldiveni</h3>
-          <p>Pudrasız, lateks içermez. Gıda, temizlik ve tıbbi uygulamalar için.</p>
-          <div class="prod-tags"><span class="prod-tag">EN455</span><span class="prod-tag">Pudrasız</span></div>
-        </div>
-      </div>
-
-      <div class="prod fade" data-cat="tek">
-        <div class="prod-img contain">
-          <img src="vinil-pudrasiz-180x140.jpg" alt="Nitril Muayene" />
-        </div>
-        <div class="prod-body">
-          <div class="prod-cat">Tek Kullanımlık</div>
-          <h3>Universal Nitril Muayene Eldiveni</h3>
-          <p>Pudrasız nitril, kimyasal dirençli. Laboratuvar ve sağlık sektörü için.</p>
-          <div class="prod-tags"><span class="prod-tag">EN455</span><span class="prod-tag">Pudrasız</span></div>
-        </div>
-      </div>
-
-      <div class="prod fade" data-cat="tek">
-        <div class="prod-img contain">
-          <img src="vinil-pudrasiz-180x140.jpg" alt="Latex Muayene" />
-        </div>
-        <div class="prod-body">
-          <div class="prod-cat">Tek Kullanımlık</div>
-          <h3>Universal Latex Muayene Eldiveni</h3>
-          <p>Yüksek elastikiyet, tam kavrama. Medikal ve laboratuvar kullanımı için.</p>
-          <div class="prod-tags"><span class="prod-tag">EN455</span><span class="prod-tag">CE</span></div>
-        </div>
-      </div>
-
-      <div class="prod fade" data-cat="tek">
-        <div class="prod-img">
-          <img src="cansular2-1280x540.jpg" alt="Nitril Yeşil" />
-        </div>
-        <div class="prod-body">
-          <div class="prod-cat">Tek Kullanımlık</div>
-          <h3>Nitril Yeşil Muayene Eldiveni</h3>
-          <p>Uzun manşetli yeşil nitril. Kimyasal ve biyolojik koruma gerektiren işler için.</p>
-          <div class="prod-tags"><span class="prod-tag">EN374</span><span class="prod-tag">Kimyasal</span></div>
+          <h3>8701-PU-3 Kesilmez Universal Eldiven</h3>
+          <p>HPPE fiber astar, PU kaplama. EN388 Seviye 3 kesme direnci, hassas montaj işleri için.</p>
+          <div class="prod-tags"><span class="prod-tag">EN388</span><span class="prod-tag">Seviye 3</span><span class="prod-tag">CE</span></div>
         </div>
       </div>
 
