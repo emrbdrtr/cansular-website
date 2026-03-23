@@ -7,21 +7,73 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', sans-serif; background: #f5f7fa; display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 2rem; }
-    .card { background: #fff; border-radius: 16px; padding: 3rem 2.5rem; text-align: center; max-width: 480px; width: 100%; box-shadow: 0 8px 32px rgba(0,0,0,.08); }
-    .icon { font-size: 3.5rem; margin-bottom: 1.2rem; }
-    h1 { font-size: 1.6rem; font-weight: 800; color: #0d1f3c; margin-bottom: .7rem; }
-    p  { color: #64748b; font-size: .95rem; line-height: 1.7; margin-bottom: 1.8rem; }
-    a  { display: inline-block; background: #4a9e6b; color: #fff; padding: .8rem 2rem; border-radius: 8px; font-weight: 700; font-size: .9rem; text-decoration: none; transition: background .2s; }
-    a:hover { background: #3a8a5a; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f5f7fa;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .logo-wrap {
+      background: #fff;
+      padding: 10px 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.08);
+      margin-bottom: 2rem;
+    }
+    .logo-wrap img { height: 48px; width: auto; display: block; }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 2.8rem 2.5rem;
+      text-align: center;
+      max-width: 460px;
+      width: 100%;
+      box-shadow: 0 8px 32px rgba(0,0,0,.08);
+    }
+    .check-circle {
+      width: 64px; height: 64px;
+      background: #4a9e6b;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.4rem;
+    }
+    .check-circle svg { width: 32px; height: 32px; color: #fff; }
+    h1 { font-size: 1.5rem; font-weight: 800; color: #0d1f3c; margin-bottom: .6rem; }
+    p  { color: #64748b; font-size: .93rem; line-height: 1.7; margin-bottom: 1.8rem; }
+    .btns { display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap; }
+    a.btn {
+      display: inline-block;
+      padding: .75rem 1.6rem;
+      border-radius: 8px;
+      font-weight: 700; font-size: .88rem;
+      text-decoration: none; transition: .2s;
+    }
+    .btn-green { background: #4a9e6b; color: #fff; }
+    .btn-green:hover { background: #3a8a5a; }
+    .btn-outline { border: 1.5px solid #e2e8f0; color: #0d1f3c; }
+    .btn-outline:hover { border-color: #4a9e6b; color: #4a9e6b; }
   </style>
 </head>
 <body>
+  <div class="logo-wrap">
+    <img src="logolatest.jpg" alt="Cansular Logo" />
+  </div>
   <div class="card">
-    <div class="icon">✅</div>
+    <div class="check-circle">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 13l4 4L19 7"/>
+      </svg>
+    </div>
     <h1>Mesajınız İletildi!</h1>
     <p>En kısa sürede size dönüş yapacağız. Acil talepler için <strong>(0212) 514 08 44</strong> numaralı hattımızı veya WhatsApp'ı kullanabilirsiniz.</p>
-    <a href="/">Ana Sayfaya Dön</a>
+    <div class="btns">
+      <a href="/" class="btn btn-green">Ana Sayfaya Dön</a>
+      <a href="https://wa.me/905324153124" target="_blank" class="btn btn-outline">WhatsApp</a>
+    </div>
   </div>
 </body>
 </html>
