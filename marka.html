@@ -131,11 +131,24 @@
     .step-content h4 { font-size: .88rem; font-weight: 700; margin-bottom: .2rem; }
     .step-content p { font-size: .82rem; color: var(--gray); line-height: 1.6; }
 
+    /* ── BELGELER GALERİSİ ── */
+    .belgeler-section { background: #fff; border-radius: 20px; padding: 2.5rem; box-shadow: 0 4px 24px rgba(0,0,0,.06); margin-bottom: 2rem; }
+    .belgeler-section h2 { font-size: 1.1rem; font-weight: 800; margin-bottom: .4rem; }
+    .belgeler-section > p { font-size: .85rem; color: var(--gray); margin-bottom: 1.8rem; }
+    .belgeler-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+    .belge-item { border-radius: 12px; overflow: hidden; border: 1px solid var(--border); transition: transform .2s, box-shadow .2s; }
+    .belge-item:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.1); }
+    .belge-item a { display: block; }
+    .belge-item img { width: 100%; height: 200px; object-fit: cover; object-position: top; display: block; }
+    .belge-item-label { padding: .6rem .8rem; font-size: .75rem; font-weight: 700; color: var(--navy); background: #f8f9fb; border-top: 1px solid var(--border); }
+    .belge-item-label span { display: block; font-size: .68rem; font-weight: 500; color: var(--gray); margin-top: .1rem; }
     @media(max-width:680px) {
       .brands-grid { grid-template-columns: 1fr; }
       .intro-card { flex-direction: column; }
       .brand-card-hero { min-height: 120px; }
+      .belgeler-grid { grid-template-columns: repeat(2, 1fr); }
     }
+    @media(max-width:480px) { .belgeler-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -206,7 +219,7 @@
           </div>
           <div class="brand-meta-row">
             <span class="brand-meta-label">Tescil No</span>
-            <span class="brand-meta-value">— (Güncellenecek)</span>
+            <span class="brand-meta-value">Bkz. Tescil Belgeleri</span>
           </div>
         </div>
         <span class="brand-tag">Nitril · Lateks · Montaj Eldivenleri</span>
@@ -236,7 +249,7 @@
           </div>
           <div class="brand-meta-row">
             <span class="brand-meta-label">Tescil No</span>
-            <span class="brand-meta-value">— (Güncellenecek)</span>
+            <span class="brand-meta-value">Bkz. Tescil Belgeleri</span>
           </div>
         </div>
         <span class="brand-tag">PU Kaplama · Hassas Montaj</span>
@@ -266,7 +279,7 @@
           </div>
           <div class="brand-meta-row">
             <span class="brand-meta-label">Tescil No</span>
-            <span class="brand-meta-value">— (Güncellenecek)</span>
+            <span class="brand-meta-value">Bkz. Tescil Belgeleri</span>
           </div>
         </div>
         <span class="brand-tag">Nitril Kaplama · Geniş Model Yelpazesi</span>
@@ -296,7 +309,7 @@
           </div>
           <div class="brand-meta-row">
             <span class="brand-meta-label">Tescil No</span>
-            <span class="brand-meta-value">— (Güncellenecek)</span>
+            <span class="brand-meta-value">Bkz. Tescil Belgeleri</span>
           </div>
         </div>
         <span class="brand-tag">Lateks Kaplama · İnşaat · Tarım</span>
@@ -343,6 +356,50 @@
           <h4>Uluslararası Koruma</h4>
           <p>Cansular markalarının uluslararası pazarlardaki korunması için Madrid Protokolü kapsamında başvuru süreçleri değerlendirilmektedir.</p>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TESCIL BELGELERİ -->
+  <div class="belgeler-section">
+    <h2>Tescil Belgeleri</h2>
+    <p>Türk Patent ve Marka Kurumu tarafından düzenlenmiş orijinal tescil ve yenileme belgelerimiz.</p>
+    <div class="belgeler-grid">
+      <div class="belge-item">
+        <a href="belgeler/24.jpeg" target="_blank">
+          <img src="belgeler/24.jpeg" alt="Universal Marka Yenileme Belgesi" />
+        </a>
+        <div class="belge-item-label">Universal<span>Marka Yenileme — No: 2002 12083</span></div>
+      </div>
+      <div class="belge-item">
+        <a href="belgeler/25.jpeg" target="_blank">
+          <img src="belgeler/25.jpeg" alt="Techno Universal Marka Tescil Belgesi" />
+        </a>
+        <div class="belge-item-label">Techno Universal<span>Marka Tescil — No: 2010 30208</span></div>
+      </div>
+      <div class="belge-item">
+        <a href="belgeler/26.jpeg" target="_blank">
+          <img src="belgeler/26.jpeg" alt="Cansu Marka Yenileme Belgesi" />
+        </a>
+        <div class="belge-item-label">Cansu<span>Marka Yenileme — No: 2003 14665</span></div>
+      </div>
+      <div class="belge-item">
+        <a href="belgeler/teekno---.jpg" target="_blank">
+          <img src="belgeler/teekno---.jpg" alt="Universal Techno Marka Tescil Belgesi" />
+        </a>
+        <div class="belge-item-label">Universal Techno<span>Marka Tescil — No: 2014 48971</span></div>
+      </div>
+      <div class="belge-item">
+        <a href="belgeler/universal-tecno.jpg" target="_blank">
+          <img src="belgeler/universal-tecno.jpg" alt="Universal LPKY Marka Tescil Belgesi" />
+        </a>
+        <div class="belge-item-label">Universal LPKY<span>Marka Tescil — No: 2015 93630</span></div>
+      </div>
+      <div class="belge-item">
+        <a href="belgeler/tecno--lkpy.jpg" target="_blank">
+          <img src="belgeler/tecno--lkpy.jpg" alt="Universal Techno LPKY Marka Tescil Belgesi" />
+        </a>
+        <div class="belge-item-label">Universal Techno LPKY<span>Marka Tescil — No: 2015 93633</span></div>
       </div>
     </div>
   </div>
