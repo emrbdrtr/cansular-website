@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tescilli Markalarımız | Cansular</title>
+  <meta name="description" content="Cansular A.Ş. bünyesindeki Türk Patent ve Marka Kurumu tescilli markalar: Universal, Techno, C-Serisi ve ML Serisi." />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D9W53EMX2H"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date()); gtag('config', 'G-D9W53EMX2H');
+  </script>
+  <link rel="icon" type="image/png" href="favicon_v2.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root { --navy: #0d1f3c; --green: #4a9e6b; --green2: #3a8a5a; --border: #e2e8f0; --gray: #64748b; --light: #f5f7fa; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--light); color: var(--navy); }
+    a { text-decoration: none; color: inherit; }
+
+    nav {
+      background: var(--navy); padding: 0 2rem; height: 68px;
+      display: flex; align-items: center; gap: 1.5rem;
+      position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 16px rgba(0,0,0,.18);
+    }
+    .nav-back { color: rgba(255,255,255,.7); font-size: .85rem; font-weight: 600; display: flex; align-items: center; gap: .4rem; transition: color .2s; }
+    .nav-back:hover { color: #fff; }
+    .nav-logo-wrap { background: #fff; padding: 5px 12px; border-radius: 8px; display: flex; align-items: center; }
+    .nav-logo-wrap img { height: 36px; width: auto; display: block; }
+    .nav-divider { width: 1px; height: 28px; background: rgba(255,255,255,.15); }
+
+    /* Hero */
+    .page-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #1a3570 100%);
+      padding: 4.5rem 2rem 3.5rem; text-align: center;
+    }
+    .page-hero .tag {
+      display: inline-block; background: rgba(74,158,107,.18); border: 1px solid rgba(74,158,107,.35);
+      color: #6fcf97; font-size: .72rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: .3rem .9rem; border-radius: 100px; margin-bottom: 1rem;
+    }
+    .page-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; color: #fff; margin-bottom: .8rem; }
+    .page-hero p { color: rgba(255,255,255,.6); font-size: .95rem; max-width: 540px; margin: 0 auto; line-height: 1.7; }
+
+    main { max-width: 1050px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+
+    /* Intro card */
+    .intro-card {
+      background: #fff; border-radius: 16px; padding: 2rem 2.5rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,.06); margin-bottom: 2.5rem;
+      display: flex; gap: 1.5rem; align-items: flex-start;
+    }
+    .intro-icon {
+      width: 52px; height: 52px; background: rgba(74,158,107,.1);
+      border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .intro-icon svg { width: 26px; height: 26px; color: var(--green); }
+    .intro-text h2 { font-size: 1rem; font-weight: 700; margin-bottom: .4rem; }
+    .intro-text p { font-size: .88rem; color: var(--gray); line-height: 1.75; }
+
+    /* Brand cards */
+    .brands-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 2.5rem; }
+
+    .brand-card {
+      background: #fff; border-radius: 20px; overflow: hidden;
+      border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,.05);
+    }
+    .brand-card-hero {
+      padding: 2.5rem; display: flex; align-items: center; justify-content: center;
+      min-height: 160px;
+    }
+    .brand-card-hero.navy { background: var(--navy); }
+    .brand-card-hero.dark { background: #111; }
+    .brand-card-hero.green { background: linear-gradient(135deg, #2d7a4f, var(--green)); }
+    .brand-card-hero.blue { background: linear-gradient(135deg, #1a3570, #2a52a0); }
+    .brand-card-hero img { max-height: 70px; width: auto; object-fit: contain; }
+    .brand-card-hero-text {
+      font-size: 2.2rem; font-weight: 900; color: #fff; letter-spacing: -.02em;
+    }
+    .brand-card-body { padding: 1.6rem 1.8rem; }
+    .brand-card-body h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: .5rem; }
+    .brand-card-body p { font-size: .85rem; color: var(--gray); line-height: 1.75; margin-bottom: 1rem; }
+    .brand-meta { display: flex; flex-direction: column; gap: .35rem; }
+    .brand-meta-row { display: flex; gap: .6rem; align-items: center; }
+    .brand-meta-label { font-size: .7rem; font-weight: 700; color: var(--gray); text-transform: uppercase; letter-spacing: .06em; min-width: 90px; }
+    .brand-meta-value { font-size: .82rem; color: var(--navy); font-weight: 600; }
+    .brand-tag {
+      display: inline-block; background: rgba(74,158,107,.1); color: var(--green);
+      font-size: .68rem; font-weight: 700; padding: .18rem .6rem;
+      border-radius: 20px; margin-top: .5rem;
+    }
+
+    /* Warning box */
+    .warning-card {
+      background: #fff5f5; border: 1.5px solid #fca5a5; border-radius: 16px;
+      padding: 1.8rem 2rem; margin-bottom: 2rem;
+      display: flex; gap: 1.2rem; align-items: flex-start;
+    }
+    .warning-icon { font-size: 1.8rem; flex-shrink: 0; }
+    .warning-text h3 { font-size: .95rem; font-weight: 700; color: #991b1b; margin-bottom: .4rem; }
+    .warning-text p { font-size: .85rem; color: #7f1d1d; line-height: 1.7; }
+
+    /* CTA */
+    .cta-strip {
+      background: var(--navy); border-radius: 20px; padding: 2.5rem;
+      text-align: center; color: #fff;
+    }
+    .cta-strip h2 { font-size: 1.3rem; font-weight: 800; margin-bottom: .6rem; }
+    .cta-strip p { color: rgba(255,255,255,.6); font-size: .9rem; margin-bottom: 1.5rem; }
+    .cta-btns { display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap; }
+    .btn-green { background: var(--green); color: #fff; padding: .75rem 1.7rem; border-radius: 10px; font-weight: 700; font-size: .88rem; transition: background .2s; }
+    .btn-green:hover { background: var(--green2); }
+    .btn-outline-white { border: 1.5px solid rgba(255,255,255,.3); color: #fff; padding: .75rem 1.7rem; border-radius: 10px; font-weight: 700; font-size: .88rem; transition: border-color .2s; }
+    .btn-outline-white:hover { border-color: rgba(255,255,255,.7); }
+
+    /* Tescil süreci */
+    .process-section { background: #fff; border-radius: 20px; padding: 2.5rem; box-shadow: 0 4px 24px rgba(0,0,0,.06); margin-bottom: 2rem; }
+    .process-section h2 { font-size: 1.1rem; font-weight: 800; margin-bottom: 1.5rem; }
+    .process-steps { display: flex; flex-direction: column; gap: 1rem; }
+    .process-step { display: flex; gap: 1rem; align-items: flex-start; }
+    .step-num {
+      width: 32px; height: 32px; background: var(--green); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .78rem; font-weight: 800; color: #fff; flex-shrink: 0;
+    }
+    .step-content h4 { font-size: .88rem; font-weight: 700; margin-bottom: .2rem; }
+    .step-content p { font-size: .82rem; color: var(--gray); line-height: 1.6; }
+
+    @media(max-width:680px) {
+      .brands-grid { grid-template-columns: 1fr; }
+      .intro-card { flex-direction: column; }
+      .brand-card-hero { min-height: 120px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    Ana Sayfaya Dön
+  </a>
+  <div class="nav-divider"></div>
+  <a href="/" class="nav-logo-wrap">
+    <img src="logolatest.jpg" alt="Cansular Logo" />
+  </a>
+</nav>
+
+<div class="page-hero">
+  <span class="tag">Türk Patent ve Marka Kurumu</span>
+  <h1>Tescilli Markalarımız</h1>
+  <p>
+    Cansular Hırdavat Sanayi ve Ticaret A.Ş. bünyesinde geliştirilen tüm markalar,
+    Türk Patent ve Marka Kurumu (TÜRKPATENT) nezdinde tescil edilmiştir.
+  </p>
+</div>
+
+<main>
+
+  <!-- Intro -->
+  <div class="intro-card">
+    <div class="intro-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </svg>
+    </div>
+    <div class="intro-text">
+      <h2>Marka Tescilinin Önemi</h2>
+      <p>
+        Tescilli marka, şirketin ticari kimliğinin ve ürün kalitesinin yasal güvencesidir.
+        Cansular A.Ş., sahip olduğu markaları TÜRKPATENT nezdinde tescil ettirerek
+        taklit ve haksız rekabete karşı hukuki koruma altına almıştır. Piyasada
+        markalarımızı taklit eden ürünlere karşı hukuki yollara başvurulmaktadır.
+      </p>
+    </div>
+  </div>
+
+  <!-- Markalar -->
+  <div class="brands-grid">
+
+    <!-- Universal -->
+    <div class="brand-card">
+      <div class="brand-card-hero dark">
+        <img src="universal.jpg" alt="Universal Marka Logosu" />
+      </div>
+      <div class="brand-card-body">
+        <h3>Universal</h3>
+        <p>
+          Cansular'ın amiral marka serisi. Nitril kaplama, lateks kaplama ve montaj eldivenleri
+          başta olmak üzere geniş ürün yelpazesini kapsamaktadır. Yurt içi ve yurt dışı pazarda
+          tanınan bir marka kimliğine sahiptir.
+        </p>
+        <div class="brand-meta">
+          <div class="brand-meta-row">
+            <span class="brand-meta-label">Tescil Kurumu</span>
+            <span class="brand-meta-value">TÜRKPATENT</span>
+          </div>
+          <div class="brand-meta-row">
+            <span class="brand-meta-label">Sınıf</span>
+            <span class="brand-meta-value">Nice Sınıflandırması — Sınıf 25</span>
+          </div>
+          <div class="brand-meta-row">
+            <span class="brand-meta-label">Tescil No</span>
+            <span class="brand-meta-value">— (Güncellenecek)</span>
+          </div>
+        </div>
+        <span class="brand-tag">Nitril · Lateks · Montaj Eldivenleri</span>
+      </div>
+    </div>
+
+    <!-- Techno -->
+    <div class="brand-card">
+      <div class="brand-card-hero navy">
+        <span class="brand-card-hero-text">Techno</span>
+      </div>
+      <div class="brand-card-body">
+        <h3>Techno</h3>
+        <p>
+          Hassas işçilik gerektiren sektörler için tasarlanmış PU kaplama eldiven serisi.
+          Elektronik montaj, otomotiv ve ince mekanik işler için tercih edilen
+          yüksek performanslı üst segment marka.
+        </p>
+        <div class="brand-meta">
+          <div class="brand-meta-row">
+            <span class="brand-meta-label">Tescil Kurumu</span>
+            <span class="brand-meta-value">TÜRKPATENT</span>
+          </div>
+          <div class="brand-meta-row">
+            <span class="brand-meta-label">Sınıf</span>
+            <span class="brand-meta-value">Nice Sınıflandırması — Sınıf 25</span>
+          </div>
+          <div class="brand-meta-row">
+            <span class="brand-meta-label">Tescil No</span>
+            <span class="brand-meta-value">— (Güncellenecek)</span>
+          </div>
+        </div>
+        <span class="brand-tag">PU Kaplama · Hassas Montaj</span>
+      </div>
+    </div>
+
+    <!-- C-Serisi -->
+    <div class="brand-card">
+      <div class="brand-card-hero green">
+        <span class="brand-card-hero-text">C-Serisi</span>
+      </div>
+      <div class="brand-card-body">
+        <h3>C-Serisi</h3>
+        <p>
+          C-15, C-20, C-25, C-40, C-55, C-75 ve C-432 modellerini kapsayan geniş
+          nitril eldiven ailesi. Her model farklı sektörel ihtiyaçlara göre geliştirilmiş
+          olup CE sertifikalıdır.
+        </p>
+        <div class="brand-meta">
+          <div class="brand-meta-row">
+            <span class="brand-meta-label">Tescil Kurumu</span>
+            <span class="brand-meta-value">TÜRKPATENT</span>
+          </div>
+          <div class="brand-meta-row">
+            <span class="brand-meta-label">Sınıf</span>
+            <span class="brand-meta-value">Nice Sınıflandırması — Sınıf 25</span>
+          </div>
+          <div class="brand-meta-row">
+            <span class="brand-meta-label">Tescil No</span>
+            <span class="brand-meta-value">— (Güncellenecek)</span>
+          </div>
+        </div>
+        <span class="brand-tag">Nitril Kaplama · Geniş Model Yelpazesi</span>
+      </div>
+    </div>
+
+    <!-- ML Serisi -->
+    <div class="brand-card">
+      <div class="brand-card-hero blue">
+        <span class="brand-card-hero-text">ML</span>
+      </div>
+      <div class="brand-card-body">
+        <h3>ML Serisi</h3>
+        <p>
+          Lateks kaplama iş eldivenleri serisini kapsayan ML markası,
+          inşaat, tarım ve genel sanayi sektörlerine yönelik üretilmiştir.
+          Kirçilli ve düz kaplama seçenekleri mevcuttur.
+        </p>
+        <div class="brand-meta">
+          <div class="brand-meta-row">
+            <span class="brand-meta-label">Tescil Kurumu</span>
+            <span class="brand-meta-value">TÜRKPATENT</span>
+          </div>
+          <div class="brand-meta-row">
+            <span class="brand-meta-label">Sınıf</span>
+            <span class="brand-meta-value">Nice Sınıflandırması — Sınıf 25</span>
+          </div>
+          <div class="brand-meta-row">
+            <span class="brand-meta-label">Tescil No</span>
+            <span class="brand-meta-value">— (Güncellenecek)</span>
+          </div>
+        </div>
+        <span class="brand-tag">Lateks Kaplama · İnşaat · Tarım</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Uyarı -->
+  <div class="warning-card">
+    <span class="warning-icon">⚠️</span>
+    <div class="warning-text">
+      <h3>Sahte Ürünlere Karşı Dikkatli Olun</h3>
+      <p>
+        Yukarıdaki markalarımızı izinsiz kullanan, taklit eden veya markalarımıza
+        benzer ürün adı kullanan kişi ve firmalar hakkında hukuki süreç başlatılmaktadır.
+        Ürün orijinalliği konusunda şüpheniz varsa <strong>info@cansular.com</strong> adresinden
+        veya <strong>(0212) 514 08 44</strong> numarasından bizimle iletişime geçin.
+      </p>
+    </div>
+  </div>
+
+  <!-- Tescil süreci -->
+  <div class="process-section">
+    <h2>Türk Patent ve Marka Kurumu Hakkında</h2>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>TÜRKPATENT Nedir?</h4>
+          <p>Türk Patent ve Marka Kurumu (TÜRKPATENT), Türkiye'de sınai mülkiyet haklarının tescili ve korunmasından sorumlu resmi devlet kurumudur.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>Marka Tescilinin Hukuki Etkisi</h4>
+          <p>Tescilli bir marka sahibine, tescil kapsamındaki mal ve hizmetler için 10 yıl boyunca münhasır kullanım hakkı tanır. Bu süre yenilenebilir.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>Uluslararası Koruma</h4>
+          <p>Cansular markalarının uluslararası pazarlardaki korunması için Madrid Protokolü kapsamında başvuru süreçleri değerlendirilmektedir.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-strip">
+    <h2>Orijinal Ürün Güvencesi</h2>
+    <p>Tüm ürünlerimiz tescilli markalarımız altında, CE sertifikalı olarak üretilmektedir.</p>
+    <div class="cta-btns">
+      <a href="/#urunler" class="btn-green">Ürünleri Gör</a>
+      <a href="katalog.pdf" target="_blank" class="btn-outline-white">PDF Katalog</a>
+      <a href="/#iletisim" class="btn-outline-white">İletişim</a>
+    </div>
+  </div>
+
+</main>
+
+</body>
+</html>

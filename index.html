@@ -312,6 +312,74 @@
     .fgroup input:focus, .fgroup textarea:focus, .fgroup select:focus { border-color:var(--green); background:#fff; }
     .fgroup textarea { resize:vertical; min-height:105px; }
 
+    /* ── IBAN / ÖDEME ── */
+    .odeme-section { background: var(--light); padding: 4rem 2rem; }
+    .odeme-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem;
+      max-width: 960px; margin: 2.5rem auto 0;
+    }
+    .bank-card {
+      background: #fff; border-radius: 14px; padding: 1.6rem 1.8rem;
+      border: 1px solid var(--border); box-shadow: 0 4px 16px rgba(0,0,0,.05);
+    }
+    .bank-card-header {
+      display: flex; align-items: center; gap: .75rem; margin-bottom: 1.2rem;
+    }
+    .bank-logo {
+      width: 44px; height: 44px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; font-weight: 900; color: #fff; flex-shrink: 0;
+    }
+    .bank-logo.garanti { background: #00863f; }
+    .bank-logo.akbank  { background: #e4002b; }
+    .bank-logo.kuveyt  { background: #00538e; }
+    .bank-card-header h4 { font-size: .92rem; font-weight: 700; color: var(--navy); }
+    .bank-card-header span { font-size: .75rem; color: var(--gray); }
+    .bank-row { display: flex; flex-direction: column; gap: .25rem; margin-bottom: .9rem; }
+    .bank-row:last-child { margin-bottom: 0; }
+    .bank-label { font-size: .7rem; font-weight: 700; color: var(--gray2); text-transform: uppercase; letter-spacing: .06em; }
+    .bank-value { font-size: .87rem; font-weight: 600; color: var(--navy); font-variant-numeric: tabular-nums; }
+    .bank-value.iban { font-size: .78rem; letter-spacing: .04em; color: var(--navy); }
+    .bank-copy {
+      margin-top: 1rem; width: 100%;
+      background: rgba(74,158,107,.08); border: 1px solid rgba(74,158,107,.2);
+      color: var(--green); font-size: .78rem; font-weight: 700;
+      padding: .5rem; border-radius: 8px; cursor: pointer; transition: background .2s;
+    }
+    .bank-copy:hover { background: rgba(74,158,107,.15); }
+    .odeme-note {
+      text-align: center; margin-top: 1.8rem;
+      font-size: .82rem; color: var(--gray);
+      max-width: 600px; margin-left: auto; margin-right: auto;
+    }
+    .odeme-note strong { color: var(--navy); }
+    @media(max-width:760px) { .odeme-grid { grid-template-columns:1fr; } }
+
+    /* ── COOKIE BANNER ── */
+    .cookie-banner {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
+      background: var(--navy); color: rgba(255,255,255,.85);
+      padding: 1.1rem 2rem; display: flex; align-items: center;
+      justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;
+      border-top: 1px solid rgba(255,255,255,.1);
+      box-shadow: 0 -4px 24px rgba(0,0,0,.2);
+    }
+    .cookie-banner p { font-size: .82rem; line-height: 1.6; flex: 1; min-width: 200px; }
+    .cookie-banner a { color: var(--green); text-decoration: underline; }
+    .cookie-btns { display: flex; gap: .7rem; flex-shrink: 0; }
+    .cookie-accept {
+      background: var(--green); color: #fff;
+      border: none; padding: .55rem 1.4rem; border-radius: 7px;
+      font-size: .82rem; font-weight: 700; cursor: pointer; transition: background .2s;
+    }
+    .cookie-accept:hover { background: var(--green2); }
+    .cookie-reject {
+      background: transparent; color: rgba(255,255,255,.6);
+      border: 1px solid rgba(255,255,255,.2); padding: .55rem 1.2rem; border-radius: 7px;
+      font-size: .82rem; font-weight: 600; cursor: pointer; transition: all .2s;
+    }
+    .cookie-reject:hover { border-color: rgba(255,255,255,.5); color: #fff; }
+
     /* ── FOOTER ── */
     footer { background:var(--navy); color:rgba(255,255,255,.55); padding:3.5rem 2rem 1.5rem; }
     .footer-grid {
@@ -388,6 +456,7 @@
       <li><a href="#urunler">Ürünler</a></li>
       <li><a href="#hakkimizda">Hakkımızda</a></li>
       <li><a href="#sertifikalar">Sertifikalar</a></li>
+      <li><a href="/blog.html">Blog</a></li>
       <li><a href="#iletisim">İletişim</a></li>
       <li><a href="katalog.pdf" target="_blank" class="nav-cta">Katalog</a></li>
     </ul>
@@ -398,6 +467,7 @@
   <a href="#urunler"     onclick="toggleNav()">Ürünler</a>
   <a href="#hakkimizda" onclick="toggleNav()">Hakkımızda</a>
   <a href="#sertifikalar" onclick="toggleNav()">Sertifikalar</a>
+  <a href="/blog.html"  onclick="toggleNav()">Blog</a>
   <a href="#iletisim"   onclick="toggleNav()">İletişim</a>
   <a href="katalog.pdf" target="_blank" onclick="toggleNav()" style="color:var(--green);font-weight:700;">Katalog İndir</a>
 </div>
@@ -924,6 +994,74 @@
   </div>
 </section>
 
+<!-- ÖDEME BİLGİLERİ -->
+<section class="odeme-section" id="odeme">
+  <div class="container">
+    <div class="sec-header fade">
+      <span class="sec-tag">Ödeme</span>
+      <h2>Banka Hesap Bilgileri</h2>
+      <p>EFT / Havale ile ödeme yapabilirsiniz. Açıklama kısmına firma adı ve sipariş numarasını yazmayı unutmayın.</p>
+    </div>
+    <div class="odeme-grid">
+
+      <!-- Garanti -->
+      <div class="bank-card fade">
+        <div class="bank-card-header">
+          <div class="bank-logo garanti">G</div>
+          <div><h4>Garanti BBVA</h4><span>Türk Lirası Hesabı</span></div>
+        </div>
+        <div class="bank-row">
+          <span class="bank-label">Hesap Sahibi</span>
+          <span class="bank-value">Cansular Hırdavat San. ve Tic. A.Ş.</span>
+        </div>
+        <div class="bank-row">
+          <span class="bank-label">IBAN</span>
+          <span class="bank-value iban" id="iban-garanti">TR00 0006 2000 0000 0000 0000 00</span>
+        </div>
+        <button class="bank-copy" onclick="copyIban('iban-garanti', this)">IBAN'ı Kopyala</button>
+      </div>
+
+      <!-- Akbank -->
+      <div class="bank-card fade">
+        <div class="bank-card-header">
+          <div class="bank-logo akbank">A</div>
+          <div><h4>Akbank</h4><span>Türk Lirası Hesabı</span></div>
+        </div>
+        <div class="bank-row">
+          <span class="bank-label">Hesap Sahibi</span>
+          <span class="bank-value">Cansular Hırdavat San. ve Tic. A.Ş.</span>
+        </div>
+        <div class="bank-row">
+          <span class="bank-label">IBAN</span>
+          <span class="bank-value iban" id="iban-akbank">TR00 0004 6000 0000 0000 0000 00</span>
+        </div>
+        <button class="bank-copy" onclick="copyIban('iban-akbank', this)">IBAN'ı Kopyala</button>
+      </div>
+
+      <!-- Kuveyt Türk -->
+      <div class="bank-card fade">
+        <div class="bank-card-header">
+          <div class="bank-logo kuveyt">KT</div>
+          <div><h4>Kuveyt Türk</h4><span>Türk Lirası Hesabı</span></div>
+        </div>
+        <div class="bank-row">
+          <span class="bank-label">Hesap Sahibi</span>
+          <span class="bank-value">Cansular Hırdavat San. ve Tic. A.Ş.</span>
+        </div>
+        <div class="bank-row">
+          <span class="bank-label">IBAN</span>
+          <span class="bank-value iban" id="iban-kuveyt">TR00 0020 5000 0000 0000 0000 00</span>
+        </div>
+        <button class="bank-copy" onclick="copyIban('iban-kuveyt', this)">IBAN'ı Kopyala</button>
+      </div>
+
+    </div>
+    <p class="odeme-note">
+      <strong>Not:</strong> Ödeme sonrası dekontu <a href="mailto:info@cansular.com">info@cansular.com</a> adresine veya WhatsApp'a iletmenizi rica ederiz.
+    </p>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-grid">
@@ -958,9 +1096,11 @@
       <ul class="footer-links">
         <li><a href="#hakkimizda">Hakkımızda</a></li>
         <li><a href="#sertifikalar">Sertifikalar</a></li>
+        <li><a href="/marka.html">Tescilli Markalar</a></li>
+        <li><a href="/blog.html">Blog</a></li>
         <li><a href="katalog.pdf" target="_blank">PDF Katalog</a></li>
         <li><a href="#iletisim">İletişim</a></li>
-        <li><a href="#">KVKK</a></li>
+        <li><a href="/kvkk.html">KVKK</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -979,6 +1119,19 @@
   </div>
 </footer>
 
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookieBanner" style="display:none;">
+  <p>
+    Bu site, deneyiminizi geliştirmek için çerez kullanmaktadır. Sitemizi kullanarak
+    <a href="/kvkk.html" target="_blank">KVKK Aydınlatma Metni</a>'ni ve
+    <a href="/kvkk.html#cerez" target="_blank">Çerez Politikası</a>'nı kabul etmiş sayılırsınız.
+  </p>
+  <div class="cookie-btns">
+    <button class="cookie-reject" onclick="setCookie('reject')">Reddet</button>
+    <button class="cookie-accept" onclick="setCookie('accept')">Kabul Et</button>
+  </div>
+</div>
+
 <!-- WHATSAPP -->
 <a href="https://wa.me/905324153124" target="_blank" rel="noopener" class="wa" title="WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor">
@@ -988,6 +1141,25 @@
 </a>
 
 <script>
+  // IBAN kopyala
+  function copyIban(id, btn) {
+    const text = document.getElementById(id).textContent.replace(/\s/g, '');
+    navigator.clipboard.writeText(text).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = 'Kopyalandı ✓';
+      setTimeout(() => btn.textContent = orig, 2000);
+    });
+  }
+
+  // Cookie banner
+  function setCookie(val) {
+    localStorage.setItem('cookie_consent', val);
+    document.getElementById('cookieBanner').style.display = 'none';
+  }
+  if (!localStorage.getItem('cookie_consent')) {
+    setTimeout(() => document.getElementById('cookieBanner').style.display = 'flex', 1500);
+  }
+
   // Nav toggle
   function toggleNav() {
     document.getElementById('mobileNav').classList.toggle('open');
