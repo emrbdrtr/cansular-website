@@ -92,14 +92,13 @@
     }
     .nav-inner {
       max-width: 1280px; width: 100%; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
+      display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1rem;
     }
     .nav-logo { background: #fff; padding: 5px 10px; border-radius: 8px; display:flex; align-items:center; }
     .nav-logo img { height: 42px; width: auto; }
-    .nav-logos { display:flex; align-items:center; gap:.7rem; }
-    .nav-logo-divider { width:1px; height:28px; background:rgba(255,255,255,.18); }
-    .nav-logo-universal { background:#111; padding:5px 10px; border-radius:8px; display:flex; align-items:center; }
+    .nav-logo-universal { background:#111; padding:5px 10px; border-radius:8px; display:flex; align-items:center; justify-content:flex-end; }
     .nav-logo-universal img { height:32px; width:auto; }
+    .nav-right { display:flex; align-items:center; justify-content:flex-end; gap:.8rem; }
     .nav-links { display: flex; align-items: center; gap: 1.8rem; }
     .nav-links a { color: rgba(255,255,255,.78); font-size: .88rem; font-weight: 500; transition: color .2s; }
     .nav-links a:hover { color: #fff; }
@@ -502,11 +501,7 @@
 <!-- NAV -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <div class="nav-logos">
-      <a href="#" class="nav-logo"><img src="logolatest.jpg" alt="Cansular Logo" /></a>
-      <div class="nav-logo-divider"></div>
-      <a href="/marka.html" class="nav-logo-universal"><img src="universal.jpg" alt="Universal" /></a>
-    </div>
+    <a href="#" class="nav-logo"><img src="logolatest.jpg" alt="Cansular Logo" /></a>
     <ul class="nav-links">
       <li><a href="#urunler">Ürünler</a></li>
       <li><a href="#hakkimizda">Hakkımızda</a></li>
@@ -517,7 +512,10 @@
       <li><a href="#iletisim">İletişim</a></li>
       <li><a href="katalog.pdf" target="_blank" class="nav-cta">Katalog</a></li>
     </ul>
-    <div class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
+    <div class="nav-right">
+      <a href="/marka.html" class="nav-logo-universal"><img src="universal.jpg" alt="Universal" /></a>
+      <div class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
+    </div>
   </div>
 </nav>
 <div class="mobile-nav" id="mobileNav">
@@ -554,7 +552,14 @@
     <div class="stat"><strong>40+</strong><span>Yıllık Deneyim</span></div>
     <div class="stat"><strong>100+</strong><span>Ürün Çeşidi</span></div>
     <div class="stat"><strong>1.000+</strong><span>Kurumsal Müşteri</span></div>
-    <div class="stat"><strong>CE</strong><span>Sertifikalı Üretim</span></div>
+    <div class="stat">
+      <strong>
+        <svg width="42" height="28" viewBox="0 0 42 28" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;">
+          <text x="0" y="24" font-family="Arial Rounded MT Bold, Arial, sans-serif" font-size="28" font-weight="900" fill="white" letter-spacing="-1">CE</text>
+        </svg>
+      </strong>
+      <span>Sertifikalı Üretim</span>
+    </div>
   </div>
 </div>
 
