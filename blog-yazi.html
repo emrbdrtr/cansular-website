@@ -21,17 +21,24 @@
     body { font-family: 'Inter', sans-serif; background: var(--light); color: var(--navy); }
     a { text-decoration: none; color: inherit; }
 
-    nav {
-      background: var(--navy); padding: 0 2rem; height: 68px;
-      display: flex; align-items: center; gap: 1.5rem;
-      position: sticky; top: 0; z-index: 100;
-      box-shadow: 0 2px 16px rgba(0,0,0,.18);
-    }
-    .nav-back { color: rgba(255,255,255,.7); font-size: .85rem; font-weight: 600; display: flex; align-items: center; gap: .4rem; transition: color .2s; }
-    .nav-back:hover { color: #fff; }
-    .nav-logo-wrap { background: #fff; padding: 5px 12px; border-radius: 8px; display: flex; align-items: center; }
-    .nav-logo-wrap img { height: 36px; width: auto; display: block; }
-    .nav-divider { width: 1px; height: 28px; background: rgba(255,255,255,.15); }
+    .nav { background: rgba(13,31,60,.96); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,.08); height: 68px; display: flex; align-items: center; padding: 0 2rem; position: sticky; top: 0; z-index: 1000; }
+    .nav-inner { max-width: 1280px; width: 100%; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; position: relative; }
+    .nav-logo { background: #fff; padding: 5px 10px; border-radius: 8px; display:flex; align-items:center; flex-shrink:0; }
+    .nav-logo img { height: 42px; width: auto; display:block; }
+    .nav-logo-universal { background:#111; padding:5px 10px; border-radius:8px; display:flex; align-items:center; flex-shrink:0; }
+    .nav-logo-universal img { height:32px; width:auto; display:block; }
+    .nav-right { display:flex; align-items:center; gap:.8rem; flex-shrink:0; }
+    .nav-links { display: flex; align-items: center; gap: 1.6rem; position: absolute; left: 50%; transform: translateX(-50%); list-style: none; padding: 0; margin: 0; }
+    .nav-links a { color: rgba(255,255,255,.78); font-size: .88rem; font-weight: 500; transition: color .2s; text-decoration: none; }
+    .nav-links a:hover { color: #fff; }
+    .nav-urunler { background: #4a9e6b; color: #fff !important; padding: .45rem 1.1rem; border-radius: 6px; font-weight: 700 !important; }
+    .nav-urunler:hover { background: #3a8a5a !important; color: #fff !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; }
+    .mobile-nav { display:none; position:fixed; inset:68px 0 0 0; background:rgba(13,31,60,.98); z-index:999; flex-direction:column; padding:1.5rem 2rem; gap:1.2rem; }
+    .mobile-nav.open { display:flex; }
+    .mobile-nav a { color:rgba(255,255,255,.8); font-size:1rem; font-weight:500; padding:.5rem 0; border-bottom:1px solid rgba(255,255,255,.07); text-decoration:none; }
+    @media(max-width:960px) { .nav-links { display:none; } .hamburger { display:flex; } }
 
     main { max-width: 780px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
 
@@ -95,16 +102,33 @@
 </head>
 <body>
 
-<nav>
-  <a href="/blog.html" class="nav-back">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-    Blog'a Dön
-  </a>
-  <div class="nav-divider"></div>
-  <a href="/" class="nav-logo-wrap">
-    <img src="logolatest.jpg" alt="Cansular Logo" />
-  </a>
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><img src="logolatest.jpg" alt="Cansular Logo" /></a>
+    <ul class="nav-links">
+      <li><a href="/#urunler" class="nav-urunler">Ürünler</a></li>
+      <li><a href="/#hakkimizda">Hakkımızda</a></li>
+      <li><a href="/#sertifikalar">Sertifikalar</a></li>
+      <li><a href="/marka.html">Markalarımız</a></li>
+      <li><a href="/rehber.html">Seçim Rehberi</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/#iletisim">İletişim</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="/marka.html" class="nav-logo-universal"><img src="universal.jpg" alt="Universal" /></a>
+      <div class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
+    </div>
+  </div>
 </nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="/#urunler" onclick="toggleNav()" style="color:#4a9e6b;font-weight:700;">Ürünler</a>
+  <a href="/#hakkimizda" onclick="toggleNav()">Hakkımızda</a>
+  <a href="/#sertifikalar" onclick="toggleNav()">Sertifikalar</a>
+  <a href="/marka.html" onclick="toggleNav()">Markalarımız</a>
+  <a href="/rehber.html" onclick="toggleNav()">Seçim Rehberi</a>
+  <a href="/blog.html" onclick="toggleNav()">Blog</a>
+  <a href="/#iletisim" onclick="toggleNav()">İletişim</a>
+</div>
 
 <main>
   <div class="breadcrumb">
@@ -449,5 +473,8 @@ function render() {
 render();
 </script>
 
+<script>
+function toggleNav(){document.getElementById('mobileNav').classList.toggle('open');}
+</script>
 </body>
 </html>
