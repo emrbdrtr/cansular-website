@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cansular – Şirket Sunumu</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0d1f3c;
+      --navy2: #142444;
+      --green: #4a9e6b;
+      --green2: #3a8a5a;
+      --light: #f5f7fa;
+      --border: #e2e8f0;
+      --gray: #64748b;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #fff; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10,10,10,.9); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      height: 56px; display: flex; align-items: center;
+      padding: 0 2rem; gap: 1.5rem;
+    }
+    .nav-logo { display: flex; align-items: center; gap: .6rem; }
+    .nav-logo img { height: 32px; background: #fff; padding: 4px 8px; border-radius: 6px; }
+    .nav-slides { display: flex; gap: .3rem; margin-left: auto; }
+    .nav-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,255,255,.2); cursor: pointer;
+      transition: background .2s;
+    }
+    .nav-dot.active { background: var(--green); }
+    .slide-counter { font-size: .75rem; color: rgba(255,255,255,.4); margin-left: .5rem; }
+
+    /* ── SLIDES ── */
+    .slide {
+      min-height: 100vh;
+      padding: 80px 0 60px;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      border-bottom: 1px solid rgba(255,255,255,.04);
+    }
+    .slide-inner { max-width: 1100px; width: 100%; padding: 0 3rem; }
+
+    /* slide numbers */
+    .slide-num {
+      position: absolute; top: 72px; right: 3rem;
+      font-size: .7rem; font-weight: 700; color: rgba(255,255,255,.15);
+      letter-spacing: .15em;
+    }
+
+    /* ── TAG ── */
+    .tag {
+      display: inline-block;
+      background: rgba(74,158,107,.15); border: 1px solid rgba(74,158,107,.3);
+      color: #6fcf97; font-size: .7rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: .3rem 1rem; border-radius: 100px; margin-bottom: 1.2rem;
+    }
+
+    /* ── COVER ── */
+    .cover {
+      background: radial-gradient(ellipse at 30% 50%, rgba(74,158,107,.12) 0%, transparent 60%),
+                  radial-gradient(ellipse at 80% 20%, rgba(13,31,60,.6) 0%, transparent 50%),
+                  linear-gradient(135deg, #060d1a 0%, #0d1f3c 100%);
+    }
+    .cover h1 {
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 900; line-height: 1.05;
+      letter-spacing: -.02em;
+    }
+    .cover h1 span { color: var(--green); }
+    .cover .subtitle {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: rgba(255,255,255,.5); margin-top: 1.2rem;
+      font-weight: 400; max-width: 520px; line-height: 1.6;
+    }
+    .cover-meta {
+      display: flex; gap: 2.5rem; margin-top: 3rem; flex-wrap: wrap;
+    }
+    .cover-meta-item { }
+    .cover-meta-item .val {
+      font-size: 2rem; font-weight: 800; color: #fff;
+    }
+    .cover-meta-item .val span { color: var(--green); }
+    .cover-meta-item .lbl {
+      font-size: .75rem; color: rgba(255,255,255,.4);
+      font-weight: 500; text-transform: uppercase; letter-spacing: .08em; margin-top: .2rem;
+    }
+    .cover-logo-bg {
+      position: absolute; right: 3rem; top: 50%; transform: translateY(-50%);
+      opacity: .04; font-size: 18rem; font-weight: 900; letter-spacing: -.05em;
+      pointer-events: none; user-select: none;
+    }
+
+    /* ── SECTION HEADER ── */
+    .sec-header { margin-bottom: 2.5rem; }
+    .sec-header h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 800; line-height: 1.15;
+    }
+    .sec-header h2 span { color: var(--green); }
+    .sec-header p {
+      color: rgba(255,255,255,.5); margin-top: .8rem;
+      font-size: .95rem; line-height: 1.7; max-width: 620px;
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem;
+    }
+    .about-card {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 16px; padding: 1.8rem;
+    }
+    .about-card .icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: rgba(74,158,107,.12); display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem;
+    }
+    .about-card .icon svg { width: 22px; height: 22px; color: var(--green); }
+    .about-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: .5rem; }
+    .about-card p { font-size: .85rem; color: rgba(255,255,255,.5); line-height: 1.65; }
+
+    /* ── WEBSITE PROGRESS ── */
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before {
+      content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px;
+      width: 2px; background: rgba(74,158,107,.2);
+    }
+    .timeline-item { position: relative; margin-bottom: 1.5rem; }
+    .timeline-item::before {
+      content: ''; position: absolute; left: -26px; top: 6px;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--green); box-shadow: 0 0 0 3px rgba(74,158,107,.2);
+    }
+    .timeline-item.done::before { background: var(--green); }
+    .timeline-item h4 {
+      font-size: .9rem; font-weight: 700; margin-bottom: .3rem;
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .timeline-item p { font-size: .8rem; color: rgba(255,255,255,.45); line-height: 1.6; }
+    .badge-done {
+      font-size: .62rem; font-weight: 700; text-transform: uppercase;
+      background: rgba(74,158,107,.2); color: var(--green);
+      padding: .15rem .5rem; border-radius: 4px; letter-spacing: .06em;
+    }
+
+    /* ── ROADMAP ── */
+    .roadmap-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+    }
+    .roadmap-card {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 14px; padding: 1.5rem;
+      transition: border-color .2s;
+    }
+    .roadmap-card:hover { border-color: rgba(74,158,107,.3); }
+    .roadmap-card .phase {
+      font-size: .65rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .1em; margin-bottom: .8rem;
+    }
+    .phase-1 { color: var(--green); }
+    .phase-2 { color: #f59e0b; }
+    .phase-3 { color: #3b82f6; }
+    .phase-4 { color: #a855f7; }
+    .roadmap-card h3 {
+      font-size: .95rem; font-weight: 700; margin-bottom: .5rem; line-height: 1.3;
+    }
+    .roadmap-card p {
+      font-size: .78rem; color: rgba(255,255,255,.45); line-height: 1.6;
+    }
+    .roadmap-card .card-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem; font-size: 1.1rem;
+    }
+    .ci-green { background: rgba(74,158,107,.12); }
+    .ci-amber { background: rgba(245,158,11,.12); }
+    .ci-blue { background: rgba(59,130,246,.12); }
+    .ci-purple { background: rgba(168,85,247,.12); }
+
+    /* ── B2B ── */
+    .b2b-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .b2b-col h3 {
+      font-size: .7rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .1em; color: rgba(255,255,255,.3); margin-bottom: 1rem;
+    }
+    .b2b-item {
+      display: flex; align-items: flex-start; gap: .8rem;
+      margin-bottom: 1rem;
+    }
+    .b2b-item .dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      flex-shrink: 0; margin-top: 5px;
+    }
+    .dot-green { background: var(--green); }
+    .dot-amber { background: #f59e0b; }
+    .dot-blue { background: #3b82f6; }
+    .b2b-item p { font-size: .85rem; color: rgba(255,255,255,.7); line-height: 1.5; }
+    .b2b-item p strong { color: #fff; }
+
+    /* ── CLOSING ── */
+    .closing {
+      background: radial-gradient(ellipse at 50% 50%, rgba(74,158,107,.1) 0%, transparent 60%);
+      text-align: center;
+    }
+    .closing h2 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 900;
+    }
+    .closing h2 span { color: var(--green); }
+    .closing p { color: rgba(255,255,255,.45); margin-top: 1rem; font-size: 1rem; }
+    .closing .contacts {
+      display: flex; gap: 2rem; justify-content: center;
+      margin-top: 2.5rem; flex-wrap: wrap;
+    }
+    .contact-item {
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+      border-radius: 12px; padding: 1.2rem 2rem; font-size: .85rem;
+    }
+    .contact-item .lbl { color: rgba(255,255,255,.4); font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; margin-bottom: .3rem; }
+    .contact-item .val { color: #fff; font-weight: 600; }
+
+    /* ── DIVIDER ── */
+    .divider {
+      height: 1px; background: rgba(255,255,255,.05);
+      margin: 2rem 0;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .roadmap-grid { grid-template-columns: 1fr; }
+      .b2b-grid { grid-template-columns: 1fr; }
+      .slide-inner { padding: 0 1.5rem; }
+      .cover-logo-bg { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">
+    <img src="logolatest.jpg" alt="Cansular" />
+  </div>
+  <span style="color:rgba(255,255,255,.3); font-size:.8rem; font-weight:500;">Şirket Sunumu — 2026</span>
+  <div class="nav-slides" id="navDots"></div>
+  <span class="slide-counter" id="slideCounter"></span>
+</nav>
+
+<!-- ───────────────────────────── SLIDE 1: KAPAK ── -->
+<section class="slide cover" id="s1">
+  <div class="slide-inner">
+    <div class="tag">Şirket Sunumu · 2026</div>
+    <h1>Cansular<br /><span>Hırdavat</span><br />Sanayi A.Ş.</h1>
+    <p class="subtitle">Türkiye'nin önde gelen koruyucu eldiven üreticisi ve dağıtıcısı. 40 yılı aşkın deneyim, 6 tescilli marka.</p>
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <div class="val">40<span>+</span></div>
+        <div class="lbl">Yıllık Deneyim</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="val">100<span>+</span></div>
+        <div class="lbl">Ürün Çeşidi</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="val">1.000<span>+</span></div>
+        <div class="lbl">Aktif Müşteri</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="val">6</div>
+        <div class="lbl">Tescilli Marka</div>
+      </div>
+    </div>
+  </div>
+  <div class="cover-logo-bg">C</div>
+  <div class="slide-num">01 / 06</div>
+</section>
+
+<!-- ───────────────────────────── SLIDE 2: KİMİZ ── -->
+<section class="slide" id="s2">
+  <div class="slide-inner">
+    <div class="sec-header">
+      <div class="tag">Hakkımızda</div>
+      <h2>Cansular <span>Kimdir?</span></h2>
+      <p>İstanbul Eminönü merkezli, koruyucu iş eldiveni alanında Türkiye'nin en köklü şirketlerinden. Üretim, ithalat ve toptan dağıtım yapıyoruz.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-card">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+        </div>
+        <h3>B2B Odaklı Dağıtım</h3>
+        <p>İnşaat, metal, otomotiv, kimya, gıda ve elektronik sektörlerine toptan satış. Türkiye genelinde bayi ve doğrudan müşteri ağı.</p>
+      </div>
+      <div class="about-card">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>CE Sertifikalı Üretim</h3>
+        <p>Tüm ürünler EN388 ve ilgili Avrupa standartlarına uygun. Bağımsız test kuruluşları tarafından onaylı, CE işaretli ürün portföyü.</p>
+      </div>
+      <div class="about-card">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+        </div>
+        <h3>6 Tescilli Marka</h3>
+        <p>Universal, Techno, C-Serisi ve ML Serisi dahil 6 markamız Türk Patent ve Marka Kurumu'nda tescillidir. Sahte ürünlere karşı hukuki koruma altındayız.</p>
+      </div>
+      <div class="about-card">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3>Güçlü Müşteri Tabanı</h3>
+        <p>1.000'i aşkın aktif müşteri, tekrarlayan siparişler. Büyük sanayi kuruluşlarından KOBİ'lere uzanan geniş müşteri portföyü.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">02 / 06</div>
+</section>
+
+<!-- ───────────────────────────── SLIDE 3: WEBSİTE ── -->
+<section class="slide" id="s3">
+  <div class="slide-inner">
+    <div class="sec-header">
+      <div class="tag">Tamamlanan Proje</div>
+      <h2>Kurumsal Web Sitesi <span>Gelişimi</span></h2>
+      <p>Sıfırdan tasarlanan, aşama aşama büyütülen dijital vitrin. Şu an <strong style="color:#fff;">technoeldiven.com</strong> üzerinde yayında, yakında <strong style="color:#fff;">cansular.com</strong>'a taşınacak.</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item done">
+        <h4>Temel Site Yapısı <span class="badge-done">✓ Tamamlandı</span></h4>
+        <p>Ana sayfa, ürünler bölümü, hakkımızda, sertifikalar ve iletişim sayfaları. Hero section, stats bar, responsive tasarım.</p>
+      </div>
+      <div class="timeline-item done">
+        <h4>Ürün Detay Sayfası <span class="badge-done">✓ Tamamlandı</span></h4>
+        <p>urun.html — JavaScript tabanlı dinamik ürün sayfası. Her ürün için özellikler, görseller, WhatsApp sipariş butonu. 14 ürün tanımlı.</p>
+      </div>
+      <div class="timeline-item done">
+        <h4>Marka Tescil Sayfası <span class="badge-done">✓ Tamamlandı</span></h4>
+        <p>Tescil belgelerinin galerisi, sahte ürün uyarısı, marka tescilinin önemi. Müşteride güven oluşturmak için.</p>
+      </div>
+      <div class="timeline-item done">
+        <h4>Eldiven Seçim Rehberi <span class="badge-done">✓ Tamamlandı</span></h4>
+        <p>EN388 standardı açıklaması, 9 sektöre göre eldiven önerileri (AI görselli sektör kartları), 17 ürünlük dayanıklılık matrisi.</p>
+      </div>
+      <div class="timeline-item done">
+        <h4>Blog & İçerik Sayfaları <span class="badge-done">✓ Tamamlandı</span></h4>
+        <p>7 blog yazısı (EN388, nitril vs lateks, HPPE, KKD yönetmeliği, CE işareti vb.), dinamik makale template'i, KVKK sayfası.</p>
+      </div>
+      <div class="timeline-item done">
+        <h4>SEO Altyapısı <span class="badge-done">✓ Tamamlandı</span></h4>
+        <p>Schema.org LocalBusiness, canonical taglar, Open Graph, Twitter Card, sitemap.xml, robots.txt, Google Analytics & Search Console entegrasyonu.</p>
+      </div>
+      <div class="timeline-item done">
+        <h4>Teknik Optimizasyon <span class="badge-done">✓ Tamamlandı</span></h4>
+        <p>Görsel optimizasyonu (14MB → 1.1MB hero), CE mark SVG, Universal marka logosu navbar entegrasyonu, sticky navbar tüm sayfalarda.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">03 / 06</div>
+</section>
+
+<!-- ───────────────────────────── SLIDE 4: ROADMAP ── -->
+<section class="slide" id="s4">
+  <div class="slide-inner">
+    <div class="sec-header">
+      <div class="tag">Dijital Yol Haritası</div>
+      <h2>Planlanan <span>Projeler</span></h2>
+      <p>Dijital altyapıyı güçlendirip yeni gelir kanalları açmak için aşamalı geliştirme planı.</p>
+    </div>
+    <div class="roadmap-grid">
+
+      <div class="roadmap-card">
+        <div class="card-icon ci-green">📄</div>
+        <div class="phase phase-1">Faz 1 · Kısa Vadeli</div>
+        <h3>Dijital Ürün Kataloğu</h3>
+        <p>Tüm ürünlerin teknik özellikleri, EN388 kodları, paket bilgileri ve fiyat aralıkları ile indirilebilir PDF katalog. Satış ekibine ve müşterilere hazır referans dokümanı.</p>
+      </div>
+
+      <div class="roadmap-card">
+        <div class="card-icon ci-green">🗺️</div>
+        <div class="phase phase-1">Faz 1 · Kısa Vadeli</div>
+        <h3>Google Maps API ile Müşteri Tespiti</h3>
+        <p>Hedef sektörlerdeki (inşaat, metal, otomotiv) işletmeleri Google Maps API veya scraping ile toplu tespit. Soğuk satış listesi oluşturma, CRM'e aktarım.</p>
+      </div>
+
+      <div class="roadmap-card">
+        <div class="card-icon ci-amber">🎁</div>
+        <div class="phase phase-2">Faz 2 · Orta Vadeli</div>
+        <h3>Promosyon Ürün Stratejisi</h3>
+        <p>Logo baskılı promosyon eldiveni. Markalı ürünleri kurumsal müşterilere özel fiyatla sunmak, hem satış hem marka bilinirliği için çift taraflı fırsat.</p>
+      </div>
+
+      <div class="roadmap-card">
+        <div class="card-icon ci-amber">🛒</div>
+        <div class="phase phase-2">Faz 2 · Orta Vadeli</div>
+        <h3>B2C E-Ticaret Sitesi</h3>
+        <p>Bireysel tüketicilere yönelik ayrı bir satış kanalı. Trendyol/Hepsiburada mağaza açılışı veya bağımsız e-ticaret sitesi. Stok ve sipariş yönetimi entegrasyonu.</p>
+      </div>
+
+      <div class="roadmap-card">
+        <div class="card-icon ci-amber">🌍</div>
+        <div class="phase phase-2">Faz 2 · Orta Vadeli</div>
+        <h3>Yurt Dışı Satış</h3>
+        <p>İngilizce/Arapça site versiyonu, Alibaba / Made-in-China listeleme, MENA ve Orta Asya pazarları. CE belgelerinin ihracata uygun formatlanması.</p>
+      </div>
+
+      <div class="roadmap-card">
+        <div class="card-icon ci-blue">🏭</div>
+        <div class="phase phase-3">Faz 3 · Uzun Vadeli</div>
+        <h3>Fuarlara Aktif Katılım</h3>
+        <p>WIN İş Dünyası, İş Güvenliği fuarları. Dijital materyal (QR kodlu katalog, demo stand), fuar öncesi müşteri davetiyesi, fuar sonrası lead takip süreci.</p>
+      </div>
+
+      <div class="roadmap-card">
+        <div class="card-icon ci-blue">⚙️</div>
+        <div class="phase phase-3">Faz 3 · Uzun Vadeli</div>
+        <h3>Süreç Otomasyonları</h3>
+        <p>Sipariş takibi, stok uyarıları, otomatik teklif maili gönderimi, WhatsApp Business API entegrasyonu. Manuel işleri azaltıp satış ekibinin enerjisini müşteriye yönlendirme.</p>
+      </div>
+
+      <div class="roadmap-card">
+        <div class="card-icon ci-blue">📊</div>
+        <div class="phase phase-3">Faz 3 · Uzun Vadeli</div>
+        <h3>Satış Dashboard'ları</h3>
+        <p>Müşteri bazlı satış analizi, ürün performansı, bölgesel dağılım, mevsimsel trend takibi. Google Sheets / Looker Studio veya özel panel.</p>
+      </div>
+
+      <div class="roadmap-card">
+        <div class="card-icon ci-purple">🏗️</div>
+        <div class="phase phase-4">Faz 4 · Vizyon</div>
+        <h3>Mimari & Altyapı Tasarımı</h3>
+        <p>ERP entegrasyonu (stok, muhasebe, CRM tek sistemde), API tabanlı ürün kataloğu, çok kullanıcılı yönetim paneli. Büyümeye hazır teknik altyapı.</p>
+      </div>
+
+    </div>
+  </div>
+  <div class="slide-num">04 / 06</div>
+</section>
+
+<!-- ───────────────────────────── SLIDE 5: B2B ── -->
+<section class="slide" id="s5">
+  <div class="slide-inner">
+    <div class="sec-header">
+      <div class="tag">Stratejik Odak</div>
+      <h2>B2B Kanalı <span>Güçlendirme</span></h2>
+      <p>Temel gelir kaynağımız kurumsal satış. Bu kanalı dijital araçlarla beslemek en yüksek ROI'yi sağlar.</p>
+    </div>
+    <div class="b2b-grid">
+      <div class="b2b-col">
+        <h3>Yapılması Gerekenler</h3>
+        <div class="b2b-item">
+          <div class="dot dot-green"></div>
+          <p><strong>Google'da görünürlük</strong> — Hedef aramalar: "iş güvenliği eldiveni toptan", "nitril eldiven fiyatları", "EN388 eldiven". İçerik ve teknik SEO ile organik trafik.</p>
+        </div>
+        <div class="b2b-item">
+          <div class="dot dot-green"></div>
+          <p><strong>Lead yakalama formu</strong> — Sitedeki iletişim formunu CRM'e bağlamak. Hangi sayfadan, hangi ürüne ilgi gösterdiğini kayıt altına almak.</p>
+        </div>
+        <div class="b2b-item">
+          <div class="dot dot-green"></div>
+          <p><strong>Teklif talebi akışı</strong> — Ürün sayfasından tek tıkla "Fiyat Teklifi Al" butonu → WhatsApp veya form → hızlı yanıt süreci.</p>
+        </div>
+        <div class="b2b-item">
+          <div class="dot dot-amber"></div>
+          <p><strong>Sektör hedefleme</strong> — İnşaat, metal, otomotiv firmalarına LinkedIn veya soğuk e-posta ile doğrudan ulaşım. Maps API ile liste oluşturma.</p>
+        </div>
+        <div class="b2b-item">
+          <div class="dot dot-amber"></div>
+          <p><strong>Referans müşteriler</strong> — Mevcut büyük müşterilerden logo veya görüş almak. "X firması bizim müşterimiz" güveni dönüşüm oranını artırır.</p>
+        </div>
+      </div>
+      <div class="b2b-col">
+        <h3>Olabilecekler / Fırsatlar</h3>
+        <div class="b2b-item">
+          <div class="dot dot-blue"></div>
+          <p><strong>Yıllık kontrat modeli</strong> — Kurumsal müşterilere yıllık hacim bazlı fiyatlandırma teklifi. Tahmin edilebilir gelir ve müşteri bağlılığı.</p>
+        </div>
+        <div class="b2b-item">
+          <div class="dot dot-blue"></div>
+          <p><strong>İhale takip sistemi</strong> — Kamuya açık ihale sitelerinde "eldiven" araması yapan basit bir otomasyon. İhale çıktığında bildirim.</p>
+        </div>
+        <div class="b2b-item">
+          <div class="dot dot-blue"></div>
+          <p><strong>Bayi/distribütör ağı</strong> — Farklı illerde yerel bayiler aracılığıyla coğrafi kapsama genişletme. Online bayi başvuru formu.</p>
+        </div>
+        <div class="b2b-item">
+          <div class="dot dot-blue"></div>
+          <p><strong>Sektörel içerik pazarlaması</strong> — "İnşaat sektörü için hangi eldiven?" gibi içerikler hem SEO hem de hedef müşteriyi eğitmek için güçlü araç.</p>
+        </div>
+        <div class="b2b-item">
+          <div class="dot dot-blue"></div>
+          <p><strong>Müşteri portalı</strong> — Mevcut B2B müşterilerin online sipariş verebileceği, geçmiş siparişlerini görebileceği basit panel. Satış ekibini rahatlatan yapı.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">05 / 06</div>
+</section>
+
+<!-- ───────────────────────────── SLIDE 6: KAPANIŞ ── -->
+<section class="slide closing" id="s6">
+  <div class="slide-inner">
+    <div class="tag">Cansular · 2026</div>
+    <h2>Güçlü temeller,<br /><span>büyük hedefler.</span></h2>
+    <p>Dijital altyapı kuruldu. Sıradaki adım görünürlüğü satışa dönüştürmek.</p>
+    <div class="contacts">
+      <div class="contact-item">
+        <div class="lbl">Web</div>
+        <div class="val">technoeldiven.com</div>
+      </div>
+      <div class="contact-item">
+        <div class="lbl">E-posta</div>
+        <div class="val">info@cansular.com</div>
+      </div>
+      <div class="contact-item">
+        <div class="lbl">Telefon</div>
+        <div class="val">+90 212 514 08 44</div>
+      </div>
+      <div class="contact-item">
+        <div class="lbl">Adres</div>
+        <div class="val">Eminönü, İstanbul</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">06 / 06</div>
+</section>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const dotsContainer = document.getElementById('navDots');
+  const counter = document.getElementById('slideCounter');
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'nav-dot' + (i === 0 ? ' active' : '');
+    dot.addEventListener('click', () => slides[i].scrollIntoView({ behavior: 'smooth' }));
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = document.querySelectorAll('.nav-dot');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const idx = [...slides].indexOf(entry.target);
+        dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+        counter.textContent = (idx + 1) + ' / ' + slides.length;
+      }
+    });
+  }, { threshold: 0.5 });
+
+  slides.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
