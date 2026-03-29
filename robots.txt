@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /tesekkurler.html
 
-Sitemap: https://cansular.com/sitemap.xml
+Sitemap: https://technoeldiven.com/sitemap.xml
