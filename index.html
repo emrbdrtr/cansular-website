@@ -92,14 +92,18 @@
     }
     .nav-inner {
       max-width: 1280px; width: 100%; margin: 0 auto;
-      display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      position: relative;
     }
-    .nav-logo { background: #fff; padding: 5px 10px; border-radius: 8px; display:flex; align-items:center; width:fit-content; }
+    .nav-logo { background: #fff; padding: 5px 10px; border-radius: 8px; display:flex; align-items:center; flex-shrink:0; }
     .nav-logo img { height: 42px; width: auto; display:block; }
-    .nav-logo-universal { background:#111; padding:5px 10px; border-radius:8px; display:flex; align-items:center; }
+    .nav-logo-universal { background:#111; padding:5px 10px; border-radius:8px; display:flex; align-items:center; flex-shrink:0; }
     .nav-logo-universal img { height:32px; width:auto; display:block; }
-    .nav-right { display:flex; align-items:center; justify-content:flex-end; gap:.8rem; }
-    .nav-links { display: flex; align-items: center; gap: 1.8rem; }
+    .nav-right { display:flex; align-items:center; gap:.8rem; flex-shrink:0; }
+    .nav-links {
+      display: flex; align-items: center; gap: 1.6rem;
+      position: absolute; left: 50%; transform: translateX(-50%);
+    }
     .nav-links a { color: rgba(255,255,255,.78); font-size: .88rem; font-weight: 500; transition: color .2s; }
     .nav-links a:hover { color: #fff; }
     .nav-cta {
@@ -510,7 +514,6 @@
       <li><a href="/rehber.html">Seçim Rehberi</a></li>
       <li><a href="/blog.html">Blog</a></li>
       <li><a href="#iletisim">İletişim</a></li>
-      <li><a href="katalog.pdf" target="_blank" class="nav-cta">Katalog</a></li>
     </ul>
     <div class="nav-right">
       <a href="/marka.html" class="nav-logo-universal"><img src="universal.jpg" alt="Universal" /></a>
@@ -526,7 +529,6 @@
   <a href="/rehber.html" onclick="toggleNav()">Seçim Rehberi</a>
   <a href="/blog.html"  onclick="toggleNav()">Blog</a>
   <a href="#iletisim"   onclick="toggleNav()">İletişim</a>
-  <a href="katalog.pdf" target="_blank" onclick="toggleNav()" style="color:var(--green);font-weight:700;">Katalog İndir</a>
 </div>
 
 <!-- HERO -->
@@ -540,7 +542,7 @@
       ve sağlık sektörlerine CE sertifikalı koruyucu eldivenler sunuyoruz.
     </p>
     <div class="hero-btns">
-      <a href="#urunler"     class="btn btn-green">Ürün Kataloğu</a>
+      <a href="#urunler"     class="btn btn-green">Ürünler</a>
       <a href="katalog.pdf"  class="btn btn-ghost" target="_blank">PDF Katalog</a>
     </div>
   </div>
@@ -573,7 +575,12 @@
 <section class="section section-alt" id="urunler">
   <div class="container">
     <div class="sec-header fade">
-      <span class="sec-tag">Ürün Kataloğu</span>
+      <div style="display:flex;justify-content:center;margin-bottom:1rem;">
+        <div style="background:#fff;padding:5px 14px;border-radius:10px;display:inline-flex;align-items:center;box-shadow:0 2px 12px rgba(0,0,0,.1);">
+          <img src="logolatest.jpg" alt="Cansular" style="height:36px;width:auto;display:block;" />
+        </div>
+      </div>
+      <span class="sec-tag">Ürünler</span>
       <h2>Tüm Eldiven Çeşitlerimiz</h2>
       <p>Kategoriye göre filtreleyin, ihtiyacınıza uygun ürünü kolayca bulun.</p>
     </div>
