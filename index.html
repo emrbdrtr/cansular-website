@@ -96,6 +96,10 @@
     }
     .nav-logo { background: #fff; padding: 5px 10px; border-radius: 8px; display:flex; align-items:center; }
     .nav-logo img { height: 42px; width: auto; }
+    .nav-logos { display:flex; align-items:center; gap:.7rem; }
+    .nav-logo-divider { width:1px; height:28px; background:rgba(255,255,255,.18); }
+    .nav-logo-universal { background:#111; padding:5px 10px; border-radius:8px; display:flex; align-items:center; }
+    .nav-logo-universal img { height:32px; width:auto; }
     .nav-links { display: flex; align-items: center; gap: 1.8rem; }
     .nav-links a { color: rgba(255,255,255,.78); font-size: .88rem; font-weight: 500; transition: color .2s; }
     .nav-links a:hover { color: #fff; }
@@ -498,7 +502,11 @@
 <!-- NAV -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <a href="#" class="nav-logo"><img src="logolatest.jpg" alt="Cansular Logo" /></a>
+    <div class="nav-logos">
+      <a href="#" class="nav-logo"><img src="logolatest.jpg" alt="Cansular Logo" /></a>
+      <div class="nav-logo-divider"></div>
+      <a href="/marka.html" class="nav-logo-universal"><img src="universal.jpg" alt="Universal" /></a>
+    </div>
     <ul class="nav-links">
       <li><a href="#urunler">Ürünler</a></li>
       <li><a href="#hakkimizda">Hakkımızda</a></li>
@@ -544,8 +552,8 @@
 <div class="stats">
   <div class="stats-inner">
     <div class="stat"><strong>40+</strong><span>Yıllık Deneyim</span></div>
-    <div class="stat"><strong>500+</strong><span>Ürün Çeşidi</span></div>
-    <div class="stat"><strong>5.000+</strong><span>Kurumsal Müşteri</span></div>
+    <div class="stat"><strong>100+</strong><span>Ürün Çeşidi</span></div>
+    <div class="stat"><strong>1.000+</strong><span>Kurumsal Müşteri</span></div>
     <div class="stat"><strong>CE</strong><span>Sertifikalı Üretim</span></div>
   </div>
 </div>
@@ -784,17 +792,6 @@
   </div>
 </section>
 
-<!-- MARKALARIMIZ -->
-<section class="brands-section">
-  <div class="container">
-    <p class="section-sub">Tescilli Markalarımız</p>
-    <div class="brands-row">
-      <div class="brand-card brand-card-light"><img src="logolatest.jpg" alt="Cansular" /></div>
-      <div class="brand-card brand-card-dark"><img src="universal.jpg" alt="Universal" /></div>
-    </div>
-  </div>
-</section>
-
 <!-- HAKKIMIZDA -->
 <section class="section" id="hakkimizda">
   <div class="container">
@@ -816,8 +813,8 @@
         </p>
         <p>
           Yerli üretim ve seçkin ithal ürünlerimizle inşaat, otomotiv, kimya, gıda,
-          sağlık ve metal sektörlerine aralıksız hizmet sunuyor; tescilli markalarımız
-          Universal, Techno ve ML Serisi ile sektörde öncü konumumuzu koruyoruz.
+          sağlık ve metal sektörlerine aralıksız hizmet sunuyor; TÜRKPATENT tescilli
+          6 markamızla sektörde öncü konumumuzu koruyoruz.
         </p>
         <div class="checks">
           <div class="check">
@@ -826,7 +823,7 @@
           </div>
           <div class="check">
             <div class="check-dot"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M1.5 5l2.5 2.5 4.5-4.5"/></svg></div>
-            Tescilli Markalar: Universal, Techno, ML Serisi, C-Serisi
+            <a href="/marka.html" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">6 Tescilli Marka — TÜRKPATENT (Universal, Techno, Cansu ve diğerleri)</a>
           </div>
           <div class="check">
             <div class="check-dot"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M1.5 5l2.5 2.5 4.5-4.5"/></svg></div>
@@ -838,7 +835,7 @@
           </div>
           <div class="check">
             <div class="check-dot"><svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M1.5 5l2.5 2.5 4.5-4.5"/></svg></div>
-            5.000'den Fazla Aktif Kurumsal Müşteri
+            1.000'i Aşkın Aktif Kurumsal Müşteri
           </div>
         </div>
         <a href="katalog.pdf" target="_blank" class="btn btn-green">PDF Katalog İndir</a>
