@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eldiven Seçim Rehberi | Cansular</title>
+  <meta name="description" content="Hangi eldiven size uygun? EN388 dayanıklılık standartlarını öğrenin, sektörünüze göre doğru eldiveni seçin. Cansular uzman rehberi." />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D9W53EMX2H"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date()); gtag('config', 'G-D9W53EMX2H');
+  </script>
+  <link rel="icon" type="image/png" href="favicon_v2.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0d1f3c; --green: #4a9e6b; --green2: #3a8a5a;
+      --border: #e2e8f0; --gray: #64748b; --light: #f5f7fa;
+      --amber: #f59e0b; --red: #ef4444; --blue: #3b82f6;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--light); color: var(--navy); }
+    a { text-decoration: none; color: inherit; }
+
+    /* NAV */
+    nav {
+      background: var(--navy); padding: 0 2rem; height: 68px;
+      display: flex; align-items: center; gap: 1.5rem;
+      position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 16px rgba(0,0,0,.18);
+    }
+    .nav-back { color: rgba(255,255,255,.7); font-size: .85rem; font-weight: 600; display: flex; align-items: center; gap: .4rem; transition: color .2s; }
+    .nav-back:hover { color: #fff; }
+    .nav-logo-wrap { background: #fff; padding: 5px 12px; border-radius: 8px; display: flex; align-items: center; }
+    .nav-logo-wrap img { height: 36px; width: auto; display: block; }
+    .nav-divider { width: 1px; height: 28px; background: rgba(255,255,255,.15); }
+
+    /* HERO */
+    .page-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #1a3570 100%);
+      padding: 4.5rem 2rem 3.5rem; text-align: center;
+    }
+    .page-hero .tag {
+      display: inline-block; background: rgba(74,158,107,.18); border: 1px solid rgba(74,158,107,.35);
+      color: #6fcf97; font-size: .72rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: .3rem .9rem; border-radius: 100px; margin-bottom: 1rem;
+    }
+    .page-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; color: #fff; margin-bottom: .8rem; }
+    .page-hero p { color: rgba(255,255,255,.6); font-size: .95rem; max-width: 560px; margin: 0 auto; line-height: 1.7; }
+
+    main { max-width: 1100px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+
+    /* SECTION TITLES */
+    .section-header { margin-bottom: 1.8rem; }
+    .section-header h2 { font-size: 1.25rem; font-weight: 800; margin-bottom: .3rem; }
+    .section-header p { font-size: .88rem; color: var(--gray); line-height: 1.6; }
+
+    /* ── EN388 AÇIKLAMA ── */
+    .en388-card {
+      background: #fff; border-radius: 20px; padding: 2.5rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,.06); margin-bottom: 2.5rem;
+    }
+    .en388-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--navy); color: #fff;
+      font-size: 1rem; font-weight: 800; letter-spacing: .04em;
+      padding: .4rem 1rem; border-radius: 10px; margin-bottom: 1.5rem;
+    }
+    .en388-badge span { font-size: .72rem; font-weight: 500; opacity: .7; margin-left: .3rem; }
+    .digits-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1.5rem;
+    }
+    .digit-box {
+      border-radius: 14px; padding: 1.4rem 1.2rem; text-align: center;
+    }
+    .digit-box.d1 { background: rgba(59,130,246,.08); border: 1.5px solid rgba(59,130,246,.2); }
+    .digit-box.d2 { background: rgba(239,68,68,.08); border: 1.5px solid rgba(239,68,68,.2); }
+    .digit-box.d3 { background: rgba(245,158,11,.08); border: 1.5px solid rgba(245,158,11,.2); }
+    .digit-box.d4 { background: rgba(74,158,107,.08); border: 1.5px solid rgba(74,158,107,.2); }
+    .digit-num {
+      font-size: 2.4rem; font-weight: 900; line-height: 1; margin-bottom: .5rem;
+    }
+    .d1 .digit-num { color: var(--blue); }
+    .d2 .digit-num { color: var(--red); }
+    .d3 .digit-num { color: var(--amber); }
+    .d4 .digit-num { color: var(--green); }
+    .digit-box h4 { font-size: .82rem; font-weight: 700; margin-bottom: .3rem; }
+    .digit-box p { font-size: .75rem; color: var(--gray); line-height: 1.5; }
+    .digit-scale { font-size: .7rem; font-weight: 700; opacity: .6; margin-top: .4rem; }
+    .en388-tip {
+      background: rgba(74,158,107,.06); border: 1px solid rgba(74,158,107,.2);
+      border-radius: 10px; padding: .9rem 1.2rem;
+      font-size: .82rem; color: var(--navy); line-height: 1.6;
+    }
+    .en388-tip strong { color: var(--green); }
+
+    /* ── SEKTÖR REHBERİ ── */
+    .sector-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2.5rem;
+    }
+    .sector-card {
+      background: #fff; border-radius: 16px; padding: 1.4rem 1.5rem;
+      border: 1.5px solid var(--border); transition: border-color .2s, box-shadow .2s;
+    }
+    .sector-card:hover { border-color: var(--green); box-shadow: 0 4px 20px rgba(74,158,107,.12); }
+    .sector-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; margin-bottom: 1rem;
+    }
+    .sector-card h3 { font-size: .9rem; font-weight: 800; margin-bottom: .4rem; }
+    .sector-card p { font-size: .78rem; color: var(--gray); line-height: 1.5; margin-bottom: .8rem; }
+    .sector-products { display: flex; flex-wrap: wrap; gap: .35rem; }
+    .sprod {
+      display: inline-block; background: var(--light);
+      border: 1px solid var(--border); border-radius: 6px;
+      font-size: .68rem; font-weight: 700; padding: .2rem .55rem;
+      color: var(--navy); transition: background .15s;
+    }
+    .sprod:hover { background: rgba(74,158,107,.1); border-color: var(--green); }
+
+    /* ── DAYANIKLILIK MATRİSİ ── */
+    .matrix-wrap {
+      background: #fff; border-radius: 20px;
+      box-shadow: 0 4px 24px rgba(0,0,0,.06); margin-bottom: 2.5rem;
+      overflow: hidden;
+    }
+    .matrix-header { padding: 2rem 2rem 0; }
+    .matrix-scroll { overflow-x: auto; padding: 0 0 1.5rem; }
+    table {
+      width: 100%; border-collapse: collapse; min-width: 760px;
+    }
+    thead th {
+      padding: .75rem 1rem; font-size: .72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .06em;
+      color: var(--gray); border-bottom: 2px solid var(--border);
+      white-space: nowrap; text-align: center;
+    }
+    thead th:first-child { text-align: left; padding-left: 2rem; min-width: 210px; }
+    tbody tr { border-bottom: 1px solid var(--border); }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: rgba(74,158,107,.03); }
+    tbody td { padding: .8rem 1rem; vertical-align: middle; text-align: center; }
+    tbody td:first-child { text-align: left; padding-left: 2rem; }
+    .prod-name-cell { display: flex; flex-direction: column; gap: .15rem; }
+    .prod-name-cell strong { font-size: .85rem; font-weight: 700; }
+    .prod-name-cell span { font-size: .72rem; color: var(--gray); }
+    .cat-badge {
+      display: inline-block; font-size: .64rem; font-weight: 700;
+      padding: .12rem .45rem; border-radius: 5px; margin-top: .15rem;
+    }
+    .cat-nitril { background: rgba(59,130,246,.1); color: #1d4ed8; }
+    .cat-montaj { background: rgba(245,158,11,.1); color: #92400e; }
+    .cat-lateks { background: rgba(74,158,107,.1); color: #166534; }
+    .cat-kesilmez { background: rgba(239,68,68,.1); color: #991b1b; }
+
+    /* Dots indicator */
+    .dots { display: flex; gap: 3px; justify-content: center; align-items: center; }
+    .dot {
+      width: 9px; height: 9px; border-radius: 50%;
+      background: #e2e8f0;
+    }
+    .dot.on { background: var(--green); }
+    .dot.on.amber { background: var(--amber); }
+    .dot.on.red { background: var(--red); }
+    .dot.on.blue { background: var(--blue); }
+
+    /* Sector tags in matrix */
+    .sector-tags { display: flex; flex-wrap: wrap; gap: .3rem; justify-content: center; }
+    .stag {
+      font-size: .64rem; font-weight: 600; padding: .15rem .45rem;
+      border-radius: 5px; background: var(--light); border: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    /* Legend */
+    .legend {
+      padding: 1rem 2rem 1.5rem; border-top: 1px solid var(--border);
+      display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center;
+    }
+    .legend-title { font-size: .72rem; font-weight: 700; color: var(--gray); text-transform: uppercase; letter-spacing: .06em; }
+    .legend-item { display: flex; align-items: center; gap: .5rem; font-size: .75rem; color: var(--gray); }
+    .legend-dots { display: flex; gap: 2px; }
+    .legend-dots .dot { width: 7px; height: 7px; }
+
+    /* Disclaimer */
+    .disclaimer {
+      background: rgba(245,158,11,.06); border: 1px solid rgba(245,158,11,.25);
+      border-radius: 10px; padding: .8rem 1.2rem; margin: 0 2rem 1rem;
+      font-size: .75rem; color: #78350f; line-height: 1.6;
+    }
+
+    /* CTA */
+    .cta-strip {
+      background: var(--navy); border-radius: 20px; padding: 2.5rem;
+      text-align: center; color: #fff;
+    }
+    .cta-strip h2 { font-size: 1.3rem; font-weight: 800; margin-bottom: .6rem; }
+    .cta-strip p { color: rgba(255,255,255,.6); font-size: .9rem; margin-bottom: 1.5rem; }
+    .cta-btns { display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap; }
+    .btn-green { background: var(--green); color: #fff; padding: .75rem 1.7rem; border-radius: 10px; font-weight: 700; font-size: .88rem; transition: background .2s; }
+    .btn-green:hover { background: var(--green2); }
+    .btn-outline-white { border: 1.5px solid rgba(255,255,255,.3); color: #fff; padding: .75rem 1.7rem; border-radius: 10px; font-weight: 700; font-size: .88rem; transition: border-color .2s; }
+    .btn-outline-white:hover { border-color: rgba(255,255,255,.7); }
+
+    @media(max-width: 768px) {
+      .digits-grid { grid-template-columns: repeat(2, 1fr); }
+      .sector-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media(max-width: 480px) {
+      .sector-grid { grid-template-columns: 1fr; }
+      .digits-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    Ana Sayfaya Dön
+  </a>
+  <div class="nav-divider"></div>
+  <a href="/" class="nav-logo-wrap">
+    <img src="logolatest.jpg" alt="Cansular Logo" />
+  </a>
+</nav>
+
+<div class="page-hero">
+  <span class="tag">Uzman Rehberi</span>
+  <h1>Doğru Eldiveni Seçin</h1>
+  <p>
+    EN388 dayanıklılık standartlarını anlayın, sektörünüze göre ideal eldiveni belirleyin.
+    40 yıllık deneyimimizle hazırladığımız seçim rehberi.
+  </p>
+</div>
+
+<main>
+
+  <!-- EN388 AÇIKLAMA -->
+  <div class="en388-card">
+    <div class="section-header">
+      <h2>EN388 Standardı Nedir?</h2>
+      <p>Koruyucu eldivenlerdeki 4 haneli kod, eldivenin mekanik risklere karşı dayanımını gösterir. Her rakam ayrı bir test sonucudur.</p>
+    </div>
+
+    <div class="en388-badge">
+      EN388
+      <span>— 4 Hane, 4 Farklı Dayanım Testi</span>
+    </div>
+
+    <div class="digits-grid">
+      <div class="digit-box d1">
+        <div class="digit-num">1.</div>
+        <h4>Aşınma Direnci</h4>
+        <p>Zımpara kağıdına karşı kaç devir dayanabildiğini ölçer. Sürekli temas ve sürtünme olan ortamlar için kritiktir.</p>
+        <div class="digit-scale">Skala: 0 – 4</div>
+      </div>
+      <div class="digit-box d2">
+        <div class="digit-num">2.</div>
+        <h4>Kesme Direnci</h4>
+        <p>Döner bıçağın eldiveni kaç geçişte kestiğini ölçer. Metal, cam veya keskin kenarlı malzeme ile çalışanlarda önemlidir.</p>
+        <div class="digit-scale">Skala: 0 – 5</div>
+      </div>
+      <div class="digit-box d3">
+        <div class="digit-num">3.</div>
+        <h4>Yırtılma Direnci</h4>
+        <p>Eldivenin yırtılmaya karşı dayanımını Newton cinsinden ölçer. Kanca, çıkıntı ve kaba yüzeylerle çalışmada önemlidir.</p>
+        <div class="digit-scale">Skala: 0 – 4</div>
+      </div>
+      <div class="digit-box d4">
+        <div class="digit-num">4.</div>
+        <h4>Delme Direnci</h4>
+        <p>Sivri bir ucun eldiveni delip geçmesine karşı direnci Newton olarak ölçer. Çivi, tel ve iğne riski olan ortamlar için kritiktir.</p>
+        <div class="digit-scale">Skala: 0 – 4</div>
+      </div>
+    </div>
+
+    <div class="en388-tip">
+      <strong>Nasıl okumalısınız?</strong> Örneğin <strong>EN388 4243</strong> ifadesi şunu söyler:
+      Aşınma direnci 4 (maksimum), kesme direnci 2, yırtılma direnci 4, delme direnci 3.
+      Yüksek rakam = yüksek koruma. Sektörünüzün gerektirdiği risklere bakarak doğru haneye odaklanın.
+    </div>
+  </div>
+
+  <!-- SEKTÖR REHBERİ -->
+  <div class="section-header">
+    <h2>Sektörünüze Göre Seçin</h2>
+    <p>Hangi sektörde çalışıyorsunuz? Aşağıdan seçin ve önerilen modelleri görün.</p>
+  </div>
+
+  <div class="sector-grid">
+
+    <div class="sector-card">
+      <div class="sector-icon" style="background:rgba(59,130,246,.08);">🏗️</div>
+      <h3>İnşaat & Yapı</h3>
+      <p>Kaba yüzey, beton, demir ve ağır malzeme taşıma. Yüksek aşınma ve yırtılma direnci şart.</p>
+      <div class="sector-products">
+        <a href="urun.html?id=c55" class="sprod">C-55 Ekstra</a>
+        <a href="urun.html?id=c75" class="sprod">C-75 Power</a>
+        <a href="urun.html?id=6121rl" class="sprod">6121-RL</a>
+        <a href="urun.html?id=6155" class="sprod">6155 Kirçilli</a>
+        <a href="urun.html?id=6101" class="sprod">6101 Lateks</a>
+      </div>
+    </div>
+
+    <div class="sector-card">
+      <div class="sector-icon" style="background:rgba(245,158,11,.08);">⚙️</div>
+      <h3>Metal & Makine</h3>
+      <p>Metal parça, talaşlı imalat ve ağır ekipman. Delme ve yırtılma direnci ön planda.</p>
+      <div class="sector-products">
+        <a href="urun.html?id=c25" class="sprod">C-25 Tam Kaplı</a>
+        <a href="urun.html?id=8804" class="sprod">8804 Tam Kaplı</a>
+        <a href="urun.html?id=8906dc" class="sprod">8906-DC</a>
+        <a href="urun.html?id=c432" class="sprod">C-432 Camcı</a>
+      </div>
+    </div>
+
+    <div class="sector-card">
+      <div class="sector-icon" style="background:rgba(239,68,68,.08);">🔩</div>
+      <h3>Otomotiv & Montaj</h3>
+      <p>Hassas parça montajı, vidalama, ince mekanik işler. Dokunuş duyarlılığı ve konfor önemli.</p>
+      <div class="sector-products">
+        <a href="urun.html?id=8701pu" class="sprod">8701-PU/A</a>
+        <a href="urun.html?id=8802" class="sprod">8802 Montaj</a>
+        <a href="urun.html?id=8802b" class="sprod">8802-B</a>
+        <a href="urun.html?id=c20" class="sprod">C-20 Techno</a>
+      </div>
+    </div>
+
+    <div class="sector-card">
+      <div class="sector-icon" style="background:rgba(168,85,247,.08);">💻</div>
+      <h3>Elektronik & Hassas İmalat</h3>
+      <p>PCB, elektronik komponent ve ince hassas işlemler. Maksimum dokunuş hassasiyeti gerekir.</p>
+      <div class="sector-products">
+        <a href="urun.html?id=8701pu" class="sprod">8701-PU/A</a>
+        <a href="urun.html?id=8701pu3" class="sprod">8701-PU-3</a>
+        <a href="urun.html?id=c15" class="sprod">C-15 Standart</a>
+      </div>
+    </div>
+
+    <div class="sector-card">
+      <div class="sector-icon" style="background:rgba(20,184,166,.08);">🧪</div>
+      <h3>Kimya & Petrol</h3>
+      <p>Yağ, solvent ve kimyasal madde ile temas. Tam kaplı, geçirmez yüzey kritik önem taşır.</p>
+      <div class="sector-products">
+        <a href="urun.html?id=c75" class="sprod">C-75 Power</a>
+        <a href="urun.html?id=c25" class="sprod">C-25 Tam Kaplı</a>
+        <a href="urun.html?id=8804" class="sprod">8804 Tam Kaplı</a>
+      </div>
+    </div>
+
+    <div class="sector-card">
+      <div class="sector-icon" style="background:rgba(74,158,107,.08);">🌱</div>
+      <h3>Tarım & Bahçe</h3>
+      <p>Toprak, sulama ve bahçe aletleri. Esneklik, su direnci ve uzun süreli konfor önemlidir.</p>
+      <div class="sector-products">
+        <a href="urun.html?id=c40" class="sprod">C-40 Garden</a>
+        <a href="urun.html?id=6101" class="sprod">6101 Lateks</a>
+        <a href="urun.html?id=6600" class="sprod">6600 3/4 Kaplı</a>
+      </div>
+    </div>
+
+    <div class="sector-card">
+      <div class="sector-icon" style="background:rgba(239,68,68,.08);">🔪</div>
+      <h3>Cam Sanayi</h3>
+      <p>Keskin cam kenarları ve kırık riskine karşı özel koruma. Kesme direnci maksimum olmalı.</p>
+      <div class="sector-products">
+        <a href="urun.html?id=c432" class="sprod">C-432 Camcı</a>
+        <a href="urun.html?id=8701pu3" class="sprod">8701-PU-3 Kesilmez</a>
+      </div>
+    </div>
+
+    <div class="sector-card">
+      <div class="sector-icon" style="background:rgba(245,158,11,.08);">📦</div>
+      <h3>Lojistik & Depo</h3>
+      <p>Koli taşıma, yükleme ve paketleme. Kavrama gücü, görünürlük ve uzun süreli konfor.</p>
+      <div class="sector-products">
+        <a href="urun.html?id=8802b" class="sprod">8802-B Turuncu</a>
+        <a href="urun.html?id=8802" class="sprod">8802 Montaj</a>
+        <a href="urun.html?id=6121rl" class="sprod">6121-RL</a>
+        <a href="urun.html?id=c15" class="sprod">C-15 Standart</a>
+      </div>
+    </div>
+
+    <div class="sector-card">
+      <div class="sector-icon" style="background:rgba(59,130,246,.08);">🍽️</div>
+      <h3>Gıda Sektörü</h3>
+      <p>Islak ve kaygan yüzeyler, temizleme ve üretim hattı. Kavrama ve hijyen ön planda.</p>
+      <div class="sector-products">
+        <a href="urun.html?id=6155" class="sprod">6155 Kirçilli Lateks</a>
+        <a href="urun.html?id=6600" class="sprod">6600 3/4 Kaplı</a>
+        <a href="urun.html?id=6101" class="sprod">6101 Lateks</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- DAYANIKLILIK MATRİSİ -->
+  <div class="section-header">
+    <h2>Dayanıklılık Karşılaştırma Tablosu</h2>
+    <p>Tüm modellerimizin mekanik performans karşılaştırması. Göstergeler ürün karakteristiklerini yansıtır.</p>
+  </div>
+
+  <div class="matrix-wrap">
+    <div class="disclaimer">
+      ⓘ Aşağıdaki göstergeler ürünlerin genel performans karakteristiklerini yansıtmaktadır.
+      Resmi EN388 test sertifikası değerleri için satış ekibimizle iletişime geçin.
+    </div>
+    <div class="matrix-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Ürün</th>
+            <th>
+              <span style="color:var(--blue)">●</span> Aşınma<br/>
+              <span style="font-size:.65rem;font-weight:500">1. hane / 0–4</span>
+            </th>
+            <th>
+              <span style="color:var(--red)">●</span> Kesme<br/>
+              <span style="font-size:.65rem;font-weight:500">2. hane / 0–5</span>
+            </th>
+            <th>
+              <span style="color:var(--amber)">●</span> Yırtılma<br/>
+              <span style="font-size:.65rem;font-weight:500">3. hane / 0–4</span>
+            </th>
+            <th>
+              <span style="color:var(--green)">●</span> Delme<br/>
+              <span style="font-size:.65rem;font-weight:500">4. hane / 0–4</span>
+            </th>
+            <th>Islak Kavrama</th>
+            <th>Hassasiyet</th>
+            <th>Kullanım Alanı</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <!-- NİTRİL -->
+          <tr>
+            <td>
+              <div class="prod-name-cell">
+                <strong><a href="urun.html?id=c15">C-15 Standart</a></strong>
+                <span class="cat-badge cat-nitril">Nitril</span>
+              </div>
+            </td>
+            <td><div class="dots"><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on red"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div></div></td>
+            <td><div class="sector-tags"><span class="stag">Montaj</span><span class="stag">Lojistik</span><span class="stag">Elektronik</span></div></td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="prod-name-cell">
+                <strong><a href="urun.html?id=c20">C-20 Techno</a></strong>
+                <span class="cat-badge cat-nitril">Nitril</span>
+              </div>
+            </td>
+            <td><div class="dots"><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on red"></div><div class="dot on red"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot"></div></div></td>
+            <td><div class="sector-tags"><span class="stag">Makine</span><span class="stag">Montaj</span><span class="stag">Genel Sanayi</span></div></td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="prod-name-cell">
+                <strong><a href="urun.html?id=c25">C-25 Tam Kaplı</a></strong>
+                <span class="cat-badge cat-nitril">Nitril</span>
+              </div>
+            </td>
+            <td><div class="dots"><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div></div></td>
+            <td><div class="dots"><div class="dot on red"></div><div class="dot on red"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div></td>
+            <td><div class="dots"><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot"></div><div class="dot"></div></div></td>
+            <td><div class="sector-tags"><span class="stag">Kimya</span><span class="stag">Metal</span><span class="stag">Yağlı Ortam</span></div></td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="prod-name-cell">
+                <strong><a href="urun.html?id=c40">C-40 Garden</a></strong>
+                <span class="cat-badge cat-nitril">Nitril</span>
+              </div>
+            </td>
+            <td><div class="dots"><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on red"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div></div></td>
+            <td><div class="sector-tags"><span class="stag">Tarım</span><span class="stag">Bahçe</span><span class="stag">Hafif İş</span></div></td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="prod-name-cell">
+                <strong><a href="urun.html?id=c55">C-55 Ekstra</a></strong>
+                <span class="cat-badge cat-nitril">Nitril</span>
+              </div>
+            </td>
+            <td><div class="dots"><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div></div></td>
+            <td><div class="dots"><div class="dot on red"></div><div class="dot on red"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div></td>
+            <td><div class="dots"><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot"></div></div></td>
+            <td><div class="sector-tags"><span class="stag">İnşaat</span><span class="stag">Ağır Sanayi</span><span class="stag">Metal</span></div></td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="prod-name-cell">
+                <strong><a href="urun.html?id=c75">C-75 Power</a></strong>
+                <span class="cat-badge cat-nitril">Nitril</span>
+              </div>
+            </td>
+            <td><div class="dots"><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div></div></td>
+            <td><div class="dots"><div class="dot on red"></div><div class="dot on red"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot on amber"></div></div></td>
+            <td><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div></td>
+            <td><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div></td>
+            <td><div class="dots"><div class="dot on blue"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></td>
+            <td><div class="sector-tags"><span class="stag">Petrol</span><span class="stag">Kimya</span><span class="stag">Ağır Sanayi</span></div></td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="prod-name-cell">
+                <strong><a href="urun.html?id=c432">C-432 Camcı</a></strong>
+                <span class="cat-badge cat-nitril">Nitril</span>
+              </div>
+            </td>
+            <td><div class="dots"><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div></div></td>
+            <td><div class="dots"><div class="dot on red"></div><div class="dot on red"></div><div class="dot on red"></div><div class="dot"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot"></div></div></td>
+            <td><div class="sector-tags"><span class="stag">Cam Sanayi</span><span class="stag">Kesik Riski</span></div></td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="prod-name-cell">
+                <strong><a href="urun.html?id=8804">8804 Tam Kaplı</a></strong>
+                <span class="cat-badge cat-nitril">Nitril</span>
+              </div>
+            </td>
+            <td><div class="dots"><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div></div></td>
+            <td><div class="dots"><div class="dot on red"></div><div class="dot on red"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot on amber"></div></div></td>
+            <td><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div></td>
+            <td><div class="dots"><div class="dot on blue"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></td>
+            <td><div class="sector-tags"><span class="stag">Islak Ortam</span><span class="stag">Kimya</span><span class="stag">Metal</span></div></td>
+          </tr>
+
+          <!-- MONTAJ -->
+          <tr>
+            <td>
+              <div class="prod-name-cell">
+                <strong><a href="urun.html?id=8701pu">8701-PU/A</a></strong>
+                <span class="cat-badge cat-montaj">Montaj / PU</span>
+              </div>
+            </td>
+            <td><div class="dots"><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on red"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div></div></td>
+            <td><div class="sector-tags"><span class="stag">Elektronik</span><span class="stag">Otomotiv</span><span class="stag">Hassas Montaj</span></div></td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="prod-name-cell">
+                <strong><a href="urun.html?id=8802">8802 Montaj</a></strong>
+                <span class="cat-badge cat-montaj">Montaj</span>
+              </div>
+            </td>
+            <td><div class="dots"><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on red"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div></div></td>
+            <td><div class="sector-tags"><span class="stag">Montaj</span><span class="stag">Genel Sanayi</span><span class="stag">Lojistik</span></div></td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="prod-name-cell">
+                <strong><a href="urun.html?id=8802b">8802-B Montaj</a></strong>
+                <span class="cat-badge cat-montaj">Montaj</span>
+              </div>
+            </td>
+            <td><div class="dots"><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on red"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div></div></td>
+            <td><div class="sector-tags"><span class="stag">Lojistik</span><span class="stag">Yüksek Görünürlük</span></div></td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="prod-name-cell">
+                <strong><a href="urun.html?id=8906dc">8906-DC Çift Kaplı</a></strong>
+                <span class="cat-badge cat-montaj">Montaj</span>
+              </div>
+            </td>
+            <td><div class="dots"><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div></div></td>
+            <td><div class="dots"><div class="dot on red"></div><div class="dot on red"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot on amber"></div></div></td>
+            <td><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div></td>
+            <td><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div></td>
+            <td><div class="dots"><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot"></div><div class="dot"></div></div></td>
+            <td><div class="sector-tags"><span class="stag">Ağır Sanayi</span><span class="stag">Metal</span><span class="stag">Yoğun Kullanım</span></div></td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="prod-name-cell">
+                <strong><a href="urun.html?id=6121rl">6121-RL Kirçilli</a></strong>
+                <span class="cat-badge cat-montaj">Montaj / Nitril</span>
+              </div>
+            </td>
+            <td><div class="dots"><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div></div></td>
+            <td><div class="dots"><div class="dot on red"></div><div class="dot on red"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div></td>
+            <td><div class="dots"><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot"></div></div></td>
+            <td><div class="sector-tags"><span class="stag">İnşaat</span><span class="stag">Islak Ortam</span><span class="stag">Ağır Sanayi</span></div></td>
+          </tr>
+
+          <!-- LATEKS -->
+          <tr>
+            <td>
+              <div class="prod-name-cell">
+                <strong><a href="urun.html?id=6101">6101 Lateks Yeşil</a></strong>
+                <span class="cat-badge cat-lateks">Lateks</span>
+              </div>
+            </td>
+            <td><div class="dots"><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on red"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div></td>
+            <td><div class="dots"><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot"></div></div></td>
+            <td><div class="sector-tags"><span class="stag">İnşaat</span><span class="stag">Tarım</span><span class="stag">Genel Sanayi</span></div></td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="prod-name-cell">
+                <strong><a href="urun.html?id=6155">6155 Kirçilli Lateks</a></strong>
+                <span class="cat-badge cat-lateks">Lateks</span>
+              </div>
+            </td>
+            <td><div class="dots"><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div></div></td>
+            <td><div class="dots"><div class="dot on red"></div><div class="dot on red"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div></td>
+            <td><div class="dots"><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot"></div></div></td>
+            <td><div class="sector-tags"><span class="stag">Gıda</span><span class="stag">İnşaat</span><span class="stag">Islak Ortam</span></div></td>
+          </tr>
+
+          <tr>
+            <td>
+              <div class="prod-name-cell">
+                <strong><a href="urun.html?id=6600">6600 3/4 Kaplı</a></strong>
+                <span class="cat-badge cat-lateks">Lateks</span>
+              </div>
+            </td>
+            <td><div class="dots"><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on red"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div></td>
+            <td><div class="dots"><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div></div></td>
+            <td><div class="sector-tags"><span class="stag">Tarım</span><span class="stag">Gıda</span><span class="stag">Uzun Süreli Kullanım</span></div></td>
+          </tr>
+
+          <!-- KESİLMEZ -->
+          <tr>
+            <td>
+              <div class="prod-name-cell">
+                <strong><a href="urun.html?id=8701pu3">8701-PU-3 Kesilmez</a></strong>
+                <span class="cat-badge cat-kesilmez">Kesilmez</span>
+              </div>
+            </td>
+            <td><div class="dots"><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div></div></td>
+            <td><div class="dots"><div class="dot on red"></div><div class="dot on red"></div><div class="dot on red"></div><div class="dot on red"></div><div class="dot on red"></div></div></td>
+            <td><div class="dots"><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot on amber"></div><div class="dot on amber"></div></div></td>
+            <td><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div></td>
+            <td><div class="dots"><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div></div></td>
+            <td><div class="sector-tags"><span class="stag">Cam Sanayi</span><span class="stag">Metal Kesim</span><span class="stag">Hassas Montaj</span></div></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <div class="legend">
+      <span class="legend-title">Gösterge:</span>
+      <div class="legend-item">
+        <div class="legend-dots">
+          <div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div>
+        </div>
+        Maksimum
+      </div>
+      <div class="legend-item">
+        <div class="legend-dots">
+          <div class="dot on blue"></div><div class="dot on blue"></div><div class="dot on blue"></div><div class="dot"></div>
+        </div>
+        Yüksek
+      </div>
+      <div class="legend-item">
+        <div class="legend-dots">
+          <div class="dot on blue"></div><div class="dot on blue"></div><div class="dot"></div><div class="dot"></div>
+        </div>
+        Orta
+      </div>
+      <div class="legend-item">
+        <div class="legend-dots">
+          <div class="dot on blue"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        </div>
+        Temel
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-strip">
+    <h2>Hâlâ kararsız mısınız?</h2>
+    <p>Sektörünüzü ve ihtiyaçlarınızı bizimle paylaşın, uzman ekibimiz size en uygun modeli önerir.</p>
+    <div class="cta-btns">
+      <a href="/#iletisim" class="btn-green">Uzmanla Görüş</a>
+      <a href="katalog.pdf" target="_blank" class="btn-outline-white">PDF Katalog</a>
+      <a href="/#urunler" class="btn-outline-white">Tüm Ürünler</a>
+    </div>
+  </div>
+
+</main>
+
+</body>
+</html>
