@@ -102,16 +102,24 @@
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2.5rem;
     }
     .sector-card {
-      background: #fff; border-radius: 16px; padding: 1.4rem 1.5rem;
+      background: #fff; border-radius: 16px; overflow: hidden;
       border: 1.5px solid var(--border); transition: border-color .2s, box-shadow .2s;
     }
-    .sector-card:hover { border-color: var(--green); box-shadow: 0 4px 20px rgba(74,158,107,.12); }
-    .sector-icon {
-      width: 44px; height: 44px; border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem; margin-bottom: 1rem;
+    .sector-card:hover { border-color: var(--green); box-shadow: 0 6px 24px rgba(74,158,107,.14); }
+    .sector-img { width: 100%; height: 175px; overflow: hidden; position: relative; }
+    .sector-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; display: block; }
+    .sector-card:hover .sector-img img { transform: scale(1.05); }
+    .sector-img-placeholder {
+      width: 100%; height: 175px; display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem;
     }
-    .sector-card h3 { font-size: .9rem; font-weight: 800; margin-bottom: .4rem; }
+    .sector-body { padding: 1.2rem 1.4rem; }
+    .sector-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; margin-bottom: .7rem;
+    }
+    .sector-card h3 { font-size: .9rem; font-weight: 800; margin-bottom: .35rem; }
     .sector-card p { font-size: .78rem; color: var(--gray); line-height: 1.5; margin-bottom: .8rem; }
     .sector-products { display: flex; flex-wrap: wrap; gap: .35rem; }
     .sprod {
@@ -295,105 +303,150 @@
   <div class="sector-grid">
 
     <div class="sector-card">
-      <div class="sector-icon" style="background:rgba(59,130,246,.08);">🏗️</div>
-      <h3>İnşaat & Yapı</h3>
-      <p>Kaba yüzey, beton, demir ve ağır malzeme taşıma. Yüksek aşınma ve yırtılma direnci şart.</p>
-      <div class="sector-products">
-        <a href="urun.html?id=c55" class="sprod">C-55 Ekstra</a>
-        <a href="urun.html?id=c75" class="sprod">C-75 Power</a>
-        <a href="urun.html?id=6121rl" class="sprod">6121-RL</a>
-        <a href="urun.html?id=6155" class="sprod">6155 Kirçilli</a>
-        <a href="urun.html?id=6101" class="sprod">6101 Lateks</a>
+      <div class="sector-img">
+        <img src="ai generated background/extra.png" alt="İnşaat ve Yapı Sektörü" />
+      </div>
+      <div class="sector-body">
+        <div class="sector-icon" style="background:rgba(59,130,246,.08);">🏗️</div>
+        <h3>İnşaat & Yapı</h3>
+        <p>Kaba yüzey, beton, demir ve ağır malzeme taşıma. Yüksek aşınma ve yırtılma direnci şart.</p>
+        <div class="sector-products">
+          <a href="urun.html?id=c55" class="sprod">C-55 Ekstra</a>
+          <a href="urun.html?id=c75" class="sprod">C-75 Power</a>
+          <a href="urun.html?id=6121rl" class="sprod">6121-RL</a>
+          <a href="urun.html?id=6155" class="sprod">6155 Kirçilli</a>
+          <a href="urun.html?id=6101" class="sprod">6101 Lateks</a>
+        </div>
       </div>
     </div>
 
     <div class="sector-card">
-      <div class="sector-icon" style="background:rgba(245,158,11,.08);">⚙️</div>
-      <h3>Metal & Makine</h3>
-      <p>Metal parça, talaşlı imalat ve ağır ekipman. Delme ve yırtılma direnci ön planda.</p>
-      <div class="sector-products">
-        <a href="urun.html?id=c25" class="sprod">C-25 Tam Kaplı</a>
-        <a href="urun.html?id=8804" class="sprod">8804 Tam Kaplı</a>
-        <a href="urun.html?id=8906dc" class="sprod">8906-DC</a>
-        <a href="urun.html?id=c432" class="sprod">C-432 Camcı</a>
+      <div class="sector-img">
+        <img src="ai generated background/8804.png" alt="Metal ve Makine Sektörü" />
+      </div>
+      <div class="sector-body">
+        <div class="sector-icon" style="background:rgba(245,158,11,.08);">⚙️</div>
+        <h3>Metal & Makine</h3>
+        <p>Metal parça, talaşlı imalat ve ağır ekipman. Delme ve yırtılma direnci ön planda.</p>
+        <div class="sector-products">
+          <a href="urun.html?id=c25" class="sprod">C-25 Tam Kaplı</a>
+          <a href="urun.html?id=8804" class="sprod">8804 Tam Kaplı</a>
+          <a href="urun.html?id=8906dc" class="sprod">8906-DC</a>
+          <a href="urun.html?id=c432" class="sprod">C-432 Camcı</a>
+        </div>
       </div>
     </div>
 
     <div class="sector-card">
-      <div class="sector-icon" style="background:rgba(239,68,68,.08);">🔩</div>
-      <h3>Otomotiv & Montaj</h3>
-      <p>Hassas parça montajı, vidalama, ince mekanik işler. Dokunuş duyarlılığı ve konfor önemli.</p>
-      <div class="sector-products">
-        <a href="urun.html?id=8701pu" class="sprod">8701-PU/A</a>
-        <a href="urun.html?id=8802" class="sprod">8802 Montaj</a>
-        <a href="urun.html?id=8802b" class="sprod">8802-B</a>
-        <a href="urun.html?id=c20" class="sprod">C-20 Techno</a>
+      <div class="sector-img">
+        <img src="ai generated background/8802.png" alt="Otomotiv ve Montaj Sektörü" />
+      </div>
+      <div class="sector-body">
+        <div class="sector-icon" style="background:rgba(239,68,68,.08);">🔩</div>
+        <h3>Otomotiv & Montaj</h3>
+        <p>Hassas parça montajı, vidalama, ince mekanik işler. Dokunuş duyarlılığı ve konfor önemli.</p>
+        <div class="sector-products">
+          <a href="urun.html?id=8701pu" class="sprod">8701-PU/A</a>
+          <a href="urun.html?id=8802" class="sprod">8802 Montaj</a>
+          <a href="urun.html?id=8802b" class="sprod">8802-B</a>
+          <a href="urun.html?id=c20" class="sprod">C-20 Techno</a>
+        </div>
       </div>
     </div>
 
     <div class="sector-card">
-      <div class="sector-icon" style="background:rgba(168,85,247,.08);">💻</div>
-      <h3>Elektronik & Hassas İmalat</h3>
-      <p>PCB, elektronik komponent ve ince hassas işlemler. Maksimum dokunuş hassasiyeti gerekir.</p>
-      <div class="sector-products">
-        <a href="urun.html?id=8701pu" class="sprod">8701-PU/A</a>
-        <a href="urun.html?id=8701pu3" class="sprod">8701-PU-3</a>
-        <a href="urun.html?id=c15" class="sprod">C-15 Standart</a>
+      <div class="sector-img">
+        <img src="ai generated background/8701.png" alt="Elektronik ve Hassas İmalat Sektörü" />
+      </div>
+      <div class="sector-body">
+        <div class="sector-icon" style="background:rgba(168,85,247,.08);">💻</div>
+        <h3>Elektronik & Hassas İmalat</h3>
+        <p>PCB, elektronik komponent ve ince hassas işlemler. Maksimum dokunuş hassasiyeti gerekir.</p>
+        <div class="sector-products">
+          <a href="urun.html?id=8701pu" class="sprod">8701-PU/A</a>
+          <a href="urun.html?id=8701pu3" class="sprod">8701-PU-3</a>
+          <a href="urun.html?id=c15" class="sprod">C-15 Standart</a>
+        </div>
       </div>
     </div>
 
     <div class="sector-card">
-      <div class="sector-icon" style="background:rgba(20,184,166,.08);">🧪</div>
-      <h3>Kimya & Petrol</h3>
-      <p>Yağ, solvent ve kimyasal madde ile temas. Tam kaplı, geçirmez yüzey kritik önem taşır.</p>
-      <div class="sector-products">
-        <a href="urun.html?id=c75" class="sprod">C-75 Power</a>
-        <a href="urun.html?id=c25" class="sprod">C-25 Tam Kaplı</a>
-        <a href="urun.html?id=8804" class="sprod">8804 Tam Kaplı</a>
+      <div class="sector-img">
+        <img src="ai generated background/power.png" alt="Kimya ve Petrol Sektörü" />
+      </div>
+      <div class="sector-body">
+        <div class="sector-icon" style="background:rgba(20,184,166,.08);">🧪</div>
+        <h3>Kimya & Petrol</h3>
+        <p>Yağ, solvent ve kimyasal madde ile temas. Tam kaplı, geçirmez yüzey kritik önem taşır.</p>
+        <div class="sector-products">
+          <a href="urun.html?id=c75" class="sprod">C-75 Power</a>
+          <a href="urun.html?id=c25" class="sprod">C-25 Tam Kaplı</a>
+          <a href="urun.html?id=8804" class="sprod">8804 Tam Kaplı</a>
+        </div>
       </div>
     </div>
 
     <div class="sector-card">
-      <div class="sector-icon" style="background:rgba(74,158,107,.08);">🌱</div>
-      <h3>Tarım & Bahçe</h3>
-      <p>Toprak, sulama ve bahçe aletleri. Esneklik, su direnci ve uzun süreli konfor önemlidir.</p>
-      <div class="sector-products">
-        <a href="urun.html?id=c40" class="sprod">C-40 Garden</a>
-        <a href="urun.html?id=6101" class="sprod">6101 Lateks</a>
-        <a href="urun.html?id=6600" class="sprod">6600 3/4 Kaplı</a>
+      <div class="sector-img">
+        <img src="ai generated background/c40.png" alt="Tarım ve Bahçe Sektörü" />
+      </div>
+      <div class="sector-body">
+        <div class="sector-icon" style="background:rgba(74,158,107,.08);">🌱</div>
+        <h3>Tarım & Bahçe</h3>
+        <p>Toprak, sulama ve bahçe aletleri. Esneklik, su direnci ve uzun süreli konfor önemlidir.</p>
+        <div class="sector-products">
+          <a href="urun.html?id=c40" class="sprod">C-40 Garden</a>
+          <a href="urun.html?id=6101" class="sprod">6101 Lateks</a>
+          <a href="urun.html?id=6600" class="sprod">6600 3/4 Kaplı</a>
+        </div>
       </div>
     </div>
 
     <div class="sector-card">
-      <div class="sector-icon" style="background:rgba(239,68,68,.08);">🔪</div>
-      <h3>Cam Sanayi</h3>
-      <p>Keskin cam kenarları ve kırık riskine karşı özel koruma. Kesme direnci maksimum olmalı.</p>
-      <div class="sector-products">
-        <a href="urun.html?id=c432" class="sprod">C-432 Camcı</a>
-        <a href="urun.html?id=8701pu3" class="sprod">8701-PU-3 Kesilmez</a>
+      <div class="sector-img">
+        <img src="ai generated background/c432_v2.jpeg" alt="Cam Sanayi Sektörü" />
+      </div>
+      <div class="sector-body">
+        <div class="sector-icon" style="background:rgba(239,68,68,.08);">🔪</div>
+        <h3>Cam Sanayi</h3>
+        <p>Keskin cam kenarları ve kırık riskine karşı özel koruma. Kesme direnci maksimum olmalı.</p>
+        <div class="sector-products">
+          <a href="urun.html?id=c432" class="sprod">C-432 Camcı</a>
+          <a href="urun.html?id=8701pu3" class="sprod">8701-PU-3 Kesilmez</a>
+        </div>
       </div>
     </div>
 
     <div class="sector-card">
-      <div class="sector-icon" style="background:rgba(245,158,11,.08);">📦</div>
-      <h3>Lojistik & Depo</h3>
-      <p>Koli taşıma, yükleme ve paketleme. Kavrama gücü, görünürlük ve uzun süreli konfor.</p>
-      <div class="sector-products">
-        <a href="urun.html?id=8802b" class="sprod">8802-B Turuncu</a>
-        <a href="urun.html?id=8802" class="sprod">8802 Montaj</a>
-        <a href="urun.html?id=6121rl" class="sprod">6121-RL</a>
-        <a href="urun.html?id=c15" class="sprod">C-15 Standart</a>
+      <div class="sector-img">
+        <img src="ai generated background/8802-b.png" alt="Lojistik ve Depo Sektörü" />
+      </div>
+      <div class="sector-body">
+        <div class="sector-icon" style="background:rgba(245,158,11,.08);">📦</div>
+        <h3>Lojistik & Depo</h3>
+        <p>Koli taşıma, yükleme ve paketleme. Kavrama gücü, görünürlük ve uzun süreli konfor.</p>
+        <div class="sector-products">
+          <a href="urun.html?id=8802b" class="sprod">8802-B Turuncu</a>
+          <a href="urun.html?id=8802" class="sprod">8802 Montaj</a>
+          <a href="urun.html?id=6121rl" class="sprod">6121-RL</a>
+          <a href="urun.html?id=c15" class="sprod">C-15 Standart</a>
+        </div>
       </div>
     </div>
 
     <div class="sector-card">
-      <div class="sector-icon" style="background:rgba(59,130,246,.08);">🍽️</div>
-      <h3>Gıda Sektörü</h3>
-      <p>Islak ve kaygan yüzeyler, temizleme ve üretim hattı. Kavrama ve hijyen ön planda.</p>
-      <div class="sector-products">
-        <a href="urun.html?id=6155" class="sprod">6155 Kirçilli Lateks</a>
-        <a href="urun.html?id=6600" class="sprod">6600 3/4 Kaplı</a>
-        <a href="urun.html?id=6101" class="sprod">6101 Lateks</a>
+      <div class="sector-img">
+        <img src="ai generated background/6155.png" alt="Gıda Sektörü" />
+      </div>
+      <div class="sector-body">
+        <div class="sector-icon" style="background:rgba(59,130,246,.08);">🍽️</div>
+        <h3>Gıda Sektörü</h3>
+        <p>Islak ve kaygan yüzeyler, temizleme ve üretim hattı. Kavrama ve hijyen ön planda.</p>
+        <div class="sector-products">
+          <a href="urun.html?id=6155" class="sprod">6155 Kirçilli Lateks</a>
+          <a href="urun.html?id=6600" class="sprod">6600 3/4 Kaplı</a>
+          <a href="urun.html?id=6101" class="sprod">6101 Lateks</a>
+        </div>
       </div>
     </div>
 
