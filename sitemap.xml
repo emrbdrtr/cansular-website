@@ -32,37 +32,44 @@
   </url>
   <!-- Blog yazıları -->
   <url>
-    <loc>https://technoeldiven.com/blog-yazi.html?id=en388-nedir</loc>
+    <loc>https://technoeldiven.com/blog-en388-nedir.html</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://technoeldiven.com/blog-nitril-mi-lateks-mi.html</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://technoeldiven.com/blog-eldiven-secim-rehberi.html</loc>
+    <lastmod>2026-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://technoeldiven.com/blog-kesilmez-eldiven.html</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://technoeldiven.com/blog-yazi.html?id=nitril-mi-lateks-mi</loc>
+    <loc>https://technoeldiven.com/blog-is-guvenligi-mevzuat.html</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://technoeldiven.com/blog-yazi.html?id=eldiven-secim-rehberi</loc>
+    <loc>https://technoeldiven.com/blog-eldiven-bakim.html</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://technoeldiven.com/blog-yazi.html?id=kesilmez-eldiven</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://technoeldiven.com/blog-yazi.html?id=is-guvenligi-mevzuat</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://technoeldiven.com/blog-yazi.html?id=eldiven-bakim</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://technoeldiven.com/blog-yazi.html?id=ce-isareti</loc>
+    <loc>https://technoeldiven.com/blog-ce-isareti.html</loc>
+    <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
