@@ -17,6 +17,46 @@
   <meta name="twitter:title" content="Universal Eldiven | Tescilli Marka Modelleri | Cansular" />
   <meta name="twitter:description" content="Universal Eldiven — Cansular A.Ş.'nin TÜRKPATENT tescilli markası. Nitril, lateks, PU kaplama 17 model. CE belgeli, toptan satış." />
   <meta name="twitter:image" content="https://technoeldiven.com/logolatest.jpg" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Universal eldiven CE belgeli mi?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Evet. Tüm Universal eldiven modelleri CE belgeli olup EN388:2016 mekanik koruma standardına uygun şekilde üretilmektedir."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Universal eldiven toptan satışı nasıl yapılır?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cansular Hırdavat yalnızca toptan satış yapmaktadır. Minimum sipariş miktarı ve fiyat teklifi için (0212) 514 08 44 numarasından veya web sitesindeki iletişim formundan ulaşabilirsiniz."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Universal eldivenlerin kaplama seçenekleri nelerdir?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Universal markası altında nitril, tam kaplı nitril, kirçilli nitril, PU, lateks, kirçilli lateks ve 3/4 lateks kaplama seçenekleri mevcuttur. 17 farklı model mevcuttur."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Universal eldiven ile Techno eldiven arasındaki fark nedir?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Her ikisi de Cansular A.Ş.'nin tescilli markalarıdır. Universal serisi geniş kullanım yelpazesine hitap ederken Techno serisi montaj ve mekanik işler için geliştirilmiş premium modelleri kapsar."
+        }
+      }
+    ]
+  }
+  </script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-D9W53EMX2H"></script>
   <script>
@@ -169,6 +209,61 @@
       .belgeler-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media(max-width:480px) { .belgeler-grid { grid-template-columns: 1fr; } }
+
+    /* ── ÜRÜN SERİSİ ── */
+    .urun-serisi { margin-bottom: 2.5rem; }
+    .urun-serisi > h2 { font-size: 1.25rem; font-weight: 800; margin-bottom: .4rem; }
+    .urun-serisi > p { font-size: .88rem; color: var(--gray); margin-bottom: 1.8rem; line-height: 1.7; }
+    .urun-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+    .urun-card {
+      background: #fff; border-radius: 16px; border: 1px solid var(--border);
+      overflow: hidden; transition: transform .2s, box-shadow .2s;
+      display: flex; flex-direction: column;
+    }
+    .urun-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,.1); }
+    .urun-card-img { height: 140px; overflow: hidden; background: #f8f9fb; display: flex; align-items: center; justify-content: center; }
+    .urun-card-img img { max-height: 120px; max-width: 100%; object-fit: contain; padding: .5rem; }
+    .urun-card-body { padding: 1rem 1.1rem 1.2rem; flex: 1; display: flex; flex-direction: column; }
+    .urun-card-body h3 { font-size: .88rem; font-weight: 700; margin-bottom: .3rem; color: var(--navy); }
+    .urun-card-kaplama {
+      display: inline-block; background: rgba(74,158,107,.1); color: var(--green);
+      font-size: .65rem; font-weight: 700; padding: .15rem .55rem;
+      border-radius: 20px; margin-bottom: .5rem;
+    }
+    .urun-card-body p { font-size: .78rem; color: var(--gray); line-height: 1.6; flex: 1; }
+    .urun-card-link {
+      display: block; margin-top: .8rem; text-align: center;
+      background: var(--navy); color: #fff; padding: .5rem;
+      border-radius: 8px; font-size: .78rem; font-weight: 700;
+      transition: background .2s;
+    }
+    .urun-card-link:hover { background: var(--green); }
+
+    /* ── SEKTÖR REHBERİ ── */
+    .sektor-section { background: #fff; border-radius: 20px; padding: 2.5rem; box-shadow: 0 4px 24px rgba(0,0,0,.06); margin-bottom: 2rem; }
+    .sektor-section h2 { font-size: 1.1rem; font-weight: 800; margin-bottom: 1.5rem; }
+    .sektor-table { width: 100%; border-collapse: collapse; font-size: .84rem; }
+    .sektor-table th { background: var(--navy); color: #fff; padding: .7rem 1rem; text-align: left; font-weight: 700; font-size: .78rem; }
+    .sektor-table td { padding: .65rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .sektor-table tr:last-child td { border-bottom: none; }
+    .sektor-table tr:nth-child(even) td { background: #f8fafc; }
+
+    /* ── FAQ ── */
+    .faq-section { background: #fff; border-radius: 20px; padding: 2.5rem; box-shadow: 0 4px 24px rgba(0,0,0,.06); margin-bottom: 2rem; }
+    .faq-section h2 { font-size: 1.1rem; font-weight: 800; margin-bottom: 1.5rem; }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 1.1rem 0; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item h3 { font-size: .9rem; font-weight: 700; margin-bottom: .4rem; color: var(--navy); }
+    .faq-item p { font-size: .84rem; color: var(--gray); line-height: 1.75; }
+
+    /* ── TANITIM PARAGRAFI ── */
+    .tanitim-card { background: #fff; border-radius: 16px; padding: 2rem 2.5rem; box-shadow: 0 4px 24px rgba(0,0,0,.06); margin-bottom: 2.5rem; }
+    .tanitim-card h2 { font-size: 1.05rem; font-weight: 800; margin-bottom: .6rem; }
+    .tanitim-card p { font-size: .87rem; color: var(--gray); line-height: 1.8; margin-bottom: .8rem; }
+    .tanitim-card p:last-child { margin-bottom: 0; }
+
+    @media(max-width:760px) { .urun-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media(max-width:480px) { .urun-grid { grid-template-columns: 1fr; } .sektor-table { font-size: .78rem; } }
   </style>
 </head>
 <body>
@@ -212,6 +307,21 @@
 
 <main>
 
+  <!-- Tanıtım -->
+  <div class="tanitim-card">
+    <h2>Universal Eldiven Nedir?</h2>
+    <p>
+      Universal eldiven, Cansular Hırdavat Sanayi ve Ticaret A.Ş.'nin TÜRKPATENT tescilli markası altında üretilen
+      koruyucu iş eldivenlerinin genel adıdır. 1980'den bu yana Türkiye'nin önde gelen iş güvenliği ekipmanı
+      üreticisi olan Cansular, Universal markasıyla nitril, lateks ve PU kaplama teknolojilerini bir araya getirerek
+      sektöre özel 17 farklı model sunmaktadır.
+    </p>
+    <p>
+      Tüm Universal eldiven modelleri CE belgeli olup EN388 mekanik koruma standardına uygundur. İnşaat, otomotiv,
+      gıda, kimya ve hassas montaj sektörlerine yönelik çözümler toptan satış bazında temin edilebilmektedir.
+    </p>
+  </div>
+
   <!-- Intro -->
   <div class="intro-card">
     <div class="intro-icon">
@@ -241,6 +351,264 @@
         Ürün orijinalliği konusunda şüpheniz varsa <strong>info@cansular.com</strong> adresinden
         veya <strong>(0212) 514 08 44</strong> numarasından bizimle iletişime geçin.
       </p>
+    </div>
+  </div>
+
+  <!-- ÜRÜN SERİSİ -->
+  <div class="urun-serisi">
+    <h2>Universal Eldiven Ürün Serisi — 17 Model</h2>
+    <p>
+      Aşağıda tüm Universal eldiven modelleri kaplama türü ve kullanım alanına göre listelenmiştir.
+      Her model için detaylı teknik bilgi, EN388 değerleri ve toptan fiyat teklifi ilgili ürün sayfasında mevcuttur.
+    </p>
+    <div class="urun-grid">
+
+      <div class="urun-card">
+        <div class="urun-card-img"><img src="urunler/c15.jpg" alt="Universal C-15 Nitril Eldiven" /></div>
+        <div class="urun-card-body">
+          <h3>C-15 Standart Nitril</h3>
+          <span class="urun-card-kaplama">Nitril Kaplama</span>
+          <p>Genel sanayi ve mekanik işler. Hafif yapısıyla uzun süreli kullanım konforu sağlar.</p>
+          <a href="/urun-c15-standart-nitril-eldiven.html" class="urun-card-link">Ürün Detayı →</a>
+        </div>
+      </div>
+
+      <div class="urun-card">
+        <div class="urun-card-img"><img src="urunler/c20.jpg" alt="Universal C-20 Nitril Eldiven" /></div>
+        <div class="urun-card-body">
+          <h3>C-20 Techno Nitril</h3>
+          <span class="urun-card-kaplama">Nitril Kaplama</span>
+          <p>Otomotiv ve montaj atölyeleri için. Yağlı yüzeylerde güvenli tutuş, dayanıklı yapı.</p>
+          <a href="/urun-c20-nitril-eldiven.html" class="urun-card-link">Ürün Detayı →</a>
+        </div>
+      </div>
+
+      <div class="urun-card">
+        <div class="urun-card-img"><img src="urunler/c25.jpg" alt="Universal C-25 Tam Kaplı Nitril Eldiven" /></div>
+        <div class="urun-card-body">
+          <h3>C-25 Tam Kaplı Nitril</h3>
+          <span class="urun-card-kaplama">Tam Nitril Kaplama</span>
+          <p>Kimyasal ve ıslak ortamlar için bilek altına kadar nitril kaplama. Yüksek kimyasal direnç.</p>
+          <a href="/urun-c25-tam-kapli-nitril-eldiven.html" class="urun-card-link">Ürün Detayı →</a>
+        </div>
+      </div>
+
+      <div class="urun-card">
+        <div class="urun-card-img"><img src="ok eldiven/technoc40.png" alt="Universal C-40 Garden Nitril Eldiven" /></div>
+        <div class="urun-card-body">
+          <h3>C-40 Garden Nitril</h3>
+          <span class="urun-card-kaplama">Nitril Kaplama</span>
+          <p>Tarım ve bahçe işleri için tasarlandı. Dikenli dal ve keskin yüzeylere karşı koruma.</p>
+          <a href="/urun-c40-garden-nitril-eldiven.html" class="urun-card-link">Ürün Detayı →</a>
+        </div>
+      </div>
+
+      <div class="urun-card">
+        <div class="urun-card-img"><img src="urunler/c55.jpg" alt="Universal C-55 Ekstra Nitril Eldiven" /></div>
+        <div class="urun-card-body">
+          <h3>C-55 Ekstra Nitril</h3>
+          <span class="urun-card-kaplama">Kalın Nitril Kaplama</span>
+          <p>Ağır sanayi ve kaba malzeme taşıma. Güçlendirilmiş kaplama, uzun ömür.</p>
+          <a href="/urun-c55-nitril-eldiven.html" class="urun-card-link">Ürün Detayı →</a>
+        </div>
+      </div>
+
+      <div class="urun-card">
+        <div class="urun-card-img"><img src="urunler/POWER.jpg" alt="Universal C-75 Power Nitril Eldiven" /></div>
+        <div class="urun-card-body">
+          <h3>C-75 Power Nitril</h3>
+          <span class="urun-card-kaplama">Güçlü Nitril Kaplama</span>
+          <p>İnşaat ve yük taşıma. Maksimum kavrama gücü ve darbe direnci.</p>
+          <a href="/urun-c75-power-nitril-eldiven.html" class="urun-card-link">Ürün Detayı →</a>
+        </div>
+      </div>
+
+      <div class="urun-card">
+        <div class="urun-card-img"><img src="ok eldiven/C432.png" alt="Universal C-432 Camcı Eldiven" /></div>
+        <div class="urun-card-body">
+          <h3>C-432 Camcı</h3>
+          <span class="urun-card-kaplama">Özel Tutuş Kaplama</span>
+          <p>Cam ve ayna montajı için özel tasarım. Cam kenarlarında güvenli, iz bırakmaz kavrama.</p>
+          <a href="/urun-c432-camci-eldiven.html" class="urun-card-link">Ürün Detayı →</a>
+        </div>
+      </div>
+
+      <div class="urun-card">
+        <div class="urun-card-img"><img src="urunler/8701 PU.jpg" alt="Universal 8701-PU Montaj Eldiven" /></div>
+        <div class="urun-card-body">
+          <h3>8701-PU/A Montaj</h3>
+          <span class="urun-card-kaplama">PU Kaplama</span>
+          <p>Elektronik ve hassas montaj. İnce PU kaplama dokunsal hassasiyeti korur.</p>
+          <a href="/urun-8701pu-montaj-eldiven.html" class="urun-card-link">Ürün Detayı →</a>
+        </div>
+      </div>
+
+      <div class="urun-card">
+        <div class="urun-card-img"><img src="urunler/8701-3 PU KESİLMEZ.jpg" alt="Universal 8701-PU-3 Kesilmez Eldiven" /></div>
+        <div class="urun-card-body">
+          <h3>8701-PU-3 Kesilmez</h3>
+          <span class="urun-card-kaplama">PU Kaplama + HPPE</span>
+          <p>Metal ve cam kenarlarına karşı EN388 kesilme koruması. Hassas işlerde güvenlik.</p>
+          <a href="/urun-8701pu3-kesilmez-eldiven.html" class="urun-card-link">Ürün Detayı →</a>
+        </div>
+      </div>
+
+      <div class="urun-card">
+        <div class="urun-card-img"><img src="urunler/8802 MAVİ.jpg" alt="Universal 8802 Montaj Eldiven" /></div>
+        <div class="urun-card-body">
+          <h3>8802 Montaj (Mavi)</h3>
+          <span class="urun-card-kaplama">Nitril Kaplama</span>
+          <p>Otomotiv ve genel montaj. Kavrama performansı yüksek, uzun bilekli tasarım.</p>
+          <a href="/urun-8802-montaj-eldiven.html" class="urun-card-link">Ürün Detayı →</a>
+        </div>
+      </div>
+
+      <div class="urun-card">
+        <div class="urun-card-img"><img src="urunler/8802-B TURUNCU.jpg" alt="Universal 8802-B Montaj Eldiven Turuncu" /></div>
+        <div class="urun-card-body">
+          <h3>8802-B Montaj (Turuncu)</h3>
+          <span class="urun-card-kaplama">Nitril Kaplama</span>
+          <p>Yüksek görünürlük gerektiren ortamlar. 8802 ile aynı koruma, turuncu renk.</p>
+          <a href="/urun-8802b-montaj-eldiven.html" class="urun-card-link">Ürün Detayı →</a>
+        </div>
+      </div>
+
+      <div class="urun-card">
+        <div class="urun-card-img"><img src="urunler/8804.JPG" alt="Universal 8804 Tam Kaplı Nitril Eldiven" /></div>
+        <div class="urun-card-body">
+          <h3>8804 Tam Kaplı Nitril</h3>
+          <span class="urun-card-kaplama">Tam Nitril Kaplama</span>
+          <p>Petrol, kimya ve ağır sanayi. Bilek üstü tam kaplama ile maksimum kimyasal koruma.</p>
+          <a href="/urun-8804-tam-kapli-nitril-eldiven.html" class="urun-card-link">Ürün Detayı →</a>
+        </div>
+      </div>
+
+      <div class="urun-card">
+        <div class="urun-card-img"><img src="ok eldiven/techno8906-dg.png" alt="Universal 8906-DC Çift Kaplı Mavi Eldiven" /></div>
+        <div class="urun-card-body">
+          <h3>8906-DC Çift Kaplı Mavi</h3>
+          <span class="urun-card-kaplama">Çift Nitril Kaplama</span>
+          <p>Gıda sektörü ve temiz oda. Mavi renk kontaminasyon tespitini kolaylaştırır.</p>
+          <a href="/urun-8906dc-cift-kapli-mavi-eldiven.html" class="urun-card-link">Ürün Detayı →</a>
+        </div>
+      </div>
+
+      <div class="urun-card">
+        <div class="urun-card-img"><img src="ok eldiven/6101.png" alt="Universal 6101 Lateks Eldiven" /></div>
+        <div class="urun-card-body">
+          <h3>6101 Lateks</h3>
+          <span class="urun-card-kaplama">Lateks Kaplama</span>
+          <p>İnşaat ve genel sanayi. Klasik lateks kaplama, güçlü kavrama, ekonomik seçim.</p>
+          <a href="/urun-6101-lateks-eldiven.html" class="urun-card-link">Ürün Detayı →</a>
+        </div>
+      </div>
+
+      <div class="urun-card">
+        <div class="urun-card-img"><img src="urunler/6121RL.jpg" alt="Universal 6121-RL Kirçilli Nitril Eldiven" /></div>
+        <div class="urun-card-body">
+          <h3>6121-RL Kirçilli Nitril</h3>
+          <span class="urun-card-kaplama">Kirçilli Nitril</span>
+          <p>Gıda sektörü ve ıslak ortamlar. Kirçilli yüzey ıslak yüzeylerde mükemmel tutuş sağlar.</p>
+          <a href="/urun-6121rl-kircilli-nitril-eldiven.html" class="urun-card-link">Ürün Detayı →</a>
+        </div>
+      </div>
+
+      <div class="urun-card">
+        <div class="urun-card-img"><img src="ok eldiven/techno6155.png" alt="Universal 6155 Kirçilli Lateks Eldiven" /></div>
+        <div class="urun-card-body">
+          <h3>6155 Kirçilli Lateks</h3>
+          <span class="urun-card-kaplama">Kirçilli Lateks</span>
+          <p>Islak inşaat ve balıkçı ürünleri. Lateksin dayanıklılığı + kirçilli yüzeyin tutuş gücü.</p>
+          <a href="/urun-6155-lateks-kircilli-eldiven.html" class="urun-card-link">Ürün Detayı →</a>
+        </div>
+      </div>
+
+      <div class="urun-card">
+        <div class="urun-card-img"><img src="ok eldiven/6600_v2.png" alt="Universal 6600 Lateks 3/4 Kaplı Eldiven" /></div>
+        <div class="urun-card-body">
+          <h3>6600 Lateks 3/4 Kaplı</h3>
+          <span class="urun-card-kaplama">Lateks 3/4 Kaplama</span>
+          <p>Tarım ve bahçe işleri. 3/4 kaplama hava sirkülasyonu sağlarken avuç içi korumasını korur.</p>
+          <a href="/urun-6600-lateks-34-kapli-eldiven.html" class="urun-card-link">Ürün Detayı →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SEKTÖRE GÖRE REHBER -->
+  <div class="sektor-section">
+    <h2>Sektöre Göre Universal Eldiven Seçimi</h2>
+    <table class="sektor-table">
+      <thead>
+        <tr>
+          <th>Sektör / İş Ortamı</th>
+          <th>Önerilen Universal Modeller</th>
+          <th>Gerekçe</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>İnşaat</strong></td>
+          <td>C-75, 6101, 6155</td>
+          <td>Darbe direnci, kaba malzeme kavrama, ıslak zemin tutuşu</td>
+        </tr>
+        <tr>
+          <td><strong>Otomotiv / Montaj</strong></td>
+          <td>C-20, 8802, 8802-B</td>
+          <td>Yağlı yüzeylerde kavrama, uzun bilekli koruma</td>
+        </tr>
+        <tr>
+          <td><strong>Hassas Montaj / Elektronik</strong></td>
+          <td>8701-PU, 8701-PU-3</td>
+          <td>İnce PU kaplama, dokunsal hassasiyet korunur</td>
+        </tr>
+        <tr>
+          <td><strong>Gıda Sektörü</strong></td>
+          <td>8906-DC, 6121-RL</td>
+          <td>Mavi renk kontaminasyon tespiti, gıdaya uyumlu kaplama</td>
+        </tr>
+        <tr>
+          <td><strong>Kimya / Petrol</strong></td>
+          <td>C-25, 8804</td>
+          <td>Tam kaplama ile kimyasal temas engellenir</td>
+        </tr>
+        <tr>
+          <td><strong>Tarım / Bahçe</strong></td>
+          <td>C-40, 6600</td>
+          <td>Dikenli dal ve sivri yüzeylere karşı dayanım</td>
+        </tr>
+        <tr>
+          <td><strong>Cam Montajı</strong></td>
+          <td>C-432</td>
+          <td>Cam yüzeyinde iz bırakmayan özel tutuş kaplama</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-section">
+    <h2>Universal Eldiven Hakkında Sık Sorulan Sorular</h2>
+    <div class="faq-item">
+      <h3>Universal eldiven CE belgeli mi?</h3>
+      <p>Evet. Tüm Universal eldiven modelleri CE belgeli olup EN388:2016 mekanik koruma standardına uygun şekilde üretilmektedir. Sertifika belgeleri talep üzerine temin edilebilir.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Universal eldiven toptan satışı nasıl yapılır?</h3>
+      <p>Cansular Hırdavat yalnızca toptan satış yapmaktadır. Minimum sipariş miktarı ve fiyat teklifi için <a href="/#iletisim" style="color:var(--green);font-weight:600;">iletişim formumuzdan</a> veya (0212) 514 08 44 numarasından ulaşabilirsiniz.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Universal eldivenlerin kaplama seçenekleri nelerdir?</h3>
+      <p>Universal markası altında nitril, tam kaplı nitril, kirçilli nitril, PU, lateks, kirçilli lateks ve 3/4 lateks kaplama seçenekleri mevcuttur. Her kaplama türü farklı iş ortamları için optimize edilmiştir.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Universal eldiven ile Techno eldiven arasındaki fark nedir?</h3>
+      <p>Her ikisi de Cansular A.Ş.'nin tescilli markalarıdır. Universal serisi geniş kullanım yelpazesine hitap ederken, Techno serisi özellikle montaj ve mekanik işler için geliştirilmiş premium modelleri kapsar.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Piyasada Universal eldiven taklit ürünleri var mı?</h3>
+      <p>Maalesef evet. TÜRKPATENT tescilimize rağmen piyasada taklit ürünlerle karşılaşılmaktadır. Orijinal Universal eldiven yalnızca Cansular A.Ş. yetkili kanalları aracılığıyla temin edilebilir. Şüphe durumunda info@cansular.com adresine danışın.</p>
     </div>
   </div>
 
